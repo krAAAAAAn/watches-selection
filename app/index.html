@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watch Selection</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23121212' stroke-width='1.6'/%3E%3Cpath d='M16 16V8M16 16l6 4' stroke='%23121212' stroke-width='1.6' stroke-linecap='round'/%3E%3C/svg%3E">
+<style>
+/* ===================================================================
+   Polices locales (aucun appel à Internet)
+   =================================================================== */
+@font-face{font-family:"Cormorant Garamond";font-weight:300;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:300;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-300-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:400;font-style:italic;font-display:swap;src:url(fonts/cormorant-garamond-latin-400-italic.woff2) format("woff2")}
+@font-face{font-family:"Cormorant Garamond";font-weight:500;font-style:normal;font-display:swap;src:url(fonts/cormorant-garamond-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:300;font-display:swap;src:url(fonts/inter-latin-300-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Inter;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format("woff2")}
+
+:root{
+  --stage:#f1f0ec; --paper:#f8f7f4; --ink:#121212; --soft:#86837c; --faint:#c9c6bf;
+  --hair:rgba(18,18,18,.10); --gold:#a3865a; --night:#060708;
+  --good:#5f8a6a; --warn:#b98b3c; --bad:#a65a46;
+  --display:"Cormorant Garamond",Didot,"Bodoni 72",Georgia,serif;
+  --ui:Inter,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --ease:cubic-bezier(.2,.7,.1,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--stage);color:var(--ink);font:300 15px/1.6 var(--ui);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;padding:0}
+input,textarea,select{font:inherit;color:inherit}
+::selection{background:var(--ink);color:var(--stage)}
+
+/* ---------- typographie & boutons ---------- */
+.eyebrow{font:500 10.5px/1.4 var(--ui);letter-spacing:.3em;text-transform:uppercase;color:var(--soft)}
+.eyebrow.gold{color:var(--gold)}
+.display{font:300 clamp(40px,5.4vw,84px)/.98 var(--display);letter-spacing:-.01em;margin:0}
+.display em{font-style:italic;color:var(--soft)}
+.tagline{font:italic 300 clamp(18px,1.6vw,23px)/1.35 var(--display);color:var(--soft);margin:0}
+.link{font:500 11px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;display:inline-flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--ink);transition:gap .4s var(--ease);white-space:nowrap}
+.link:hover{gap:18px}
+.link.quiet{border-color:var(--hair);color:var(--soft)}.link.quiet:hover{color:var(--ink);border-color:var(--ink)}
+.link.danger{color:var(--bad);border-color:currentColor}
+.btn{font:500 11px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;padding:16px 26px;background:var(--ink);color:var(--stage);display:inline-flex;gap:10px;align-items:center;transition:opacity .3s}
+.btn:hover{opacity:.85}.btn:disabled{opacity:.4;cursor:default}
+.btn.line{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.small{padding:10px 14px;font-size:10px}
+.mini{font:500 9.5px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--soft);padding:7px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.mini:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ---------- en-tête ---------- */
+header{position:fixed;inset:0 0 auto 0;z-index:30;display:flex;align-items:center;gap:32px;padding:22px 40px;background:linear-gradient(var(--stage) 35%,transparent);pointer-events:none}
+header>*{pointer-events:auto}
+.mark{font:400 13px/1 var(--ui);letter-spacing:.5em;text-transform:uppercase;margin-right:auto;display:flex;align-items:center;gap:14px}
+.mark i{width:22px;height:22px;border:1px solid var(--ink);border-radius:50%;position:relative;flex:none}
+.mark i::before,.mark i::after{content:"";position:absolute;left:50%;bottom:50%;width:1px;background:var(--ink);transform-origin:bottom}
+.mark i::before{height:7px;transform:rotate(-30deg)}.mark i::after{height:9px;transform:rotate(60deg)}
+nav.main{display:flex;gap:30px}
+nav.main a{font:500 10.5px/1 var(--ui);letter-spacing:.28em;text-transform:uppercase;color:var(--soft);padding:6px 0;border-bottom:1px solid transparent;transition:color .3s}
+nav.main a:hover,nav.main a.on{color:var(--ink);border-color:var(--ink)}
+.round{width:38px;height:38px;border:1px solid var(--ink);border-radius:50%;display:grid;place-items:center;font:200 22px/1 var(--ui);transition:background .3s,color .3s;flex:none}
+.round:hover{background:var(--ink);color:var(--stage)}
+.round.soft{border-color:var(--hair)}
+.round.soft:hover{border-color:var(--ink);background:none;color:var(--ink)}
+.round svg{width:16px;height:16px}
+.save-state{position:fixed;left:40px;bottom:18px;z-index:40;font:500 9.5px/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--soft);opacity:0;transition:opacity .4s}
+.save-state.show{opacity:1}.save-state.err{color:var(--bad);opacity:1}
+
+/* ---------- photo détourée ---------- */
+.shot{position:relative;isolation:isolate}
+.shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:opacity .5s var(--ease),transform .8s var(--ease)}
+.shot::after{content:"";position:absolute;left:24%;right:24%;bottom:1%;height:5%;background:radial-gradient(ellipse at center,rgba(0,0,0,.2),transparent 70%);filter:blur(6px);z-index:-1}
+.shot.leaving img{opacity:0;transform:translateY(12px) scale(.97)}
+.shot.flat::after{display:none}
+.fade img{-webkit-mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent);mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent)}
+
+/* ---------- COLLECTION ---------- */
+.intro{min-height:100vh;display:grid;place-items:center;text-align:center;padding:120px 40px 70px;position:relative}
+.intro .display{font-size:clamp(54px,9vw,150px)}
+.intro .row{display:flex;gap:min(3.6vw,44px);justify-content:center;align-items:flex-end;margin-top:60px;flex-wrap:wrap}
+.intro .row a{display:flex;flex-direction:column;align-items:center;gap:16px;transition:transform .6s var(--ease)}
+.intro .row a:hover{transform:translateY(-8px)}
+.intro .row .shot{height:min(17vh,170px);width:min(11vw,120px)}
+.intro .row .shot::after{bottom:-6%}
+.scroll-hint{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-hint i{width:1px;height:42px;background:linear-gradient(var(--ink),transparent);animation:drip 2.2s var(--ease) infinite}
+@keyframes drip{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+
+.slide{position:relative;min-height:100vh;padding:110px 40px 34px 150px;display:grid;grid-template-rows:1fr auto;overflow:hidden;border-bottom:1px solid var(--hair)}
+.ghost{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font:300 clamp(120px,22vw,360px)/.8 var(--display);letter-spacing:-.02em;color:transparent;-webkit-text-stroke:1px rgba(18,18,18,.11);white-space:nowrap;pointer-events:none;user-select:none}
+.slide-grid{position:relative;display:grid;grid-template-columns:minmax(240px,1fr) minmax(300px,1.25fr) minmax(220px,.8fr);align-items:center;gap:40px}
+.slide .shot{height:min(64vh,640px)}
+.slide .left{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.count{font:300 13px/1 var(--ui);letter-spacing:.2em;color:var(--soft)}
+.count b{font-weight:500;color:var(--ink)}
+.specs{list-style:none;margin:0;padding:0;width:100%}
+.specs li{display:flex;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
+.specs li>span:first-child{font:500 10px/1.9 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--soft);flex:none}
+.specs li>span:last-child{text-align:right}
+.price{font:300 30px/1.1 var(--display);margin:22px 0 6px}
+.swatches{display:flex;gap:10px;flex-wrap:wrap}
+.sw{width:14px;height:14px;border-radius:50%;box-shadow:0 0 0 1px var(--hair),inset 0 1px 2px rgba(255,255,255,.35);cursor:pointer;transition:transform .3s;flex:none}
+.sw:hover,.sw.on{transform:scale(1.25);box-shadow:0 0 0 1px var(--stage),0 0 0 2px var(--ink)}
+.state{display:flex;align-items:center;gap:12px;min-height:46px;flex-wrap:wrap}
+.badge{font:500 9.5px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;padding:7px 10px;border:1px solid var(--hair);white-space:nowrap}
+.badge.main{border-color:var(--ink)}
+.badge.future{color:var(--gold);border-color:var(--gold)}
+.badge.possedee{background:var(--ink);color:var(--stage);border-color:var(--ink)}
+.badge.ecartee{color:var(--faint)}
+.alts{position:relative;display:flex;align-items:flex-end;gap:6px;margin-top:20px;padding-top:18px;border-top:1px solid var(--hair);overflow-x:auto;scrollbar-width:none}
+.alts::-webkit-scrollbar{display:none}
+.alts .lbl{flex:0 0 auto;align-self:center;margin-right:22px}
+.th{flex:0 0 auto;width:92px;display:flex;flex-direction:column;align-items:center;gap:8px;padding:6px 4px 10px;position:relative;opacity:.55;transition:opacity .3s}
+.th:hover,.th.on{opacity:1}
+.th .shot{height:84px;width:84px}
+.th small{font:400 9.5px/1.25 var(--ui);letter-spacing:.05em;text-align:center;color:var(--soft);max-width:92px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.th.on::after{content:"";position:absolute;bottom:0;left:30%;right:30%;height:1px;background:var(--ink)}
+.th .star{position:absolute;top:2px;right:8px;font-size:10px;color:var(--gold)}
+.rail{position:fixed;left:40px;top:50%;transform:translateY(-50%);z-index:20;display:flex;flex-direction:column;gap:14px}
+.rail a{display:flex;align-items:center;gap:12px;font:500 9.5px/1 var(--ui);letter-spacing:.26em;text-transform:uppercase;color:transparent;transition:color .3s;padding:3px 0}
+.rail a::before{content:"";width:14px;height:1px;background:var(--faint);transition:width .4s var(--ease),background .3s}
+.rail:hover a{color:var(--soft)}
+.rail a.on::before{width:34px;background:var(--ink)}.rail:hover a.on{color:var(--ink)}
+
+/* ---------- pages ---------- */
+.page{padding:130px 40px 100px;max-width:1500px;margin:0 auto}
+.page.narrow{max-width:1100px}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap;margin-bottom:40px}
+.toolbar{display:flex;flex-wrap:wrap;gap:20px 28px;align-items:center;justify-content:space-between;padding:18px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair);margin-bottom:50px}
+.tabs{display:flex;gap:10px 24px;flex-wrap:wrap;align-items:center}
+.tab{font:500 10.5px/1 var(--ui);letter-spacing:.22em;text-transform:uppercase;color:var(--soft);padding:6px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.tab:hover,.tab.on{color:var(--ink);border-color:var(--ink)}
+.tab sup{font-size:8px;letter-spacing:0;margin-left:3px;color:var(--faint)}
+.search{border:0;border-bottom:1px solid var(--hair);background:transparent;font:300 14px var(--ui);padding:8px 0;width:220px;outline:none}
+.search:focus{border-color:var(--ink)}
+.select{border:0;border-bottom:1px solid var(--hair);background:transparent;font:500 10.5px var(--ui);letter-spacing:.16em;text-transform:uppercase;padding:8px 0;outline:none;cursor:pointer}
+
+/* ---------- catalogue ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:64px 32px}
+.card{display:flex;flex-direction:column;gap:14px;cursor:pointer}
+.card .shot{aspect-ratio:4/5;background:var(--paper)}
+.card .shot img{left:13%;top:11%;width:74%;height:78%;transition:transform 1s var(--ease)}
+.card:hover .shot img{transform:scale(1.05)}
+.card .meta{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.card h3{font:400 22px/1.1 var(--display);margin:6px 0 4px}
+.card p{margin:0;font-size:12.5px;color:var(--soft)}
+.card .pr{font:300 18px/1.2 var(--display);white-space:nowrap;margin-top:20px;text-align:right}
+.card .foot{display:flex;justify-content:space-between;align-items:center;gap:8px;min-height:26px}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font:500 9.5px/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--soft);text-align:left;padding:14px 10px;border-bottom:1px solid var(--ink);cursor:pointer;white-space:nowrap}
+th:hover{color:var(--ink)}
+td{padding:9px 10px;border-bottom:1px solid var(--hair);vertical-align:middle}
+tbody tr{cursor:pointer;transition:background .2s}tbody tr:hover{background:var(--paper)}
+td .shot{width:56px;height:56px}
+td b{font:400 18px/1.15 var(--display)}
+.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{font:italic 300 24px/1.4 var(--display);color:var(--soft);text-align:center;padding:60px 0}
+
+/* indice poignet */
+.fit{display:inline-flex;align-items:center;gap:8px;font:500 9.5px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;white-space:nowrap}
+.fit i{display:inline-flex;gap:3px}
+.fit i b{width:10px;height:2px;background:var(--faint)}
+.fit[data-s="5"] i b.on{background:var(--good)}.fit[data-s="4"] i b.on{background:var(--good);opacity:.7}
+.fit[data-s="3"] i b.on{background:var(--warn)}.fit[data-s="2"] i b.on{background:var(--bad)}
+
+/* ---------- fiche ---------- */
+.detail{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(340px,1fr);min-height:100vh}
+.d-stage{position:sticky;top:0;height:100vh;padding:100px 40px 34px;display:grid;grid-template-rows:minmax(0,1fr) auto;gap:20px;background:var(--stage);transition:background .8s var(--ease)}
+.d-stage .shot{height:100%;min-height:0;touch-action:pan-y}
+.d-stage .shot img{left:6%;width:88%}
+.d-stage.night{background:var(--night);color:#e9e6df}
+.d-stage.night .shot img{mix-blend-mode:normal;-webkit-mask-image:none;mask-image:none}
+.d-stage.night .shot::after{display:none}
+.d-stage.night .tab{color:#77746e}.d-stage.night .tab.on{color:#fff;border-color:#fff}
+.d-stage.night .arrow{border-color:#333}
+.nightmsg{position:absolute;inset:0;display:grid;place-items:center;text-align:center;font:italic 300 22px/1.4 var(--display);color:#8b8780;padding:40px}
+.caption{font:italic 300 15px/1.3 var(--display);color:var(--soft);text-align:center}
+.d-ctrl{display:flex;justify-content:space-between;align-items:center;gap:16px 24px;flex-wrap:wrap}
+.vnav{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.arrow{width:34px;height:34px;border:1px solid var(--hair);border-radius:50%;display:grid;place-items:center;font:300 15px/1 var(--ui);transition:border-color .3s;flex:none}
+.arrow:hover{border-color:var(--ink)}
+.fav{font:500 9.5px/1 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--soft);border-bottom:1px solid transparent;padding:6px 0;white-space:nowrap}
+.fav:hover{color:var(--ink)}.fav.on{color:var(--gold);border-color:var(--gold);cursor:default}
+.d-info{background:var(--paper);padding:130px 56px 70px;display:flex;flex-direction:column;gap:26px;min-width:0}
+.d-info .display{font-size:clamp(40px,4vw,64px)}
+.chipset{display:flex;flex-wrap:wrap;gap:6px 18px}
+.chip{font:500 9.5px/1 var(--ui);letter-spacing:.18em;text-transform:uppercase;color:var(--faint);padding:6px 0;border-bottom:1px solid transparent;white-space:nowrap}
+.chip:hover{color:var(--soft)}
+.chip.on{color:var(--ink);border-color:var(--ink)}
+.gauge{position:relative;height:1px;background:var(--hair);margin:34px 0 14px}
+.gauge::before{content:"";position:absolute;left:var(--from);width:var(--w);top:-1px;height:3px;background:var(--good);opacity:.45}
+.gauge b{position:absolute;top:-7px;width:1px;height:15px;background:var(--ink)}
+.gauge b span{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);font:500 10px/1 var(--ui);letter-spacing:.1em;white-space:nowrap}
+.gscale{display:flex;justify-content:space-between;align-items:center;font:400 10px/1 var(--ui);letter-spacing:.1em;color:var(--soft)}
+.section{padding:84px 40px;max-width:1180px;margin:0 auto}
+.section+.section{border-top:1px solid var(--hair)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:70px}
+.cols ul{list-style:none;padding:0;margin:18px 0 0}
+.cols li{padding:13px 0;border-bottom:1px solid var(--hair);font:300 20px/1.35 var(--display)}
+.prose{font:300 22px/1.5 var(--display);max-width:860px;margin:16px 0 0}
+.quote{font:italic 300 clamp(24px,2.8vw,38px)/1.32 var(--display);text-align:center;max-width:920px;margin:24px auto 0}
+.quote::before{content:"“";display:block;font-size:90px;line-height:.6;color:var(--gold);font-style:normal}
+.allspecs{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0 50px;list-style:none;padding:0;margin:20px 0 0}
+.allspecs li{display:grid;grid-template-columns:150px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
+.allspecs li span:first-child{font:500 10px/1.9 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.notes{width:100%;min-height:140px;border:0;border-bottom:1px solid var(--hair);background:transparent;font:300 23px/1.5 var(--display);resize:vertical;outline:none;padding:14px 0;margin-top:14px}
+.notes:focus{border-color:var(--ink)}
+.ext{display:flex;gap:10px 26px;flex-wrap:wrap}
+
+/* ---------- formulaires (édition, réglages) ---------- */
+.form-sec{padding:44px 0;border-top:1px solid var(--hair);display:grid;grid-template-columns:220px 1fr;gap:30px}
+.form-sec>h2{font:400 26px/1.1 var(--display);margin:0}
+.form-sec>h2 small{display:block;font:300 13px/1.5 var(--ui);color:var(--soft);margin-top:10px}
+.fields{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 28px;align-content:start}
+.fields label{display:flex;flex-direction:column;gap:2px;padding:10px 0;border-bottom:1px solid var(--hair);min-width:0}
+.fields label:focus-within{border-color:var(--ink)}
+.fields label>span{font:500 9.5px/1.6 var(--ui);letter-spacing:.2em;text-transform:uppercase;color:var(--soft)}
+.fields input,.fields textarea,.fields select{border:0;background:transparent;font:300 18px/1.35 var(--display);outline:none;padding:2px 0;width:100%;resize:vertical}
+.fields textarea{font-size:17px;min-height:90px}
+.fields .wide{grid-column:1/-1}
+.fields input[type=checkbox]{width:auto}
+.check{flex-direction:row!important;align-items:center;gap:10px!important}
+.hint{font:300 12.5px/1.5 var(--ui);color:var(--soft);margin:6px 0 0}
+.actions-bar{position:sticky;bottom:0;z-index:10;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:18px 0;background:linear-gradient(transparent,var(--stage) 30%)}
+
+/* emplacements photo */
+.slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:22px}
+.slot{background:var(--paper);padding:14px;display:flex;flex-direction:column;gap:10px}
+.slot .shot{height:190px}
+.slot .shot.dark{background:var(--night)}.slot .shot.dark img{mix-blend-mode:normal}
+.slot .st{font:400 11px/1.4 var(--ui);color:var(--soft);min-height:16px}
+.slot .acts{display:flex;flex-wrap:wrap;gap:4px 14px}
+.slot .vrow{display:grid;grid-template-columns:1fr 40px;gap:8px}
+.slot input{border:0;border-bottom:1px solid var(--hair);background:transparent;font:300 16px var(--display);padding:4px 0;outline:none;min-width:0}
+.slot input[type=color]{border:0;padding:0;height:30px;width:40px;background:none}
+
+/* journal des tâches longues */
+.log{font:300 12.5px/1.6 var(--ui);color:var(--soft);max-height:260px;overflow:auto;background:var(--paper);padding:14px;margin-top:14px;display:none}
+.log.on{display:block}
+.log .ok{color:var(--good)}.log .ko{color:var(--bad)}
+.catrow{display:grid;grid-template-columns:30px 1fr 2fr auto auto;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--hair)}
+.catrow input[type=text]{border:0;background:transparent;font:300 18px var(--display);outline:none;min-width:0}
+
+/* ---------- détourage (fenêtre) ---------- */
+.modal{position:fixed;inset:0;z-index:60;background:var(--stage);display:grid;grid-template-columns:1fr 340px;gap:30px;padding:30px}
+.modal .canvas-wrap{position:relative;display:grid;place-items:center;min-height:0;background:
+  conic-gradient(#e7e5e0 25%,#f6f5f2 0 50%,#e7e5e0 0 75%,#f6f5f2 0) 0 0/24px 24px}
+.modal .canvas-wrap.stone{background:var(--stage)}
+.modal canvas{max-width:100%;max-height:calc(100vh - 60px);object-fit:contain}
+.modal aside{display:flex;flex-direction:column;gap:22px;padding-top:20px;overflow:auto}
+.modal input[type=range]{width:100%;accent-color:var(--ink)}
+.busy{position:fixed;inset:0;z-index:70;display:grid;place-items:center;background:rgba(241,240,236,.6);font:italic 300 26px var(--display)}
+
+/* ---------- mobile ---------- */
+@media (max-width:980px){
+  header{padding:16px;gap:14px}
+  .mark{letter-spacing:.3em;font-size:11px}.mark span{display:none}
+  nav.main{gap:18px}
+  .rail{display:none!important}
+  .slide{padding:90px 16px 24px}
+  .slide-grid{grid-template-columns:1fr;gap:18px}
+  .slide .shot{height:42vh;order:-1}
+  .slide .left{gap:12px}
+  .slide .left .tagline{display:none}
+  .ghost{top:28%;font-size:38vw}
+  .intro{padding:110px 16px 80px}
+  .intro .row .shot{height:110px;width:70px}
+  .page{padding:100px 16px 80px}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 14px}
+  .card .foot{flex-direction:column;align-items:flex-start}
+  .card h3{font-size:18px}.card .pr{display:none}
+  .detail{grid-template-columns:1fr}
+  .d-stage{position:relative;height:auto;min-height:70vh;padding:90px 16px 22px}
+  .d-stage .shot{height:54vh}
+  .d-info{padding:40px 16px}
+  .section{padding:56px 16px}
+  .cols{grid-template-columns:1fr;gap:30px}
+  .form-sec{grid-template-columns:1fr;gap:16px}
+  .modal{grid-template-columns:1fr;grid-template-rows:55vh auto;padding:12px;overflow:auto}
+  .save-state{left:16px}
+  .catrow{grid-template-columns:24px 1fr auto;}
+  .catrow .role{display:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <a class="mark" href="#/collection"><i></i><span>Watch Selection</span></a>
+  <nav class="main">
+    <a href="#/collection" data-r="collection">Collection</a>
+    <a href="#/catalogue" data-r="catalogue">Catalogue</a>
+  </nav>
+  <a class="round soft" href="#/reglages" title="Réglages et outils"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M2 4h12M2 8h12M2 12h12"/><circle cx="5" cy="4" r="1.6" fill="var(--stage)"/><circle cx="11" cy="8" r="1.6" fill="var(--stage)"/><circle cx="7" cy="12" r="1.6" fill="var(--stage)"/></svg></a>
+  <a class="round" href="#/ajouter" title="Ajouter une montre">+</a>
+</header>
+<div class="rail" id="rail"></div>
+<main id="app"><div class="empty" style="padding-top:40vh">Chargement…</div></main>
+<div class="save-state" id="saveState"></div>
+<input type="file" id="filePick" accept="image/*" hidden>
+
+<script>
+"use strict";
+/* =====================================================================
+   État & persistance
+   ===================================================================== */
+let DB = null;                 // contenu de data/watches.json
+let READONLY = false;          // vrai si api.php ne répond pas (fichier ouvert sans serveur)
+const API = "api.php";
+
+async function api(action, body){
+  const r = await fetch(`${API}?a=${action}`, body === undefined ? {} : {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(body)});
+  const j = await r.json().catch(() => ({error:`Réponse invalide (HTTP ${r.status})`}));
+  if (!r.ok || j.error) throw new Error(j.error || `HTTP ${r.status}`);
+  return j;
+}
+async function load(){
+  try { DB = await api("load"); }
+  catch (e) {                                   // secours : lecture directe des données de départ
+    READONLY = true;
+    DB = await fetch("seed/watches.json").then(r => r.json());
+  }
+}
+let saveTimer;
+function save(){
+  if (READONLY) return flash("Lecture seule — api.php indisponible", true);
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(async () => {
+    try { await api("save", DB); flash("Enregistré"); }
+    catch (e) { flash("Échec de l'enregistrement : " + e.message, true); }
+  }, 500);
+}
+function flash(msg, err = false){
+  const el = $("#saveState");
+  el.textContent = msg; el.className = "save-state show" + (err ? " err" : "");
+  clearTimeout(flash.t); flash.t = setTimeout(() => el.className = "save-state", err ? 6000 : 1600);
+}
+
+/* =====================================================================
+   Utilitaires
+   ===================================================================== */
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const byId = id => DB.watches.find(w => w.id === id);
+const catOf = id => DB.categories.find(c => c.id === id);
+const go = h => { location.hash = h; };
+const mm = n => (n === undefined || n === null || n === "") ? "—" : String(+(+n).toFixed(2)).replace(".", ",") + " mm";
+const nameOf = w => `${w.brand} ${w.model}`.trim();
+const slugify = s => s.normalize("NFKD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 48) || "montre";
+const collectionCats = () => DB.categories.filter(c => c.inCollection);
+const ext = (u, label) => `<a class="link quiet" href="${esc(u)}" target="_blank" rel="noopener noreferrer">${esc(label)} <span>↗</span></a>`;
+
+// Silhouette au trait si aucune photo
+const FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" fill="none" stroke="#b9b5ad" stroke-width="1.2"><path d="M70 20h60l6 72H64z" fill="#e7e5e0"/><path d="M64 208h72l-6 72H70z" fill="#e7e5e0"/><circle cx="100" cy="150" r="62" fill="#f4f3f0"/><circle cx="100" cy="150" r="52"/><rect x="161" y="143" width="9" height="14" rx="2" fill="#f4f3f0"/>${Array.from({length:12},(_,i)=>{const a=i*Math.PI/6,r=i%3?46:42;return `<line x1="${(100+r*Math.sin(a)).toFixed(1)}" y1="${(150-r*Math.cos(a)).toFixed(1)}" x2="${(100+49*Math.sin(a)).toFixed(1)}" y2="${(150-49*Math.cos(a)).toFixed(1)}"/>`}).join("")}<line x1="100" y1="150" x2="100" y2="112" stroke="#8a867f" stroke-width="2"/><line x1="100" y1="150" x2="126" y2="164" stroke="#8a867f" stroke-width="2.4"/><circle cx="100" cy="150" r="2.5" fill="#8a867f"/></svg>`);
+
+/* Photos : un « emplacement » = {src: local | null, remote: [urls], original?, caption?}.
+   Tant qu'une photo n'est pas rapatriée, on affiche provisoirement la version distante. */
+const slotUrl = s => s ? (s.src || (s.remote && s.remote[0]) || "") : "";
+const isLocal = s => !!(s && s.src);
+function mainSlot(w){
+  const v = w.variants && w.variants[w.favoriteVariant || 0];
+  return (v && v.photo && slotUrl(v.photo)) ? v.photo : w.photos.main;
+}
+const pic = (url, alt = "") => `<img src="${esc(url || FALLBACK)}" alt="${esc(alt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${FALLBACK}'">`;
+const shot = (w, cls = "", id = "") => `<div class="shot ${cls}" ${id ? `id="${id}"` : ""}>${pic(slotUrl(mainSlot(w)), nameOf(w))}</div>`;
+
+/* Indice poignet : entre-cornes comparé à la largeur du dessus du poignet (~0,285 × tour). */
+function fit(w){
+  const d = w.dims || {};
+  const est = !d.lugToLug;
+  const l = d.lugToLug || (d.diameter ? d.diameter * 1.2 : null);
+  if (!l) return null;
+  const top = (DB.wrist?.circumference || 18) * 10 * 0.285;
+  const label = {5:"Idéal", 4:"Bien", 3:"Limite", 2:"Grande"};
+  let s = l < top - 9 ? 3 : l <= top - 1 ? 5 : l <= top + 1 ? 4 : l <= top + 3 ? 3 : 2;
+  let txt = l < top - 9 ? "Petite" : label[s];
+  if (d.thickness > 13 && s > 2) { s--; txt = label[s] + " · épaisse"; }
+  return {s, txt, l, est, top};
+}
+function fitTag(w){
+  const f = fit(w); if (!f) return `<span class="fit"><i>${"<b></b>".repeat(5)}</i>—</span>`;
+  return `<span class="fit" data-s="${f.s}" title="Entre-cornes ${f.est ? "estimé " : ""}${mm(f.l)} · poignet ${DB.wrist.circumference} cm"><i>${[1,2,3,4,5].map(i => `<b class="${i <= f.s ? "on" : ""}"></b>`).join("")}</i>${f.txt}</span>`;
+}
+
+/* Statuts : « principal » est déduit des familles (pick) */
+const STATUS = {alternative:"Alternative", future:"Piste future", possedee:"Possédée", ecartee:"Écartée"};
+const isPick = w => DB.categories.some(c => c.pick === w.id);
+const statusKey = w => w.status === "possedee" || w.status === "ecartee" ? w.status : isPick(w) ? "main" : w.status;
+const statusLabel = k => k === "main" ? "Choix principal" : STATUS[k] || k;
+const badge = w => { const k = statusKey(w); return `<span class="badge ${k}">${statusLabel(k)}</span>`; };
+
+/* =====================================================================
+   COLLECTION
+   ===================================================================== */
+const viewing = {};
+const scrollToFam = id => document.getElementById("fam-" + id)?.scrollIntoView({behavior:"smooth"});
+const members = c => DB.watches.filter(w => w.categories.includes(c.id) && w.status !== "ecartee");
+
+function viewCollection(){
+  const cats = collectionCats().filter(c => members(c).length);
+  const row = cats.filter(c => c.pick && byId(c.pick)).map(c => `
+    <a href="#fam-${c.id}" onclick="event.preventDefault();scrollToFam('${c.id}')">${shot(byId(c.pick))}<span class="eyebrow">${esc(c.label)}</span></a>`).join("");
+  return `
+  <section class="intro"><div>
+    <div class="eyebrow gold">Collection personnelle · ${cats.length} rôles</div>
+    <h1 class="display" style="margin-top:22px">Une montre,<br><em>un rôle.</em></h1>
+    <div class="row">${row}</div>
+  </div><div class="scroll-hint"><span class="eyebrow">Découvrir</span><i></i></div></section>
+  ${cats.map((c, i) => `<section class="slide" id="fam-${c.id}">${slideInner(c, i, cats.length)}</section>`).join("")}`;
+}
+
+function slideInner(c, i, n){
+  const pick = c.pick && byId(c.pick);
+  const list = members(c).sort((a, b) => (b.id === c.pick) - (a.id === c.pick) || (a.priceEur ?? 1e9) - (b.priceEur ?? 1e9));
+  const shown = byId(viewing[c.id]) || pick || list[0];
+  const preview = !pick || shown.id !== pick.id;
+  const d = shown.dims || {};
+  const v = shown.variants || [];
+  return `
+  <div class="ghost">${esc(c.label.split(/[ /-]/)[0])}</div>
+  <div class="slide-grid">
+    <div class="left">
+      <div class="count"><b>${String(i + 1).padStart(2, "0")}</b> / ${String(n).padStart(2, "0")} &nbsp;—&nbsp; ${esc(c.label)}</div>
+      <div><div class="eyebrow" style="margin-bottom:14px">${esc(shown.brand)}</div><h2 class="display">${esc(shown.model)}</h2></div>
+      <p class="tagline">${esc(shown.headline || shown.tagline || c.role)}</p>
+      <div class="state">
+        ${preview ? `<button class="btn" onclick="promote('${c.id}','${shown.id}')">★ En faire mon choix</button>` : `<span class="badge main">Choix principal</span>`}
+        ${["future", "possedee"].includes(shown.status) ? badge(shown) : ""}
+      </div>
+      <a class="link" href="#/fiche/${shown.id}">Découvrir la fiche <span>→</span></a>
+    </div>
+    ${shot(shown, "fade", "shot-" + c.id)}
+    <div>
+      <ul class="specs">
+        <li><span>Diamètre</span><span>${mm(d.diameter)}</span></li>
+        <li><span>Épaisseur</span><span>${mm(d.thickness)}</span></li>
+        <li><span>Entre-cornes</span><span>${mm(d.lugToLug)}</span></li>
+        <li><span>Mouvement</span><span>${esc(shown.movement || "—")}</span></li>
+        <li><span>Étanchéité</span><span>${esc(shown.water || "—")}</span></li>
+        <li><span>Poignet ${DB.wrist.circumference} cm</span><span>${fitTag(shown)}</span></li>
+      </ul>
+      <div class="price">${esc(shown.price || "—")}</div>
+      <div class="eyebrow">${esc(shown.availability)}</div>
+      ${v.length ? `<div class="swatches" style="margin-top:18px">${v.map((x, k) => `<span class="sw ${k === (shown.favoriteVariant || 0) ? "on" : ""}" style="background:${esc(x.color)}" title="${esc(x.name)}"></span>`).join("")}</div>` : ""}
+    </div>
+  </div>
+  <div class="alts">
+    <span class="lbl eyebrow">${list.length} montre${list.length > 1 ? "s" : ""}</span>
+    ${list.map(w => `
+      <button class="th ${w.id === shown.id ? "on" : ""}" onclick="preview('${c.id}','${w.id}')" title="${esc(nameOf(w))}">
+        ${w.id === c.pick ? '<span class="star">★</span>' : ""}${shot(w, "flat")}<small>${esc(w.model)}</small>
+      </button>`).join("")}
+  </div>`;
+}
+function rerenderSlide(cid){
+  const cats = collectionCats().filter(c => members(c).length);
+  const i = cats.findIndex(c => c.id === cid);
+  document.getElementById("fam-" + cid).innerHTML = slideInner(cats[i], i, cats.length);
+}
+function preview(cid, wid){
+  $("#shot-" + cid)?.classList.add("leaving");
+  setTimeout(() => { viewing[cid] = wid; rerenderSlide(cid); }, 260);
+}
+function promote(cid, wid){
+  catOf(cid).pick = wid; viewing[cid] = wid;
+  rerenderSlide(cid); save();
+  const row = $(".intro .row"); if (row) { const tmp = document.createElement("div"); tmp.innerHTML = viewCollection(); row.replaceWith(tmp.querySelector(".intro .row")); }
+}
+let observer;
+function setupRail(){
+  const rail = $("#rail");
+  const cats = collectionCats().filter(c => members(c).length);
+  rail.innerHTML = cats.map(c => `<a href="#fam-${c.id}" data-c="${c.id}" onclick="event.preventDefault();scrollToFam('${c.id}')">${esc(c.label)}</a>`).join("");
+  rail.style.display = "";
+  observer?.disconnect();
+  observer = new IntersectionObserver(es => es.forEach(e => {
+    if (e.isIntersecting) rail.querySelectorAll("a").forEach(a => a.classList.toggle("on", "fam-" + a.dataset.c === e.target.id));
+  }), {threshold:.5});
+  $$(".slide").forEach(s => observer.observe(s));
+}
+
+/* =====================================================================
+   CATALOGUE
+   ===================================================================== */
+const CAT = {q:"", f:"", s:"", mode:"galerie", sort:"prix", dir:1};
+const SORTS = {
+  prix: w => w.priceEur ?? 1e9, nom: w => nameOf(w).toLowerCase(), diametre: w => w.dims?.diameter ?? 1e9,
+  epaisseur: w => w.dims?.thickness ?? 1e9, poignet: w => -(fit(w)?.s ?? 0), ajout: w => w.added || "",
+};
+function viewCatalogue(){
+  const count = f => DB.watches.filter(f).length;
+  return `<div class="page">
+    <div class="page-head">
+      <div><div class="eyebrow gold">${DB.watches.length} montres</div><h1 class="display" style="margin-top:16px">Le catalogue</h1></div>
+      <div class="tabs">
+        <button class="tab ${CAT.mode === "galerie" ? "on" : ""}" onclick="CAT.mode='galerie';render()">Galerie</button>
+        <button class="tab ${CAT.mode === "tableau" ? "on" : ""}" onclick="CAT.mode='tableau';render()">Tableau</button>
+      </div>
+    </div>
+    <div class="toolbar">
+      <div class="tabs">
+        <button class="tab ${!CAT.f ? "on" : ""}" onclick="CAT.f='';render()">Toutes</button>
+        ${DB.categories.map(c => `<button class="tab ${CAT.f === c.id ? "on" : ""}" onclick="CAT.f='${c.id}';render()">${esc(c.label)}<sup>${count(w => w.categories.includes(c.id))}</sup></button>`).join("")}
+      </div>
+      <div class="tabs">
+        <select class="select" onchange="CAT.s=this.value;fillCatalogue()">
+          <option value="">Tous statuts</option><option value="main" ${CAT.s === "main" ? "selected" : ""}>Choix principaux</option>
+          ${Object.entries(STATUS).map(([k, v]) => `<option value="${k}" ${CAT.s === k ? "selected" : ""}>${v}</option>`).join("")}
+        </select>
+        <select class="select" onchange="CAT.sort=this.value;CAT.dir=1;fillCatalogue()">
+          ${Object.keys(SORTS).map(k => `<option value="${k}" ${CAT.sort === k ? "selected" : ""}>Tri : ${k}</option>`).join("")}
+        </select>
+        <input class="search" placeholder="Rechercher…" value="${esc(CAT.q)}" oninput="CAT.q=this.value;fillCatalogue()">
+      </div>
+    </div>
+    <div id="cat"></div>
+  </div>`;
+}
+function sortBy(k){ CAT.dir = CAT.sort === k ? -CAT.dir : 1; CAT.sort = k; fillCatalogue(); }
+function fillCatalogue(){
+  const q = CAT.q.toLowerCase(), key = SORTS[CAT.sort];
+  const list = DB.watches.filter(w => (!CAT.f || w.categories.includes(CAT.f))
+      && (!CAT.s || statusKey(w) === CAT.s || (CAT.s === "alternative" && statusKey(w) === "alternative"))
+      && (!q || [w.brand, w.model, w.reference, w.movement, w.caliber, w.style, w.notes].join(" ").toLowerCase().includes(q)))
+    .sort((a, b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : 0) * CAT.dir);
+  if (!list.length) { $("#cat").innerHTML = `<p class="empty">Aucune montre ne correspond.</p>`; return; }
+  $("#cat").innerHTML = CAT.mode === "galerie"
+    ? `<div class="grid">${list.map(w => `
+        <article class="card" onclick="go('#/fiche/${w.id}')">
+          ${shot(w, "flat")}
+          <div class="meta">
+            <div><div class="eyebrow">${esc(w.brand)}</div><h3>${esc(w.model)}</h3><p>${mm(w.dims?.diameter)} · ${esc(w.movement || "—")}</p></div>
+            <div class="pr">${esc((w.price || "").split("•")[0])}</div>
+          </div>
+          <div class="foot">${fitTag(w)}${statusKey(w) !== "alternative" ? badge(w) : ""}</div>
+        </article>`).join("")}</div>`
+    : `<div class="table-wrap"><table><thead><tr>
+        <th></th><th onclick="sortBy('nom')">Modèle</th><th>Familles</th><th>Statut</th>
+        <th class="num" onclick="sortBy('diametre')">Ø</th><th class="num" onclick="sortBy('epaisseur')">Ép.</th><th class="num">E-C</th>
+        <th>Mouvement</th><th class="num" onclick="sortBy('prix')">Prix</th><th onclick="sortBy('poignet')">Poignet</th></tr></thead><tbody>
+        ${list.map(w => `<tr onclick="go('#/fiche/${w.id}')">
+          <td>${shot(w, "flat")}</td>
+          <td><div class="eyebrow">${esc(w.brand)}</div><b>${esc(w.model)}</b></td>
+          <td>${w.categories.map(c => esc(catOf(c)?.label || c)).join(", ")}</td><td>${badge(w)}</td>
+          <td class="num">${w.dims?.diameter ?? "—"}</td><td class="num">${w.dims?.thickness ?? "—"}</td><td class="num">${w.dims?.lugToLug ?? "—"}</td>
+          <td>${esc(w.movement)}</td><td class="num">${esc((w.price || "").split("•")[0])}</td><td>${fitTag(w)}</td></tr>`).join("")}
+       </tbody></table></div>`;
+}
+
+/* =====================================================================
+   FICHE
+   ===================================================================== */
+let vIdx = 0, night = false;
+function viewDetail(id){
+  const w = byId(id); if (!w) return `<div class="page"><p class="empty">Montre introuvable.</p></div>`;
+  const f = fit(w), d = w.dims || {};
+  const pos = f ? Math.min(97, Math.max(3, (f.l - 34) / (62 - 34) * 100)) : 50;
+  const top = f ? f.top : 51, from = (top - 9 - 34) / 28 * 100, width = 8 / 28 * 100;
+  const row = (k, val) => (val !== undefined && val !== null && val !== "") ? `<li><span>${k}</span><span>${esc(val)}</span></li>` : "";
+  const picks = DB.categories.filter(c => c.pick === w.id).map(c => c.label);
+  const v = w.variants || [];
+  return `
+  <div class="detail">
+    <div class="d-stage" id="stage">
+      <div class="shot fade" id="dshot"></div>
+      <div class="d-ctrl">
+        <div class="tabs">
+          <button class="tab" id="tday" onclick="setNight(false)">Jour</button>
+          <button class="tab" id="tnight" onclick="setNight(true)">Nuit</button>
+        </div>
+        ${v.length > 1 ? `<div class="vnav">
+          <button class="arrow" onclick="stepVariant(-1)" title="Variante précédente (←)">‹</button>
+          <div class="swatches">${v.map((x, i) => `<span class="sw" style="background:${esc(x.color)}" title="${esc(x.name)}" onclick="showVariant(${i})"></span>`).join("")}</div>
+          <button class="arrow" onclick="stepVariant(1)" title="Variante suivante (→)">›</button>
+          <span class="eyebrow" id="vname"></span>
+          <button class="fav" id="fav" onclick="setFav()"></button>
+        </div>` : v.length === 1 ? `<span class="eyebrow">${esc(v[0].name)}</span>` : ""}
+      </div>
+    </div>
+    <div class="d-info">
+      <div class="chipset" title="Familles — cliquer pour ajouter / retirer">${DB.categories.map(c => `<button class="chip ${w.categories.includes(c.id) ? "on" : ""}" onclick="toggleCat('${w.id}','${c.id}')">${esc(c.label)}</button>`).join("")}</div>
+      <div><div class="eyebrow" style="margin-bottom:14px">${esc(w.brand)}${w.reference ? " · " + esc(w.reference) : ""}</div><h1 class="display">${esc(w.model)}</h1></div>
+      ${w.headline ? `<p class="tagline">${esc(w.headline)}</p>` : ""}
+      <div style="display:flex;align-items:center;gap:16px 20px;flex-wrap:wrap">
+        <span class="price" style="margin:0">${esc(w.price || "Prix inconnu")}</span>
+        ${picks.length ? `<span class="badge main">Choix principal · ${esc(picks.join(", "))}</span>` : ""}
+        <select class="select" onchange="setStatus('${w.id}',this.value)" title="Statut">
+          ${Object.entries(STATUS).map(([k, l]) => `<option value="${k}" ${w.status === k ? "selected" : ""}>${l}</option>`).join("")}
+        </select>
+      </div>
+      <div>
+        <div class="eyebrow">Au poignet · ${DB.wrist.circumference} cm</div>
+        <div class="gauge" style="--from:${from}%;--w:${width}%">${f ? `<b style="left:${pos}%"><span>${f.est ? "≈ " : ""}${mm(f.l)}</span></b>` : ""}</div>
+        <div class="gscale"><span>34 mm</span><span>${fitTag(w)}</span><span>62 mm</span></div>
+      </div>
+      <ul class="specs">
+        ${row("Diamètre", d.diameter && mm(d.diameter))}${row("Épaisseur", d.thickness && mm(d.thickness))}${row("Entre-cornes", d.lugToLug && mm(d.lugToLug))}
+        ${row("Entre-anses", d.integrated ? "Bracelet intégré" : d.lugWidth && mm(d.lugWidth))}${row("Mouvement", w.movement)}${row("Calibre", w.caliber)}
+        ${row("Radio / connexion", w.radio)}${row("Verre", w.crystal)}${row("Boîtier", w.case)}${row("Étanchéité", w.water)}
+        ${row("Poids", d.weight && String(d.weight).replace(".", ",") + " g")}${row("Disponibilité", w.availability)}
+      </ul>
+      <div class="ext">${(w.links || []).map(l => ext(l.url, l.label || "Lien")).join("")}</div>
+      <div class="ext">
+        <a class="mini" href="#/edit/${w.id}">✎ Modifier</a>
+        <a class="mini" href="#/edit/${w.id}" onclick="EDIT_SCROLL='photos'">Photos</a>
+        <button class="mini" onclick="duplicateWatch('${w.id}')">Dupliquer</button>
+        <button class="mini" style="color:var(--bad)" onclick="deleteWatch('${w.id}')">Supprimer</button>
+      </div>
+    </div>
+  </div>
+  ${w.summary || w.tagline ? `<section class="section"><div class="eyebrow gold">${esc(w.eyebrow || "En deux mots")}</div>
+    ${w.tagline ? `<p class="prose" style="font-style:italic">${esc(w.tagline)}</p>` : ""}${w.summary ? `<p class="prose">${esc(w.summary)}</p>` : ""}</section>` : ""}
+  ${(w.pros?.length || w.cons?.length) ? `<section class="section"><div class="cols">
+    <div><div class="eyebrow gold">Pourquoi elle séduit</div><ul>${w.pros.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+    <div><div class="eyebrow">Ce qui peut freiner</div><ul>${w.cons.map(p => `<li>${esc(p)}</li>`).join("")}</ul></div>
+  </div></section>` : ""}
+  ${w.collectionNote ? `<section class="section"><div class="eyebrow gold">Dans ma collection</div><p class="prose">${esc(w.collectionNote)}</p></section>` : ""}
+  ${w.reviews ? `<section class="section" style="text-align:center"><div class="eyebrow">Ce qu'en disent pros & amateurs</div><p class="quote">${esc(w.reviews)}</p></section>` : ""}
+  ${v.some(x => x.note || x.url) ? `<section class="section"><div class="eyebrow gold">Les variantes</div><ul class="allspecs">${v.map(x => `<li><span>${esc(x.name)}</span><span>${esc(x.ref)} ${esc(x.note)} ${x.url ? `<a href="${esc(x.url)}" target="_blank" rel="noopener noreferrer" style="border-bottom:1px solid var(--hair)">fiche ↗</a>` : ""}</span></li>`).join("")}</ul></section>` : ""}
+  ${w.specs?.length ? `<section class="section"><div class="eyebrow gold">Toutes les caractéristiques</div><ul class="allspecs">${w.specs.map(([k, val]) => `<li><span>${esc(k)}</span><span>${esc(val)}</span></li>`).join("")}</ul></section>` : ""}
+  <section class="section">
+    <div class="eyebrow gold">Mes notes</div>
+    <textarea class="notes" placeholder="Essayée chez… à surveiller en occasion… préférer le cadran vert…" oninput="noteInput('${w.id}',this.value)">${esc(w.notes)}</textarea>
+    <p class="hint">${esc(w.source || "")}${w.updated ? " · modifiée le " + esc(w.updated) : ""}</p>
+  </section>`;
+}
+function initDetail(id){
+  const w = byId(id); if (!w) return;
+  vIdx = w.favoriteVariant || 0; night = false;
+  paintStage(w, false);
+  const el = $("#dshot"); let x0 = null;
+  el.addEventListener("touchstart", e => x0 = e.touches[0].clientX, {passive:true});
+  el.addEventListener("touchend", e => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 40) stepVariant(dx < 0 ? 1 : -1); x0 = null; });
+}
+function currentDetail(){ const [, r, id] = location.hash.split("/"); return r === "fiche" ? byId(id) : null; }
+function paintStage(w, animate = true){
+  const v = (w.variants || [])[vIdx];
+  const daySlot = (v && v.photo && slotUrl(v.photo)) ? v.photo : w.photos.main;
+  const nightSlot = w.photos.night;
+  $("#stage").classList.toggle("night", night);
+  $("#tday").classList.toggle("on", !night); $("#tnight").classList.toggle("on", night);
+  const sh = $("#dshot");
+  const html = night
+    ? (slotUrl(nightSlot) ? pic(slotUrl(nightSlot), "Vue nocturne") : `<p class="nightmsg">Pas encore de vue nocturne.<br>Tu peux en ajouter une dans « Photos ».</p>`)
+    : pic(slotUrl(daySlot), nameOf(w) + (v ? " — " + v.name : ""));
+  if (animate) { sh.classList.add("leaving"); setTimeout(() => { sh.innerHTML = html; sh.classList.remove("leaving"); }, 200); }
+  else sh.innerHTML = html;
+  $$(".vnav .sw").forEach((s, k) => s.classList.toggle("on", k === vIdx));
+  if ($("#vname")) {
+    $("#vname").textContent = v ? v.name : "";
+    const fav = vIdx === (w.favoriteVariant || 0);
+    $("#fav").classList.toggle("on", fav);
+    $("#fav").textContent = fav ? "♥ Ma couleur" : "♡ Choisir cette couleur";
+  }
+}
+function showVariant(i){ const w = currentDetail(); const n = (w.variants || []).length; if (!n) return; vIdx = (i + n) % n; night = false; paintStage(w); }
+const stepVariant = d => showVariant(vIdx + d);
+function setNight(on){ night = on; paintStage(currentDetail()); }
+function setFav(){ const w = currentDetail(); w.favoriteVariant = vIdx; touch(w); paintStage(w, false); save(); }
+function setStatus(id, s){ const w = byId(id); w.status = s; touch(w); save(); }
+function toggleCat(id, cid){
+  const w = byId(id);
+  w.categories = w.categories.includes(cid) ? w.categories.filter(c => c !== cid) : [...w.categories, cid];
+  const c = catOf(cid); if (c.pick === id && !w.categories.includes(cid)) c.pick = null;
+  touch(w); save(); render();
+}
+let noteT;
+function noteInput(id, val){ clearTimeout(noteT); noteT = setTimeout(() => { const w = byId(id); w.notes = val; touch(w); save(); }, 400); }
+const touch = w => { w.updated = new Date().toISOString().slice(0, 10); };
+function deleteWatch(id){
+  const w = byId(id);
+  if (!confirm(`Supprimer définitivement « ${nameOf(w)} » ?\n(Une sauvegarde automatique des données est conservée côté serveur.)`)) return;
+  DB.watches = DB.watches.filter(x => x.id !== id);
+  DB.categories.forEach(c => { if (c.pick === id) c.pick = null; });
+  save(); go("#/catalogue");
+}
+function duplicateWatch(id){
+  const copy = JSON.parse(JSON.stringify(byId(id)));
+  copy.id = uniqueId(copy.id + "-copie"); copy.model += " (copie)"; copy.added = copy.updated = new Date().toISOString().slice(0, 10);
+  DB.watches.push(copy); save(); go("#/edit/" + copy.id);
+}
+const uniqueId = base => { let id = base, i = 2; while (byId(id)) id = `${base}-${i++}`; return id; };
+
+/* =====================================================================
+   ÉDITION / AJOUT
+   ===================================================================== */
+let DRAFT = null, EDIT_SCROLL = null;
+function blankWatch(){
+  return {id:"", brand:"", model:"", reference:"", categories:[], status:"alternative", eyebrow:"", headline:"", tagline:"", summary:"",
+    style:"", movement:"", movementDetail:"", caliber:"", radio:"", display:"", dims:{}, crystal:"", case:"", water:"", lume:"",
+    price:"", priceEur:null, availability:"", specs:[], pros:[], cons:[], collectionNote:"", reviews:"", links:[],
+    photos:{main:null, night:null}, variants:[], favoriteVariant:0, notes:"", source:"Ajout manuel"};
+}
+function viewEdit(id){
+  const isNew = !id;
+  if (!DRAFT || DRAFT._for !== (id || "new")) { DRAFT = isNew ? blankWatch() : JSON.parse(JSON.stringify(byId(id))); DRAFT._for = id || "new"; }
+  const w = DRAFT;
+  if (!isNew && !byId(id)) return `<div class="page"><p class="empty">Montre introuvable.</p></div>`;
+  const F = (path, label, opts = {}) => {
+    const val = getPath(w, path);
+    const shown = Array.isArray(val) ? val.join("\n") : (val ?? "");
+    const common = `data-path="${path}" ${opts.type ? `data-type="${opts.type}"` : ""}`;
+    const input = opts.area
+      ? `<textarea ${common} rows="${opts.rows || 4}" placeholder="${esc(opts.ph || "")}">${esc(shown)}</textarea>`
+      : `<input ${common} type="${opts.type === "num" ? "text" : "text"}" inputmode="${opts.type === "num" ? "decimal" : "text"}" value="${esc(shown)}" placeholder="${esc(opts.ph || "")}">`;
+    return `<label class="${opts.wide ? "wide" : ""}"><span>${label}</span>${input}</label>`;
+  };
+  return `<div class="page narrow">
+    <div class="page-head"><div>
+      <div class="eyebrow gold">${isNew ? "Nouvelle pièce" : "Modifier"}</div>
+      <h1 class="display" style="margin-top:16px">${isNew ? "Ajouter<br><em>une montre</em>" : esc(nameOf(w))}</h1>
+      ${isNew ? `<p class="hint" style="max-width:560px">Pour l'instant l'ajout est manuel. L'ajout automatique (nom ou lien → fiche remplie par l'IA) viendra à l'étape suivante.</p>` : ""}
+    </div></div>
+
+    <div class="form-sec"><h2>Identité</h2><div class="fields">
+      ${F("brand", "Marque")}${F("model", "Modèle")}${F("reference", "Référence")}
+      ${F("headline", "Accroche", {wide:true, ph:"Le titane japonais à l'efficacité feutrée"})}
+      ${F("tagline", "Phrase-clé", {wide:true})}${F("summary", "Résumé", {wide:true, area:true, rows:3})}
+    </div></div>
+
+    <div class="form-sec"><h2>Familles & statut</h2><div>
+      <div class="chipset" style="margin:6px 0 18px">${DB.categories.map(c => `<button type="button" class="chip ${w.categories.includes(c.id) ? "on" : ""}" onclick="draftCat('${c.id}',this)">${esc(c.label)}</button>`).join("")}</div>
+      <div class="fields"><label><span>Statut</span><select data-path="status">${Object.entries(STATUS).map(([k, l]) => `<option value="${k}" ${w.status === k ? "selected" : ""}>${l}</option>`).join("")}</select></label>
+      ${F("style", "Style")}</div>
+    </div></div>
+
+    <div class="form-sec"><h2>Dimensions<small>En mm. L'entre-cornes sert à l'indice poignet.</small></h2><div class="fields">
+      ${F("dims.diameter", "Diamètre", {type:"num"})}${F("dims.thickness", "Épaisseur", {type:"num"})}${F("dims.lugToLug", "Entre-cornes", {type:"num"})}
+      ${F("dims.lugWidth", "Entre-anses", {type:"num"})}${F("dims.weight", "Poids (g)", {type:"num"})}
+      <label class="check"><input type="checkbox" data-path="dims.integrated" data-type="bool" ${w.dims?.integrated ? "checked" : ""}><span>Bracelet intégré</span></label>
+    </div></div>
+
+    <div class="form-sec"><h2>Mouvement & boîtier</h2><div class="fields">
+      ${F("movement", "Mouvement (court)", {ph:"Solaire, Mécanique auto…"})}${F("caliber", "Calibre")}${F("radio", "Radio / connexion")}
+      ${F("movementDetail", "Mouvement (détail)", {wide:true})}
+      ${F("crystal", "Verre")}${F("case", "Boîtier")}${F("water", "Étanchéité")}${F("lume", "Luminescence")}${F("display", "Affichage")}
+    </div></div>
+
+    <div class="form-sec"><h2>Prix & disponibilité</h2><div class="fields">
+      ${F("price", "Prix (texte libre)", {ph:"≈ 285–320 € import"})}${F("priceEur", "Prix pour le tri (€)", {type:"num"})}${F("availability", "Disponibilité")}
+    </div></div>
+
+    <div class="form-sec"><h2>Textes<small>Une ligne = un élément.</small></h2><div class="fields">
+      ${F("pros", "Pourquoi elle séduit", {wide:true, area:true, type:"lines"})}
+      ${F("cons", "Ce qui peut freiner", {wide:true, area:true, type:"lines"})}
+      ${F("collectionNote", "Dans ma collection", {wide:true, area:true, rows:3})}
+      ${F("reviews", "Ce qu'en disent pros & amateurs", {wide:true, area:true, rows:4})}
+    </div></div>
+
+    <div class="form-sec"><h2>Liens<small>Une ligne par lien :<br>Libellé | https://…</small></h2><div class="fields">
+      <label class="wide"><span>Liens</span><textarea data-path="links" data-type="links" rows="4">${esc((w.links || []).map(l => `${l.label} | ${l.url}`).join("\n"))}</textarea></label>
+    </div></div>
+
+    <div class="form-sec"><h2>Caractéristiques détaillées<small>Une ligne : Libellé : valeur</small></h2><div class="fields">
+      <label class="wide"><span>Tableau complet</span><textarea data-path="specs" data-type="specs" rows="8">${esc((w.specs || []).map(([k, v]) => `${k} : ${v}`).join("\n"))}</textarea></label>
+    </div></div>
+
+    <div class="form-sec" id="photos"><h2>Photos<small>Les photos sont copiées sur le serveur. « Détourer » retire le fond uni.</small></h2>
+      <div><div class="slots" id="slots">${slotsHTML()}</div>
+      <div style="margin-top:20px"><button class="link quiet" type="button" onclick="addVariant()">+ Ajouter une variante de couleur</button></div></div>
+    </div>
+
+    <div class="actions-bar">
+      <button class="btn" onclick="commitEdit()">${isNew ? "Ajouter à ma sélection" : "Enregistrer"}</button>
+      <button class="btn line" onclick="cancelEdit()">Annuler</button>
+      ${READONLY ? `<span class="hint">Lecture seule : api.php indisponible.</span>` : ""}
+    </div>
+  </div>`;
+}
+const getPath = (o, p) => p.split(".").reduce((a, k) => a == null ? a : a[k], o);
+function setPath(o, p, v){ const ks = p.split("."); const last = ks.pop(); const t = ks.reduce((a, k) => a[k] ??= {}, o); if (v === undefined) delete t[last]; else t[last] = v; }
+function readForm(){
+  $$("[data-path]").forEach(el => {
+    const p = el.dataset.path, t = el.dataset.type;
+    let v = el.type === "checkbox" ? el.checked : el.value;
+    if (t === "num") { v = v.trim() === "" ? undefined : parseFloat(v.replace(",", ".")); if (Number.isNaN(v)) v = undefined; }
+    else if (t === "bool") v = v || undefined;
+    else if (t === "lines") v = v.split("\n").map(s => s.trim()).filter(Boolean);
+    else if (t === "links") v = v.split("\n").map(s => s.trim()).filter(Boolean).map(s => { const i = s.lastIndexOf("|"); return i < 0 ? {label:"Lien", url:s} : {label:s.slice(0, i).trim(), url:s.slice(i + 1).trim()}; });
+    else if (t === "specs") v = v.split("\n").map(s => s.trim()).filter(Boolean).map(s => { const i = s.indexOf(":"); return i < 0 ? [s, ""] : [s.slice(0, i).trim(), s.slice(i + 1).trim()]; });
+    setPath(DRAFT, p, v);
+  });
+  $$("[data-vpath]").forEach(el => { const [i, k] = el.dataset.vpath.split("."); DRAFT.variants[+i][k] = el.value; });
+}
+function draftCat(cid, el){ DRAFT.categories = DRAFT.categories.includes(cid) ? DRAFT.categories.filter(c => c !== cid) : [...DRAFT.categories, cid]; el.classList.toggle("on"); }
+function commitEdit(){
+  readForm();
+  const w = DRAFT;
+  if (!w.brand.trim() || !w.model.trim()) return alert("Indique au moins la marque et le modèle.");
+  const isNew = w._for === "new";
+  delete w._for;
+  touch(w);
+  if (isNew) { w.id = uniqueId(slugify(`${w.brand} ${w.model}`)); w.added = w.updated; DB.watches.push(w); }
+  else {
+    DB.watches[DB.watches.findIndex(x => x.id === w.id)] = w;
+    DB.categories.forEach(c => { if (c.pick === w.id && !w.categories.includes(c.id)) c.pick = null; });
+  }
+  DRAFT = null; save(); go("#/fiche/" + w.id);
+}
+function cancelEdit(){ const id = DRAFT?._for; DRAFT = null; history.length > 1 ? history.back() : go(id && id !== "new" ? "#/fiche/" + id : "#/catalogue"); }
+
+/* --- emplacements photo (dans l'éditeur) --- */
+function slotKeys(w){ return ["main", "night", ...(w.variants || []).map((_, i) => "v" + i)]; }
+function getSlot(w, key){ return key === "main" || key === "night" ? w.photos[key] : w.variants[+key.slice(1)].photo; }
+function setSlot(w, key, s){ if (key === "main" || key === "night") w.photos[key] = s; else w.variants[+key.slice(1)].photo = s; }
+function slotHTML(w, key){
+  const s = getSlot(w, key), url = slotUrl(s);
+  const label = key === "main" ? "Photo principale" : key === "night" ? "Vue de nuit" : "";
+  const st = !s || !url ? "Aucune photo" : isLocal(s) ? (s.original ? "Sur le serveur · détourée" : "Sur le serveur") : `Distante — à rapatrier (${s.remote.length} source${s.remote.length > 1 ? "s" : ""})`;
+  const vi = key[0] === "v" ? +key.slice(1) : null, v = vi !== null ? w.variants[vi] : null;
+  return `<div class="slot" data-slot="${key}">
+    ${v ? `<div class="vrow"><input data-vpath="${vi}.name" value="${esc(v.name)}" placeholder="Nom de la variante"><input type="color" data-vpath="${vi}.color" value="${esc(/^#[0-9a-f]{6}$/i.test(v.color) ? v.color : "#9a978f")}"></div>
+           <input data-vpath="${vi}.ref" value="${esc(v.ref)}" placeholder="Référence">` : `<div class="eyebrow">${label}</div>`}
+    <div class="shot flat ${key === "night" ? "dark" : ""}">${pic(url)}</div>
+    <div class="st">${st}</div>
+    <div class="acts">
+      ${s && !isLocal(s) && s.remote?.length ? `<button class="mini" onclick="slotFetch('${key}')">Rapatrier</button>` : ""}
+      <button class="mini" onclick="slotFromUrl('${key}')">Depuis une URL</button>
+      <button class="mini" onclick="slotFromFile('${key}')">Fichier</button>
+      ${isLocal(s) ? `<button class="mini" onclick="openDetour('${key}')">Détourer</button>` : ""}
+      ${s ? `<button class="mini" onclick="slotClear('${key}')">Retirer</button>` : ""}
+      ${v ? `<button class="mini" style="color:var(--bad)" onclick="removeVariant(${vi})">Supprimer la variante</button>` : ""}
+    </div>
+  </div>`;
+}
+const slotsHTML = () => slotKeys(DRAFT).map(k => slotHTML(DRAFT, k)).join("");
+function refreshSlots(){ readForm(); $("#slots").innerHTML = slotsHTML(); }
+function draftId(){ return DRAFT.id || slugify(`${$("[data-path=brand]")?.value || ""} ${$("[data-path=model]")?.value || ""}`) || "nouvelle"; }
+async function busy(msg, fn){
+  const el = document.createElement("div"); el.className = "busy"; el.textContent = msg; document.body.append(el);
+  try { return await fn(); } catch (e) { alert(e.message); } finally { el.remove(); }
+}
+async function slotFetch(key, urls){
+  readForm();
+  const s = getSlot(DRAFT, key);
+  await busy("Rapatriement de la photo…", async () => {
+    const r = await api("fetch", {id: draftId(), name: key, urls: urls || s.remote});
+    setSlot(DRAFT, key, {...(s || {}), src: r.src, remote: urls || s?.remote || [], original: undefined});
+  });
+  refreshSlots();
+}
+function slotFromUrl(key){
+  const u = prompt("Adresse de l'image (clic droit sur la photo → « Copier l'adresse de l'image ») :");
+  if (u) slotFetch(key, [u.trim()]);
+}
+function slotFromFile(key){
+  const input = $("#filePick");
+  input.value = ""; input.onchange = async () => {
+    const f = input.files[0]; if (!f) return;
+    readForm();
+    await busy("Envoi de la photo…", async () => {
+      const dataUrl = await downscale(f, 2400);
+      const r = await api("upload", {id: draftId(), name: key, dataUrl});
+      setSlot(DRAFT, key, {src: r.src, remote: getSlot(DRAFT, key)?.remote || []});
+    });
+    refreshSlots();
+  };
+  input.click();
+}
+function downscale(file, max){
+  return new Promise((res, rej) => {
+    const img = new Image(); img.onerror = () => rej(new Error("Image illisible"));
+    img.onload = () => {
+      const k = Math.min(1, max / Math.max(img.width, img.height));
+      if (k === 1 && file.size < 4e6) { const fr = new FileReader(); fr.onload = () => res(fr.result); fr.readAsDataURL(file); return; }
+      const c = document.createElement("canvas"); c.width = Math.round(img.width * k); c.height = Math.round(img.height * k);
+      c.getContext("2d").drawImage(img, 0, 0, c.width, c.height);
+      res(c.toDataURL(file.type === "image/png" ? "image/png" : "image/jpeg", .92));
+    };
+    img.src = URL.createObjectURL(file);
+  });
+}
+function slotClear(key){ readForm(); setSlot(DRAFT, key, null); refreshSlots(); }
+function addVariant(){ readForm(); DRAFT.variants.push({name:"Nouvelle variante", ref:"", color:"#9a978f", note:"", url:"", photo:null}); refreshSlots(); }
+function removeVariant(i){ readForm(); DRAFT.variants.splice(i, 1); if ((DRAFT.favoriteVariant || 0) >= DRAFT.variants.length) DRAFT.favoriteVariant = 0; refreshSlots(); }
+
+/* =====================================================================
+   DÉTOURAGE (sans dépendance) : remplissage depuis les bords
+   On part des pixels du bord, on « mange » tout ce qui ressemble à la couleur
+   du fond, puis on adoucit le contour et on recadre.
+   ===================================================================== */
+function loadImage(src){
+  return new Promise((res, rej) => { const i = new Image(); i.onload = () => res(i); i.onerror = () => rej(new Error("Image illisible : " + src)); i.src = src; });
+}
+function borderStats(data, w, h){
+  const px = []; const step = Math.max(1, Math.floor((w + h) / 400));
+  for (let x = 0; x < w; x += step) px.push((x) * 4, ((h - 1) * w + x) * 4);
+  for (let y = 0; y < h; y += step) px.push((y * w) * 4, (y * w + w - 1) * 4);
+  const ch = c => px.map(i => data[i + c]).sort((a, b) => a - b);
+  const [r, g, b] = [0, 1, 2].map(ch);
+  const med = a => a[a.length >> 1];
+  const bg = [med(r), med(g), med(b)];
+  // part des pixels du bord proches de la couleur médiane → fond uni ?
+  const near = px.filter(i => Math.max(Math.abs(data[i] - bg[0]), Math.abs(data[i + 1] - bg[1]), Math.abs(data[i + 2] - bg[2])) < 24).length / px.length;
+  const opaque = px.filter(i => data[i + 3] > 200).length / px.length;
+  return {bg, uniform: near, opaqueBorder: opaque};
+}
+function detour(img, tol = 26, soft = 1, shadows = false){
+  const max = 1600, k = Math.min(1, max / Math.max(img.naturalWidth, img.naturalHeight));
+  const w = Math.round(img.naturalWidth * k), h = Math.round(img.naturalHeight * k);
+  const c = document.createElement("canvas"); c.width = w; c.height = h;
+  const ctx = c.getContext("2d", {willReadFrequently:true}); ctx.drawImage(img, 0, 0, w, h);
+  const id = ctx.getImageData(0, 0, w, h), d = id.data;
+  const {bg, uniform, opaqueBorder} = borderStats(d, w, h);
+  const alpha = new Uint8ClampedArray(w * h).fill(255);
+  if (opaqueBorder > .5) {                         // sinon : déjà transparent, on ne touche qu'au recadrage
+    // Un pixel est du fond s'il est proche de la couleur du fond, OU s'il prolonge en douceur
+    // un pixel de fond voisin (dégradés, ombres portées) sans trop s'en éloigner.
+    const dist = (i, r, g, b) => Math.max(Math.abs(d[i] - r), Math.abs(d[i + 1] - g), Math.abs(d[i + 2] - b));
+    const gray = i => Math.max(d[i], d[i + 1], d[i + 2]) - Math.min(d[i], d[i + 1], d[i + 2]) < 18;
+    const isBg = (n, p) => {
+      const i = n * 4;
+      if (d[i + 3] < 20) return true;
+      const toBg = dist(i, bg[0], bg[1], bg[2]);
+      if (toBg <= tol) return true;
+      const lum = d[i] + d[i + 1] + d[i + 2], bgLum = bg[0] + bg[1] + bg[2];
+      if (!shadows || p < 0 || toBg > tol * 4 || !gray(i) || lum > bgLum - tol) return false;   // ombre = plus sombre que le fond
+      const j = p * 4;
+      return dist(i, d[j], d[j + 1], d[j + 2]) <= 3;
+    };
+    const seen = new Uint8Array(w * h), q = new Int32Array(w * h); let qh = 0, qt = 0;
+    const visit = (n, p) => { if (!seen[n] && isBg(n, p)) { seen[n] = 1; alpha[n] = 0; q[qt++] = n; } };
+    for (let x = 0; x < w; x++) { visit(x, -1); visit((h - 1) * w + x, -1); }
+    for (let y = 0; y < h; y++) { visit(y * w, -1); visit(y * w + w - 1, -1); }
+    while (qh < qt) {
+      const p = q[qh++], x = p % w;
+      if (x > 0) visit(p - 1, p); if (x < w - 1) visit(p + 1, p);
+      if (p >= w) visit(p - w, p); if (p < w * (h - 1)) visit(p + w, p);
+    }
+    // adoucir le contour : moyenne 3×3 de l'alpha (répétée « soft » fois)
+    for (let s = 0; s < soft; s++) {
+      const a2 = alpha.slice();
+      for (let y = 1; y < h - 1; y++) for (let x = 1; x < w - 1; x++) {
+        const p = y * w + x; let sum = 0;
+        for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) sum += alpha[p + dy * w + dx];
+        a2[p] = Math.min(alpha[p], sum / 9);       // ne fait que réduire : pas de halo
+      }
+      alpha.set(a2);
+    }
+    for (let p = 0; p < w * h; p++) d[p * 4 + 3] = Math.min(d[p * 4 + 3], alpha[p]);
+  }
+  // recadrage sur le contenu + petite marge
+  let x0 = w, y0 = h, x1 = 0, y1 = 0;
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) if (d[(y * w + x) * 4 + 3] > 16) { if (x < x0) x0 = x; if (x > x1) x1 = x; if (y < y0) y0 = y; if (y > y1) y1 = y; }
+  if (x1 <= x0) return {canvas: c, uniform, removed: 0};
+  ctx.putImageData(id, 0, 0);
+  const m = Math.round(Math.max(x1 - x0, y1 - y0) * .02);
+  x0 = Math.max(0, x0 - m); y0 = Math.max(0, y0 - m); x1 = Math.min(w - 1, x1 + m); y1 = Math.min(h - 1, y1 + m);
+  const out = document.createElement("canvas"); out.width = x1 - x0 + 1; out.height = y1 - y0 + 1;
+  out.getContext("2d").drawImage(c, x0, y0, out.width, out.height, 0, 0, out.width, out.height);
+  const removed = alpha.reduce((a, v) => a + (v === 0), 0) / (w * h);
+  return {canvas: out, uniform, removed};
+}
+
+let DET = null;   // {key, img, tol, soft}
+async function openDetour(key){
+  readForm();
+  const s = getSlot(DRAFT, key);
+  const img = await busy("Chargement…", () => loadImage(s.original || s.src));
+  if (!img) return;
+  DET = {key, img, tol: 26, soft: 1, stone: false, shadows: false};
+  const m = document.createElement("div"); m.className = "modal"; m.id = "modal";
+  m.innerHTML = `<div class="canvas-wrap" id="cwrap"></div>
+    <aside>
+      <div><div class="eyebrow gold">Détourage</div><h2 class="display" style="font-size:44px;margin-top:12px">Retirer<br><em>le fond</em></h2></div>
+      <p class="hint">Fonctionne sur les photos à fond uni (blanc, gris, noir). Le damier montre les zones devenues transparentes.</p>
+      <label><span class="eyebrow">Tolérance <b id="tolv"></b></span><input type="range" min="4" max="90" value="26" oninput="DET.tol=+this.value;drawDetour()"></label>
+      <label><span class="eyebrow">Douceur du contour <b id="softv"></b></span><input type="range" min="0" max="4" value="1" oninput="DET.soft=+this.value;drawDetour()"></label>
+      <label class="check" style="display:flex;gap:10px;align-items:center"><input type="checkbox" onchange="DET.shadows=this.checked;drawDetour()"><span class="eyebrow">Retirer aussi l'ombre portée</span></label>
+      <p class="hint" style="margin-top:-12px">Peut ronger l'acier poli gris : vérifie le contour avant d'enregistrer.</p>
+      <button class="mini" style="align-self:flex-start" onclick="DET.stone=!DET.stone;$('#cwrap').classList.toggle('stone',DET.stone)">Voir sur le fond de l'application / sur damier</button>
+      <p class="hint" id="detinfo"></p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:auto">
+        <button class="btn" onclick="saveDetour()">Enregistrer</button>
+        <button class="btn line" onclick="closeDetour()">Annuler</button>
+      </div>
+      ${s.original ? `<button class="mini" style="align-self:flex-start" onclick="restoreOriginal()">Revenir à la photo d'origine</button>` : ""}
+    </aside>`;
+  document.body.append(m);
+  drawDetour();
+}
+let detTimer;
+function drawDetour(){
+  $("#tolv").textContent = DET.tol; $("#softv").textContent = DET.soft;
+  clearTimeout(detTimer);
+  detTimer = setTimeout(() => {
+    const r = detour(DET.img, DET.tol, DET.soft, DET.shadows);
+    DET.result = r.canvas;
+    $("#cwrap").innerHTML = ""; $("#cwrap").append(r.canvas);
+    $("#detinfo").textContent = `Fond retiré : ${Math.round(r.removed * 100)} % de l'image · bord uniforme à ${Math.round(r.uniform * 100)} %`;
+  }, 60);
+}
+function closeDetour(){ $("#modal")?.remove(); DET = null; }
+async function saveDetour(){
+  const s = getSlot(DRAFT, DET.key);
+  await busy("Enregistrement…", async () => {
+    const r = await api("upload", {id: draftId(), name: DET.key + "-detour", dataUrl: DET.result.toDataURL("image/png")});
+    setSlot(DRAFT, DET.key, {...s, original: s.original || s.src, src: r.src});
+  });
+  closeDetour(); refreshSlots();
+}
+function restoreOriginal(){ const s = getSlot(DRAFT, DET.key); setSlot(DRAFT, DET.key, {...s, src: s.original, original: undefined}); closeDetour(); refreshSlots(); }
+
+/* =====================================================================
+   RÉGLAGES & OUTILS
+   ===================================================================== */
+function allSlots(){
+  const out = [];
+  DB.watches.forEach(w => {
+    ["main", "night"].forEach(k => w.photos[k] && out.push({w, key:k, s:w.photos[k]}));
+    (w.variants || []).forEach((v, i) => v.photo && out.push({w, key:"v" + i, s:v.photo}));
+  });
+  return out;
+}
+function viewSettings(){
+  const slots = allSlots();
+  const remote = slots.filter(x => !isLocal(x.s) && x.s.remote?.length).length;
+  const toDetour = slots.filter(x => isLocal(x.s) && !x.s.original && !x.s.noDetour && x.key !== "night").length;
+  return `<div class="page narrow">
+    <div class="page-head"><div><div class="eyebrow gold">Réglages & outils</div><h1 class="display" style="margin-top:16px">L'atelier</h1></div></div>
+
+    <div class="form-sec"><h2>Photos<small>À faire une fois après l'installation, puis de temps en temps.</small></h2><div>
+      <p class="prose" style="font-size:20px;margin:0">${remote} photo${remote > 1 ? "s" : ""} encore distante${remote > 1 ? "s" : ""} · ${toDetour} photo${toDetour > 1 ? "s" : ""} locale${toDetour > 1 ? "s" : ""} non détourée${toDetour > 1 ? "s" : ""}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px">
+        <button class="btn" ${remote && !READONLY ? "" : "disabled"} onclick="bulkFetch()">1 · Rapatrier les photos</button>
+        <button class="btn line" ${toDetour && !READONLY ? "" : "disabled"} onclick="bulkDetour()">2 · Détourer celles sur fond uni</button>
+      </div>
+      <p class="hint">Le détourage automatique ne touche que les photos dont le bord est uniforme. Les autres se détourent une par une depuis « Modifier → Photos », avec un aperçu.</p>
+      <div class="log" id="log"></div>
+    </div></div>
+
+    <div class="form-sec"><h2>Poignet</h2><div class="fields">
+      <label><span>Tour de poignet (cm)</span><input inputmode="decimal" value="${DB.wrist.circumference}" onchange="DB.wrist.circumference=parseFloat(this.value.replace(',','.'))||18;save()"></label>
+    </div></div>
+
+    <div class="form-sec"><h2>Familles<small>« Collection » : la famille a son écran dans la collection.</small></h2><div>
+      ${DB.categories.map((c, i) => `<div class="catrow">
+        <button class="mini" onclick="moveCat(${i},-1)" title="Monter">↑</button>
+        <input type="text" value="${esc(c.label)}" onchange="catOf('${c.id}').label=this.value;save()">
+        <input type="text" class="role" value="${esc(c.role || "")}" placeholder="Rôle dans la collection" onchange="catOf('${c.id}').role=this.value;save()">
+        <label class="check" style="display:flex;gap:8px;align-items:center"><input type="checkbox" ${c.inCollection ? "checked" : ""} onchange="catOf('${c.id}').inCollection=this.checked;save()"><span class="eyebrow">Collection</span></label>
+        <button class="mini" style="color:var(--bad)" onclick="removeCat('${c.id}')">Suppr.</button>
+      </div>`).join("")}
+      <button class="link quiet" style="margin-top:16px" onclick="addCat()">+ Nouvelle famille</button>
+    </div></div>
+
+    <div class="form-sec"><h2>Mes critères<small>Servira à guider l'IA (étape suivante).</small></h2><div class="fields">
+      <label class="wide"><span>Profil</span><textarea rows="12" onchange="DB.profile=this.value;save()">${esc(DB.profile || "")}</textarea></label>
+    </div></div>
+
+    <div class="form-sec"><h2>Données<small>Le serveur garde aussi les 50 dernières versions dans data/backup/.</small></h2><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
+      <button class="btn line" onclick="exportJson()">Exporter (JSON)</button>
+      <button class="btn line" onclick="importJson()">Importer (JSON)</button>
+    </div></div>
+  </div>`;
+}
+function log(msg, cls = ""){ const l = $("#log"); if (!l) return; l.classList.add("on"); l.insertAdjacentHTML("beforeend", `<div class="${cls}">${esc(msg)}</div>`); l.scrollTop = l.scrollHeight; }
+async function bulkFetch(){
+  const todo = allSlots().filter(x => !isLocal(x.s) && x.s.remote?.length);
+  let ok = 0;
+  for (const [n, x] of todo.entries()) {
+    try {
+      const r = await api("fetch", {id: x.w.id, name: x.key, urls: x.s.remote});
+      x.s.src = r.src; ok++;
+      log(`${n + 1}/${todo.length} ✓ ${nameOf(x.w)} (${x.key})`, "ok");
+    } catch (e) { log(`${n + 1}/${todo.length} ✗ ${nameOf(x.w)} (${x.key}) — ${e.message}`, "ko"); }
+    if (ok && ok % 5 === 0) await api("save", DB).catch(() => {});
+  }
+  save(); log(`Terminé : ${ok} / ${todo.length} photos rapatriées. Pour les échecs : « Modifier → Photos → Depuis une URL » ou « Fichier ».`);
+}
+async function bulkDetour(){
+  const todo = allSlots().filter(x => isLocal(x.s) && !x.s.original && !x.s.noDetour && x.key !== "night");
+  let ok = 0;
+  for (const [n, x] of todo.entries()) {
+    try {
+      const img = await loadImage(x.s.src);
+      const r = detour(img, 26, 1);
+      if (r.uniform < .85 || r.removed < .03) { x.s.noDetour = true; log(`${n + 1}/${todo.length} – ${nameOf(x.w)} (${x.key}) : fond non uni, laissée telle quelle`); continue; }
+      const up = await api("upload", {id: x.w.id, name: x.key + "-detour", dataUrl: r.canvas.toDataURL("image/png")});
+      x.s.original = x.s.src; x.s.src = up.src; ok++;
+      log(`${n + 1}/${todo.length} ✓ ${nameOf(x.w)} (${x.key})`, "ok");
+    } catch (e) { log(`${n + 1}/${todo.length} ✗ ${nameOf(x.w)} (${x.key}) — ${e.message}`, "ko"); }
+    await new Promise(r => setTimeout(r, 0));
+  }
+  save(); log(`Terminé : ${ok} photo(s) détourée(s). Vérifie le résultat dans la collection ; « Modifier → Photos → Détourer » permet d'ajuster ou de revenir à l'original.`);
+}
+function moveCat(i, d){ const j = i + d; if (j < 0 || j >= DB.categories.length) return; [DB.categories[i], DB.categories[j]] = [DB.categories[j], DB.categories[i]]; save(); render(); }
+function addCat(){
+  const label = prompt("Nom de la nouvelle famille :"); if (!label) return;
+  let id = slugify(label), i = 2; while (catOf(id)) id = slugify(label) + "-" + i++;
+  DB.categories.push({id, label, role:"", inCollection:false, pick:null}); save(); render();
+}
+function removeCat(id){
+  const n = DB.watches.filter(w => w.categories.includes(id)).length;
+  if (!confirm(`Supprimer la famille « ${catOf(id).label} » ?${n ? `\n${n} montre(s) la perdront (elles restent dans le catalogue).` : ""}`)) return;
+  DB.categories = DB.categories.filter(c => c.id !== id);
+  DB.watches.forEach(w => w.categories = w.categories.filter(c => c !== id));
+  save(); render();
+}
+function exportJson(){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(DB, null, 1)], {type:"application/json"}));
+  a.download = `watches-${new Date().toISOString().slice(0, 10)}.json`; a.click();
+}
+function importJson(){
+  const input = document.createElement("input"); input.type = "file"; input.accept = ".json,application/json";
+  input.onchange = async () => {
+    try {
+      const d = JSON.parse(await input.files[0].text());
+      if (!Array.isArray(d.watches) || !Array.isArray(d.categories)) throw new Error("Ce fichier ne ressemble pas à des données Watch Selection.");
+      if (!confirm(`Remplacer les données actuelles (${DB.watches.length} montres) par celles du fichier (${d.watches.length} montres) ?`)) return;
+      DB = d; save(); render();
+    } catch (e) { alert(e.message); }
+  };
+  input.click();
+}
+
+/* =====================================================================
+   Routeur
+   ===================================================================== */
+function render(){
+  const [, route = "collection", arg] = location.hash.split("#")[1]?.split("/") || [];
+  $$("nav.main a").forEach(a => a.classList.toggle("on", a.dataset.r === route || (["fiche", "edit"].includes(route) && a.dataset.r === "catalogue")));
+  if (route !== "edit" && route !== "ajouter") DRAFT = null;
+  const views = {collection: viewCollection, catalogue: viewCatalogue, fiche: () => viewDetail(arg), edit: () => viewEdit(arg), ajouter: () => viewEdit(null), reglages: viewSettings};
+  const view = views[route] || viewCollection;
+  $("#app").innerHTML = view();
+  $("#rail").style.display = "none";
+  if (route === "catalogue") fillCatalogue();
+  if (route === "fiche") initDetail(arg);
+  if (view === viewCollection) setupRail();
+  if (READONLY && !render.warned) { render.warned = true; flash("Lecture seule — api.php indisponible", true); }
+  if (EDIT_SCROLL && route === "edit") { const t = document.getElementById(EDIT_SCROLL); EDIT_SCROLL = null; setTimeout(() => t?.scrollIntoView(), 50); }
+  else window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", () => { if (!location.hash.startsWith("#fam-")) render(); });
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && DET) closeDetour();
+  if (!currentDetail() || /input|textarea|select/i.test(document.activeElement.tagName)) return;
+  if (e.key === "ArrowRight") stepVariant(1);
+  if (e.key === "ArrowLeft") stepVariant(-1);
+});
+load().then(render);
+</script>
+</body>
+</html>

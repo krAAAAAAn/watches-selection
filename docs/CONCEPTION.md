@@ -1,7 +1,7 @@
 # Watch Selection — Document de conception
 
-> Statut : **étape 0 — conception & maquettes (v2)**. Rien n'est encore développé.
-> Maquette cliquable : [`mockups/maquette.html`](../mockups/maquette.html) (ouvrir dans un navigateur).
+> Statut : **étape 1 terminée** — application complète sans IA (`app/`). Étape suivante : ajout par IA.
+> Installation et utilisation : [`README.md`](../README.md). Maquettes de conception : [`mockups/`](../mockups/).
 
 ## 1. Ce que l'application doit faire
 
@@ -16,14 +16,15 @@
 | 7 | Un **indice poignet** (18 cm) | Partout |
 | 8 | Liens externes dans un **nouvel onglet** ; le site **ne dépend pas** des pages en ligne pour s'afficher | Partout |
 
-## 2. Décisions prises (réponses du 02/10/2026)
+## 2. Décisions prises (02/10/2026)
 
 | Sujet | Décision |
 |---|---|
-| Hébergement | Homelab ; le projet doit rester **très simple** |
+| Hébergement | Homelab ; le projet doit rester **très simple** → un conteneur `php:apache` officiel |
 | Accès | Protégé par **Pangolin** en amont → l'application ne gère **aucune authentification** |
-| IA | **Indépendante du fournisseur** : ChatGPT, Claude, Mistral, local… via une API standard |
-| Familles | Une montre peut appartenir à **plusieurs familles** ; liste élargie proposée §7 |
+| IA | **Indépendante du fournisseur** (API standard) — **reportée à l'étape 2** : on valide d'abord tout le reste |
+| Recherche web (pour l'IA) | **SearXNG** auto-hébergé : gratuit, sans compte (comparatif §4) |
+| Familles | Plusieurs familles par montre ; ajout d'**Outdoor / Tool** et **Pièce d'art**, mais **hors de la collection** (catalogue seulement) |
 | Statuts | principal / alternative / piste future / écartée / **possédée** |
 | Variantes | Une seule fiche par montre ; **je choisis ma couleur préférée** (c'est elle qui s'affiche dans la collection) ; dans la fiche on **fait défiler les variantes** |
 | Images | **Copiées localement** (et détourées) : le site s'affiche même si les sites des marques changent |
@@ -35,13 +36,14 @@
 ## 3. Architecture
 
 ```
-watch-selection/
+app/                    ← dossier servi par Apache
 ├── index.html          ← toute l'application (HTML + CSS + JS natif, sans librairie ni étape de build)
-├── api.php             ← un seul fichier : lire/écrire les données, appeler l'IA, télécharger les photos
-├── config.php          ← URL + clé + modèle de l'IA, moteur de recherche (jamais commité)
-├── data/watches.json   ← les données (une montre = un objet) + sauvegardes automatiques datées
-├── img/                ← photos détourées (PNG/WebP), une sous-dossier par montre
-└── docker-compose.yml  ← 10 lignes : image officielle php:apache + un volume
+├── api.php             ← load / save (+ sauvegardes datées), fetch (rapatrier une photo), upload (déposer une photo)
+├── fonts/              ← polices locales
+├── seed/               ← données de départ (copiées vers data/ au premier lancement)
+├── data/watches.json   ← les données vivantes + data/backup/ (50 dernières versions)
+└── img/<id-montre>/    ← photos rapatriées, déposées ou détourées
+docker-compose.yml      ← image officielle php:8.3-apache + un volume
 ```
 
 **Pourquoi PHP ?** C'est la seule technologie qui permet « un fichier = un point d'API » sans framework, sans
@@ -52,7 +54,11 @@ officiel `php:8-apache` qui monte le dossier ; on le place derrière Pangolin co
 reverse-proxy lui transmet.
 
 **Sauvegarde** : à chaque écriture, l'ancien `watches.json` est conservé (`data/backup/watches-AAAAMMJJ-HHMMSS.json`,
-les 50 dernières versions). Le dossier entier se sauvegarde comme n'importe quel volume du homelab.
+les 50 dernières versions). L'écriture est atomique (fichier temporaire puis renommage). `data/` et `img/` ne sont
+pas versionnés : un `git pull` met à jour l'application sans toucher aux données.
+
+**Une seule écriture : tout le fichier.** L'application envoie l'ensemble des données à chaque modification
+(quelques centaines de Ko). C'est le plus simple et c'est sans risque pour un seul utilisateur.
 
 **Pourquoi pas de framework (React, Vue…) ?** Pour ~50 à 200 montres et 4 écrans, du JavaScript natif suffit, se
 relit sans outillage et ne casse pas avec le temps.
@@ -97,8 +103,18 @@ Chaque fournisseur a sa propre façon de « chercher sur le web » (quand il le 
  data/watches.json
 ```
 
-- **Moteur de recherche** : [SearXNG](https://docs.searxng.org) se déploie en un conteneur dans un homelab et
-  expose une API JSON gratuite. Alternative sans hébergement : clé API Brave Search (offre gratuite limitée).
+- **Moteur de recherche** — options comparées (octobre 2026) :
+
+  | Option | Coût | Pour | Contre |
+  |---|---|---|---|
+  | **SearXNG** (auto-hébergé) ✅ retenu | **0 €** | Gratuit, sans compte, privé ; un conteneur de plus dans le homelab ; API JSON | Les moteurs interrogés peuvent ponctuellement limiter les requêtes ; activer le format `json` dans `settings.yml` |
+  | Tavily | 0 € jusqu'à 1 000 recherches / mois | Conçu pour les IA, renvoie le texte des pages déjà nettoyé | Compte et clé chez un tiers |
+  | Brave Search API | ~5 $ de crédit offert / mois (≈ 1 000 recherches), puis 5 $ / 1 000 | Index propre, fiable | Plus de vraie offre gratuite pour les nouveaux comptes ; carte bancaire |
+  | Recherche intégrée au fournisseur d'IA | payante à l'usage | Rien à héberger | Propre à chaque fournisseur : casse l'indépendance voulue |
+
+  Pour un usage personnel (quelques dizaines d'ajouts par mois), SearXNG et Tavily sont tous deux gratuits ;
+  **SearXNG** est retenu car il ne dépend d'aucun compte. `api.php` sera écrit pour qu'on puisse basculer sur
+  Tavily en changeant une ligne de configuration si SearXNG se montre capricieux.
 - **Si on donne un lien**, l'étape ① sert seulement à compléter (avis, autres coloris).
 - **Rien n'est enregistré sans validation.** Le JSON de l'IA est vérifié par `api.php` (types, bornes : un diamètre
   de 400 mm est rejeté).
@@ -117,14 +133,12 @@ distante. Les liens vers les sites des marques restent, mais seulement comme lie
 ### Détourage
 Objectif : la montre « posée » sur le fond de l'application, sans rectangle blanc autour.
 
-| Méthode | Quand | Coût |
+| Méthode | État | Détail |
 |---|---|---|
-| **a. Photo déjà détourée** (PNG transparent) | Beaucoup de fiches officielles en proposent ; l'IA est priée de les préférer | rien |
-| **b. Détourage automatique dans le navigateur** au moment de l'ajout (librairie `@imgly/background-removal`, modèle d'IA exécuté localement par le navigateur), résultat envoyé à `api.php` en PNG | Photos sur fond uni ou studio | aucun serveur supplémentaire ; ~quelques secondes par photo |
-| **c. Fondu CSS** (`mix-blend-mode: multiply`) | Filet de sécurité : un fond blanc devient invisible sur le fond pierre de l'application | rien |
-
-Un bouton **« Détourer à nouveau »** et un **dépôt manuel** de photo (glisser-déposer) permettront de corriger les cas
-ratés. La maquette contient deux vraies photos détourées (Concordia, Tsuyosa) pour juger du rendu.
+| **a. Photo déjà détourée** (PNG transparent) | ✅ | Reconnue automatiquement (bord transparent) ; seulement recadrée |
+| **b. Détourage intégré** (remplissage depuis les bords) | ✅ étape 1 | Écrit en JavaScript dans `index.html`, sans librairie ni Internet. Part des bords de la photo et retire tout ce qui ressemble à la couleur du fond, adoucit le contour, recadre. Excellent sur les photos de studio à fond uni ; ne touche pas aux photos « lifestyle ». Réglages : tolérance, douceur, option « ombre portée » (désactivée par défaut car elle peut ronger l'acier poli gris). L'original est conservé : retour arrière possible |
+| **c. Fondu CSS** (`mix-blend-mode: multiply`) | ✅ | Filet de sécurité : un reste de fond blanc devient invisible sur le fond pierre |
+| d. Détourage par IA (modèle de segmentation) | plus tard, si besoin | Pour les photos difficiles (fond texturé). Ajouterait une dépendance : à n'envisager que si (b) ne suffit pas à l'usage |
 
 ### Variantes de couleur
 - Une variante = `{nom, couleur, référence, photo}`.
@@ -156,7 +170,8 @@ Première version, extraite de la v27 :
 ## 7. Familles
 
 Une montre peut être dans plusieurs familles ; chaque famille a un **choix principal** et un court texte
-« rôle dans la collection ». Les familles sont modifiables dans l'application. Proposition :
+« rôle dans la collection ». Une case « Collection » indique si la famille a son écran dans la collection ou
+n'apparaît que comme filtre du catalogue. Tout est modifiable dans **Réglages → Familles**.
 
 | Famille | Rôle | Statut |
 |---|---|---|
@@ -167,10 +182,9 @@ Une montre peut être dans plusieurs familles ; chaque famille a un **choix prin
 | **Sport-chic intégré** | Bracelet intégré, graphique | v27 |
 | **Diver** | Lunette tournante, étanchéité ≥ 200 m | v27 (séparée de Tool) |
 | **Field** | Lisibilité militaire, sobriété | v27 |
-| Pilote | Grands chiffres, grande couronne, lisibilité | nouvelle |
-| GMT / Voyage | Deuxième fuseau horaire | nouvelle |
-| Outdoor / Tool | Boussole, altimètre, exploration (Pro Trek…) | nouvelle (ex « Toolwatch ») |
-| Pièce d'art | Cadran artisanal ou design singulier (urushi, feuille d'argent, Beaubleu…) | nouvelle, inspirée de la v27 |
+| Outdoor / Tool | Boussole, altimètre, exploration (Pro Trek…) | ajoutée, **hors collection** |
+| Pièce d'art | Cadran artisanal ou design singulier (urushi, feuille d'argent, Beaubleu…) | ajoutée, **hors collection** |
+| *Pilote, GMT / Voyage* | *non retenues pour l'instant ; ajout en 2 clics dans Réglages → Familles* | — |
 
 Les familles « classiques » citées par les guides horlogers sont plongée, field, pilote, GMT, dress et chronographe
 ([Monochrome](https://monochrome-watches.com/watch-styles/), [Outlook Luxe](https://luxe.outlookindia.com/watches-jewellery/watches/different-watch-styles-explained-a-complete-guide-to-popular-watch-types)) ;
@@ -193,36 +207,48 @@ pilote et GMT manquaient à ta liste.
   pour la vue nocturne.
 - **Animations** : fondus et légers glissements, rien de démonstratif.
 
-## 9. Modèle de données (une montre)
+## 9. Modèle de données
+
+`data/watches.json` :
 
 ```jsonc
 {
-  "id": "citizen-tsuyosa-nj0150",
-  "brand": "Citizen", "model": "Tsuyosa", "reference": "NJ0150-81Z",
-  "tagline": "La couleur et le bracelet intégré, en toute simplicité.",
-  "categories": ["sport"],                        // plusieurs familles possibles
-  "status": "alternative",                        // alternative | future | ecartee | possedee  (« principal » est déduit)
-  "specs": { "diameter": 40, "thickness": 11.7, "lugToLug": 45.5, "lugWidth": null,
-             "movement": "Automatique", "caliber": "8210", "crystal": "Saphir", "case": "Acier",
-             "water": "50 m", "weight": null, "lume": "…", "date": "Guichet à 3 h" },
-  "price": { "min": 299, "max": 299, "currency": "EUR", "note": "UE officiel" },
-  "variants": [
-    { "name": "Jaune",     "color": "#e5a91e", "ref": "NJ0150-81Z", "image": "img/citizen-tsuyosa-nj0150/jaune.png" },
-    { "name": "Turquoise", "color": "#43b3ae", "ref": "NJ0151-88M", "image": "img/…/turquoise.png" }
-  ],
-  "favoriteVariant": 0,                           // « ma couleur »
-  "images": { "night": "img/…/nuit.png", "wrist": ["img/…/porte-1.jpg"] },
-  "pros": ["…"], "cons": ["…"],
-  "reviews": "Synthèse des avis…",
-  "fit": "Adéquation à ma collection (écrite par l'IA, modifiable)",
-  "links": [ { "label": "Fiche officielle", "url": "https://…" } ],
-  "notes": "Mes notes",
-  "added": "2026-10-02", "updated": "2026-10-02"
+  "version": 1,
+  "wrist": { "circumference": 18 },
+  "profile": "Mes critères (texte, pour l'IA)",
+  "categories": [ { "id": "gada", "label": "GADA", "role": "…", "inCollection": true, "pick": "seiko-selection-sbtm31x" } ],
+  "watches": [ { /* une montre, ci-dessous */ } ]
 }
 ```
 
-En tête du fichier : `profile` (§6), `wrist: {circumference: 18}`, `categories: [{id, label, role, pick}]`.
-Le choix principal est stocké dans la famille (`pick`) : promouvoir une alternative = changer une valeur.
+Une montre :
+
+```jsonc
+{
+  "id": "seiko-selection-sbtm31x", "brand": "Seiko", "model": "Selection SBTM31x", "reference": "les trois cadrans",
+  "categories": ["gada", "dress"],
+  "status": "alternative",                 // alternative | future | possedee | ecartee   (« choix principal » est déduit de categories[].pick)
+  "eyebrow": "…", "headline": "Même base technique, trois tempéraments", "tagline": "…", "summary": "…",
+  "style": "Dress / classique", "movement": "Solaire", "movementDetail": "Solaire • calibre 7B72", "caliber": "7B72",
+  "radio": "Oui • multibande", "display": "Analogique",
+  "dims": { "diameter": 39.5, "thickness": 9.5, "lugToLug": 46.1, "lugWidth": 20, "weight": 115, "integrated": false },
+  "crystal": "Saphir Super-Clear", "case": "Acier inoxydable", "water": "10 bar / 100 m", "lume": "LumiBrite",
+  "price": "≈ 260–320 € rendu UE*", "priceEur": 260, "availability": "Import Japon",
+  "specs": [["Énergie", "Solaire • calibre 7B72"], ["Autonomie", "≈ 9 mois…"]],   // tableau complet d'origine
+  "pros": ["…"], "cons": ["…"], "collectionNote": "…", "reviews": "…",
+  "links": [{ "label": "Fiche principale", "url": "https://…" }],
+  "photos": {
+    "main":  { "src": "img/seiko-…/main-detour-….png", "original": "img/…/main-….png", "remote": ["https://…", "https://secours…"] },
+    "night": null
+  },
+  "variants": [ { "name": "cadran bleu", "ref": "SBTM321", "color": "#24364b", "note": "…", "url": "…", "photo": { "src": null, "remote": ["…"] } } ],
+  "favoriteVariant": 0,                    // « ma couleur » : c'est sa photo qui s'affiche dans la collection
+  "notes": "Mes notes", "source": "v27 · page 13", "added": "…", "updated": "2026-10-02"
+}
+```
+
+Une **photo** (« emplacement ») : `src` = fichier local, `remote` = adresses d'origine (essayées dans l'ordre lors du
+rapatriement ; affichées provisoirement tant que `src` est vide), `original` = version avant détourage.
 
 ## 10. Indice poignet
 
@@ -240,17 +266,16 @@ Pour 18 cm, le dessus du poignet mesure ~51 mm. La donnée la plus parlante est 
 
 ## 11. Plan de développement
 
-| Étape | Contenu |
-|---|---|
-| **0** | Conception + maquettes ✔ |
-| **1** | `index.html` + `api.php` (lecture/écriture) + `docker-compose.yml`. **Conversion de la v27** (41 montres) avec copie et détourage des photos. Collection, Catalogue, Fiche, notes, choix principal, ma couleur |
-| **2** | Ajout / actualisation par IA (recherche SearXNG ou Brave + n'importe quelle API compatible OpenAI), écran de vérification, détourage à l'import, dépôt manuel de photos |
-| **3** | Finitions : édition des familles et du profil, comparaison côte à côte, export d'une version HTML autonome, installation sur l'écran d'accueil du téléphone |
+| Étape | Contenu | État |
+|---|---|---|
+| **0** | Conception + maquettes | ✅ |
+| **1** | `index.html` + `api.php` + `docker-compose.yml`. Conversion de la v27 (44 montres). Collection, Catalogue (galerie / tableau), Fiche (variantes, jour/nuit, notes), édition complète, ajout manuel, photos (rapatriement, dépôt, détourage), Réglages (familles, poignet, critères, export/import) | ✅ |
+| **2** | Ajout / actualisation par IA : SearXNG + n'importe quelle API compatible OpenAI, écran de vérification | à faire |
+| **3** | Finitions selon l'usage : comparaison côte à côte, export d'une version HTML autonome, installation sur l'écran d'accueil du téléphone | idées |
 
-## 12. Questions restantes
+## 12. Points à valider (étape 1)
 
-1. As-tu (ou veux-tu) **SearXNG** dans le homelab, ou préfères-tu une clé **Brave Search** ?
-2. Avec quel fournisseur d'IA veux-tu tester en premier (OpenAI, OpenRouter, Ollama local…) ?
-3. La **liste de familles** du §7 te convient-elle ? Garder Pilote / GMT / Pièce d'art ?
-4. Le **profil** du §6 te ressemble-t-il ? (corrige librement)
-5. La **direction visuelle** de la maquette v2 : on part là-dessus ?
+1. Le rendu après **rapatriement + détourage** des photos sur ton serveur (je n'ai pu le tester qu'avec les deux
+   photos présentes dans la v27 : mon environnement n'a pas accès aux sites des marques).
+2. Les **familles** attribuées à chaque montre lors de la conversion (modifiable en un clic dans chaque fiche).
+3. L'ergonomie de l'édition et des photos, avant de brancher l'IA dessus.

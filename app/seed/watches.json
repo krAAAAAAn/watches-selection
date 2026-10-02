@@ -1,0 +1,5766 @@
+{
+ "version": 1,
+ "wrist": {
+  "circumference": 18
+ },
+ "profile": "- Collection petite, cohérente, variée et abordable : chaque montre apporte quelque chose que les autres n'ont pas (une technologie, une histoire, un mouvement, un design ou un usage). Éviter les doublons d'usage.\n- Budget cœur de cible 200–800 € ; au-delà, seulement pour une pièce vraiment singulière.\n- Mouvements variés : solaire, radio-piloté, quartz haute précision, automatique, manuel.\n- Élégance et discrétion : cadrans propres, index bâtons ou fins, peu d'écritures ; pas de cadran gadget.\n- Couleurs : montres fonctionnelles sobres ; la couleur est réservée au chrono et au sport-chic ; exceptions assumées quand le cadran est la raison d'être de la montre.\n- Poignet 18 cm : diamètre idéal 36–40 mm, épaisseur idéalement ≤ 10–11 mm, entre-cornes ≤ 48 mm ; au-delà de 43 mm, à essayer impérativement.\n- Appréciés : saphir, entre-anses 20 mm standard, sans date ou date discrète, bonne lisibilité nocturne.\n- Disponibilité : préciser UE officiel / import Japon / import direct et les frais à prévoir.",
+ "categories": [
+  {
+   "id": "gada",
+   "label": "GADA",
+   "role": "Set-and-forget : précise, pratique, sans friction.",
+   "inCollection": true,
+   "pick": "seiko-selection-sbtm31x"
+  },
+  {
+   "id": "beater",
+   "label": "Beater",
+   "role": "Le couteau suisse qu'on porte sans précaution.",
+   "inCollection": true,
+   "pick": "casio-g-shock-gw-m5610u-1"
+  },
+  {
+   "id": "dress",
+   "label": "Dress",
+   "role": "Moderne et épurée ; l'intérêt vient du mouvement, pas du cadran.",
+   "inCollection": true,
+   "pick": "vario-eclipse-handwound"
+  },
+  {
+   "id": "chrono",
+   "label": "Chronographe",
+   "role": "Le plaisir mécanique, et un peu de couleur.",
+   "inCollection": true,
+   "pick": "sugess-chrono-heritage"
+  },
+  {
+   "id": "sport",
+   "label": "Sport-chic",
+   "role": "Bracelet intégré, graphique et robuste.",
+   "inCollection": true,
+   "pick": "henry-archer-nutid"
+  },
+  {
+   "id": "diver",
+   "label": "Diver",
+   "role": "L'eau et l'exploration ; le choix émotionnel assumé.",
+   "inCollection": true,
+   "pick": "charlie-paris-concordia"
+  },
+  {
+   "id": "field",
+   "label": "Field",
+   "role": "Lisible, sobre, avec une idée originale.",
+   "inCollection": true,
+   "pick": "erebus-twenty-four-40"
+  },
+  {
+   "id": "outdoor",
+   "label": "Outdoor / Tool",
+   "role": "Boussole, altimètre, exploration.",
+   "inCollection": false,
+   "pick": null
+  },
+  {
+   "id": "art",
+   "label": "Pièce d'art",
+   "role": "Cadran artisanal ou design singulier.",
+   "inCollection": false,
+   "pick": null
+  }
+ ],
+ "watches": [
+  {
+   "id": "casio-f-91w-1",
+   "brand": "Casio",
+   "model": "F-91W-1",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Petit prix • digital",
+   "headline": "L’icône absolue du digital minimal",
+   "tagline": "Le mythe accessible.",
+   "summary": "Si tu veux une montre ultra-légère, ultra-économique et quasi indestructible à l’usage quotidien, le F-91W reste une référence culturelle autant que pratique.",
+   "style": "Digital utilitaire",
+   "movement": "Quartz • pile",
+   "movementDetail": "Quartz • pile CR2016",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Numérique",
+   "dims": {
+    "weight": 21.0,
+    "thickness": 8.5,
+    "diameter": 35.2,
+    "lugToLug": 38.2,
+    "lugWidth": 18
+   },
+   "crystal": "Résine / acrylique",
+   "case": "Résine avec fond acier",
+   "water": "Water resistant",
+   "lume": "LED latérale verte • éclairage partiel",
+   "price": "≈ 16–22 €",
+   "priceEur": 16,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 16–22 €"
+    ],
+    [
+     "Style général",
+     "Digital utilitaire"
+    ],
+    [
+     "Énergie",
+     "Quartz • pile CR2016"
+    ],
+    [
+     "Autonomie",
+     "≈ 7 ans"
+    ],
+    [
+     "Affichage",
+     "Digital"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième ; mois réglable mais non affiché en permanence"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique simple (février = 28 jours) • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "LED latérale verte • éclairage partiel"
+    ],
+    [
+     "Boîtier",
+     "Résine avec fond acier"
+    ],
+    [
+     "Verre",
+     "Résine / acrylique"
+    ],
+    [
+     "Dimensions / poids",
+     "38,2 × 35,2 × 8,5 mm • 21 g"
+    ],
+    [
+     "Étanchéité",
+     "Water resistant"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • entrecornes 18 mm standard. Changement simple ; très facile à passer sur cuir, nylon ou caoutchouc."
+    ]
+   ],
+   "pros": [
+    "Prix dérisoire pour une vraie montre fiable.",
+    "Légèreté et finesse remarquables.",
+    "Lisibilité simple, sans surcharge."
+   ],
+   "cons": [
+    "Rétroéclairage faible et très partiel.",
+    "Ressenti très utilitaire, presque “cheap”.",
+    "Aucune fonction premium : pas de solaire, pas de radio, pas de vraie étanchéité sportive."
+   ],
+   "collectionNote": "",
+   "reviews": "Consensus très net : les amateurs adorent son côté culte, sa simplicité et sa durabilité absurde pour le prix. Les critiques reviennent presque toujours sur l’éclairage médiocre et la sensation “plastique jouet”, mais beaucoup considèrent justement que ce dépouillement fait partie de son charme.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/fr/watches/casio/product.F-91W-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/fr/fr/timepiece/product/watch/F/F9/F91/F-91W-1/assets/F-91W-1_Seq1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/ZRkAAeSwpf9pgy5m/s-l500.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 1"
+  },
+  {
+   "id": "casio-f-105w-1a",
+   "brand": "Casio",
+   "model": "F-105W-1A",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Petit prix • digital",
+   "headline": "Le F-91W qui voit enfin dans le noir",
+   "tagline": "La petite Casio la plus sensée.",
+   "summary": "Le meilleur achat rationnel si tu aimes la simplicité d’un petit Casio digital mais refuses le rétroéclairage trop faible du F-91W.",
+   "style": "Digital utilitaire",
+   "movement": "Quartz • pile",
+   "movementDetail": "Quartz • pile CR2016",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Numérique",
+   "dims": {
+    "weight": 21.0,
+    "thickness": 9.6,
+    "diameter": 35.4,
+    "lugToLug": 39.0,
+    "lugWidth": 18
+   },
+   "crystal": "Résine / acrylique",
+   "case": "Résine avec fond acier",
+   "water": "Water resistant",
+   "lume": "Électroluminescence bleu-vert • plein écran",
+   "price": "≈ 20–30 €",
+   "priceEur": 20,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 20–30 €"
+    ],
+    [
+     "Style général",
+     "Digital utilitaire"
+    ],
+    [
+     "Énergie",
+     "Quartz • pile CR2016"
+    ],
+    [
+     "Autonomie",
+     "≈ 7 ans"
+    ],
+    [
+     "Affichage",
+     "Digital"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième ; mois réglable mais non affiché en permanence"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique simple • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Électroluminescence bleu-vert • plein écran"
+    ],
+    [
+     "Boîtier",
+     "Résine avec fond acier"
+    ],
+    [
+     "Verre",
+     "Résine / acrylique"
+    ],
+    [
+     "Dimensions / poids",
+     "39 × 35,4 × 9,6 mm • 21 g"
+    ],
+    [
+     "Étanchéité",
+     "Water resistant"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • entrecornes 18 mm standard."
+    ]
+   ],
+   "pros": [
+    "Très bon éclairage, homogène et agréable.",
+    "Toujours très léger et abordable.",
+    "Esprit utilitaire très pur."
+   ],
+   "cons": [
+    "Moins iconique visuellement que le F-91W.",
+    "Boîtier un peu plus épais.",
+    "Toujours très basique sur le reste."
+   ],
+   "collectionNote": "",
+   "reviews": "Les amateurs voient souvent la F-105 comme le “sweet spot” caché des petits Casio : presque aussi simple que la F-91W, mais beaucoup plus convaincante la nuit. Le principal reproche est qu’elle a moins d’aura historique et un look un peu moins puriste.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/fr/watches/casio/product.F-105W-1A/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/fr/fr/timepiece/product/watch/F/F1/F10/F-105W-1A/assets/F-105W-1A_Seq1.png.transform/main-visual-pc/image.png",
+      "https://www.casio.com/content/dam/casio/product-info/locales/mx/es-ar/timepiece/product/watch/F/F1/F10/F-105W-1A/assets/F-105W-1A_Seq1.jpg.transform/main-visual-sp/image.jpg",
+      "https://i.ebayimg.com/images/g/mrsAAOSwNTdiHINT/s-l400.jpg",
+      "https://down-id.img.susercontent.com/file/afdd0b7aef7fe6ae50300eccc781bae2"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 2"
+  },
+  {
+   "id": "casio-a158wa-1",
+   "brand": "Casio",
+   "model": "A158WA-1",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Abordable • vintage digital",
+   "headline": "Le vintage fin, presque bijou",
+   "tagline": "Le chic rétro sans effort.",
+   "summary": "Si ton critère principal est le look vintage fin, avec un profil discret sous manche, l’A158 est l’une des meilleures portes d’entrée.",
+   "style": "Vintage digital",
+   "movement": "Quartz • pile",
+   "movementDetail": "Quartz • pile CR2016",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Numérique",
+   "dims": {
+    "weight": 46.0,
+    "thickness": 8.2,
+    "diameter": 33.2,
+    "lugToLug": 36.8,
+    "lugWidth": 18
+   },
+   "crystal": "Résine / acrylique",
+   "case": "Résine chromée + bracelet acier",
+   "water": "Water resistant",
+   "lume": "LED verte • éclairage partiel",
+   "price": "≈ 29–40 €",
+   "priceEur": 29,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 29–40 €"
+    ],
+    [
+     "Style général",
+     "Vintage digital"
+    ],
+    [
+     "Énergie",
+     "Quartz • pile CR2016"
+    ],
+    [
+     "Autonomie",
+     "≈ 7 ans"
+    ],
+    [
+     "Affichage",
+     "Digital"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième ; mois non affiché en permanence"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique simple • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "LED verte • éclairage partiel"
+    ],
+    [
+     "Boîtier",
+     "Résine chromée + bracelet acier"
+    ],
+    [
+     "Verre",
+     "Résine / acrylique"
+    ],
+    [
+     "Dimensions / poids",
+     "36,8 × 33,2 × 8,2 mm • 46 g"
+    ],
+    [
+     "Étanchéité",
+     "Water resistant"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 18 mm standard. Les bracelets cuir fonctionnent bien, même si l’intégration laisse un petit jour près du boîtier."
+    ]
+   ],
+   "pros": [
+    "Très fine et très légère pour une version métal.",
+    "Super charme rétro.",
+    "Tarif toujours raisonnable."
+   ],
+   "cons": [
+    "Éclairage faible.",
+    "Bracelet léger et un peu “rattly”.",
+    "Finition plus “fashion” que véritablement horlogère."
+   ],
+   "collectionNote": "",
+   "reviews": "Elle plaît beaucoup pour son style 80s assumé et sa finesse. Les retours critiques pointent surtout l’éclairage décevant et le ressenti un peu léger du bracelet, mais ceux qui la choisissent le font précisément pour sa discrétion et son esthétique.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/intl/watches/casio/product.A158WA-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/intl/en/timepiece/product/watch/A/A1/A15/A158WA-1/assets/A158WA-1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/K2sAAOSw~6pnolVf/s-l1600.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 3"
+  },
+  {
+   "id": "casio-a168wa-1",
+   "brand": "Casio",
+   "model": "A168WA-1",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Abordable • vintage digital",
+   "headline": "Le meilleur vintage Casio pour la vraie vie",
+   "tagline": "Le rétro qui reste pratique.",
+   "summary": "Pour beaucoup, c’est le vrai bon choix vintage Casio : presque aussi charmant que l’A158, mais bien plus agréable à utiliser dès que la lumière baisse.",
+   "style": "Vintage digital",
+   "movement": "Quartz • pile",
+   "movementDetail": "Quartz • pile CR2016",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Numérique",
+   "dims": {
+    "weight": 50.0,
+    "thickness": 9.6,
+    "diameter": 36.3,
+    "lugToLug": 38.6,
+    "lugWidth": 18
+   },
+   "crystal": "Résine / acrylique",
+   "case": "Résine chromée + bracelet acier",
+   "water": "Water resistant",
+   "lume": "Électroluminescence bleu-vert • plein écran",
+   "price": "≈ 32–50 €",
+   "priceEur": 32,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 32–50 €"
+    ],
+    [
+     "Style général",
+     "Vintage digital"
+    ],
+    [
+     "Énergie",
+     "Quartz • pile CR2016"
+    ],
+    [
+     "Autonomie",
+     "≈ 7 ans"
+    ],
+    [
+     "Affichage",
+     "Digital"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième ; mois non affiché en permanence"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique simple • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Électroluminescence bleu-vert • plein écran"
+    ],
+    [
+     "Boîtier",
+     "Résine chromée + bracelet acier"
+    ],
+    [
+     "Verre",
+     "Résine / acrylique"
+    ],
+    [
+     "Dimensions / poids",
+     "38,6 × 36,3 × 9,6 mm • 50 g"
+    ],
+    [
+     "Étanchéité",
+     "Water resistant"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 18 mm standard. Très facile à personnaliser avec cuir ou maille fine."
+    ]
+   ],
+   "pros": [
+    "Électroluminescence bien meilleure que la simple LED.",
+    "Très bon équilibre entre look rétro et usage réel.",
+    "Toujours très portable au quotidien."
+   ],
+   "cons": [
+    "Toujours une construction plutôt légère.",
+    "Pas de fonctions avancées.",
+    "Boîtier chromé plus qu’acier massif."
+   ],
+   "collectionNote": "",
+   "reviews": "Très souvent cité comme le meilleur Casio vintage “raisonnable”. Les amateurs aiment son rétroéclairage EL et sa silhouette culte. Les critiques concernent surtout la sensation de légèreté et la finition simple, mais à ce prix la formule convainc énormément.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/fr/watches/casio/vintage/product.A168WA-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/fr/fr/timepiece/product/watch/A/A1/A16/A168WA-1/assets/A168WA-1_Seq1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/4lgAAOSwmrlUxde8/s-l1600.webp",
+      "https://i.ebayimg.com/images/g/mswAAOSw5ZBWOE-3/s-l400.jpg"
+     ]
+    },
+    "night": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/fr/fr/timepiece/product/watch/A/A1/A16/A168WA-1/assets/A168WA-1_03.jpg.transform/main-visual-sp/image.jpg",
+      "https://www.casio.com/content/dam/casio/product-info/locales/fr/fr/timepiece/product/watch/A/A1/A16/A168WA-1/assets/A168WA-1_03.jpg.transform/main-visual-pc/image.jpg",
+      "https://i.ebayimg.com/images/g/mswAAOSw5ZBWOE-3/s-l400.jpg"
+     ],
+     "caption": "Vue officielle du rétroéclairage électroluminescent."
+    }
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 4"
+  },
+  {
+   "id": "casio-wave-ceptor-wva-m630b-1ajf",
+   "brand": "Casio",
+   "model": "Wave Ceptor WVA-M630B-1AJF",
+   "reference": "",
+   "categories": [
+    "field"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field classique • solaire radio • ana-digi",
+   "headline": "La field solaire + radio la plus proche de l’esprit Timex Expedition",
+   "tagline": "La Timex Expedition Solar… avec l’heure atomique en plus.",
+   "summary": "C’est celle qui ressemble le plus à une Timex Expedition Solar tout en ajoutant exactement ce qui lui manque : la synchronisation radio. Les grands chiffres arabes, le bracelet textile et le cadran noir lui donnent un vrai look field, sans basculer dans l’esthétique instrument de la Pro Trek.",
+   "style": "Field",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6",
+   "display": "Hybride",
+   "dims": {
+    "weight": 34.7,
+    "thickness": 11.0,
+    "diameter": 42.1,
+    "lugToLug": 45.1,
+    "lugWidth": 20
+   },
+   "crystal": "Verre résine",
+   "case": "Résine / acier inoxydable",
+   "water": "5 bar / 50 m",
+   "lume": "Neobrite + LED ambre avec rémanence",
+   "price": "≈ 90–130 € import",
+   "priceEur": 90,
+   "availability": "Import JDM",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 90–130 € import"
+    ],
+    [
+     "Style général",
+     "Field"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 4 mois sans lumière • ≈ 22 mois en économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Hybride analogique + petit écran digital"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième sur l’écran digital"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6 • Europe / UK / USA / Chine / Japon"
+    ],
+    [
+     "Éclairage / lume",
+     "Neobrite + LED ambre avec rémanence"
+    ],
+    [
+     "Boîtier",
+     "Résine / acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Verre résine"
+    ],
+    [
+     "Dimensions / poids",
+     "45,1 × 42,1 × 11 mm • 34,7 g"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m"
+    ],
+    [
+     "Disponibilité",
+     "JDM • import facile ; disponibilité variable en Europe"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard d’après les propriétaires, avec cornes classiques. Très adaptée au canvas, cuir ou NATO."
+    ]
+   ],
+   "pros": [
+    "Tough Solar + Multi Band 6 à un tarif très bas.",
+    "Grands chiffres arabes et vraie esthétique field.",
+    "Très légère, et facile à transformer avec un bracelet 20 mm.",
+    "Jour/date, world time, alarmes, chrono et timer sans surcharger le cadran."
+   ],
+   "cons": [
+    "Seulement 50 m d’étanchéité.",
+    "Verre résine, plus sensible aux rayures que le saphir.",
+    "Construction légère résine/acier : pas de sensation premium.",
+    "Bracelet textile d’origine souvent jugé trop rigide."
+   ],
+   "collectionNote": "",
+   "reviews": "Les retours d’amateurs la décrivent très souvent comme la vraie “field watch Casio” cachée : très lisible, légère, précise et extrêmement pratique grâce au solaire + radio. Les reproches sont remarquablement constants : bracelet d’origine rigide, verre résine et seulement 50 m. Autrement dit, la technologie interne impressionne davantage que les matériaux extérieurs.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/jp/watches/casio/product.WVA-M630B-1A/"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.lheurepassion.com/blog/casio/avis-casio-wva-m630.html"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/jp/ja/timepiece/product/watch/W/WV/WVA/WVA-M630B-1A/assets/WVA-M630B-1A.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/thumbs/images/g/7egAAOSwcBphqIuj/s-l500.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 5"
+  },
+  {
+   "id": "casio-g-shock-gw-m5610u-1",
+   "brand": "Casio",
+   "model": "G-Shock GW-M5610U-1",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Excellent rapport fonctions/prix",
+   "headline": "La montre “set and forget” par excellence",
+   "tagline": "Le meilleur achat pragmatique de toute la sélection.",
+   "summary": "La référence évidente si tu veux un digital robuste, solaire, radio-piloté et presque sans entretien, sans basculer dans le haut de gamme.",
+   "style": "Sport / tool",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6",
+   "display": "Numérique",
+   "dims": {
+    "weight": 52.0,
+    "thickness": 12.7,
+    "diameter": 43.2,
+    "lugToLug": 46.7,
+    "lugWidth": 22
+   },
+   "crystal": "Verre minéral",
+   "case": "Résine • structure G-Shock",
+   "water": "200 m",
+   "lume": "LED blanche • rétroéclairage complet • auto-light",
+   "price": "≈ 115–140 €",
+   "priceEur": 115,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 115–140 €"
+    ],
+    [
+     "Style général",
+     "Sport / tool"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 10 mois sans lumière • ≈ 22 mois en obscurité avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Digital"
+    ],
+    [
+     "Date",
+     "Mois + quantième + jour de la semaine"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’en 2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6"
+    ],
+    [
+     "Éclairage / lume",
+     "LED blanche • rétroéclairage complet • auto-light"
+    ],
+    [
+     "Boîtier",
+     "Résine • structure G-Shock"
+    ],
+    [
+     "Verre",
+     "Verre minéral"
+    ],
+    [
+     "Dimensions / poids",
+     "46,7 × 43,2 × 12,7 mm • 52 g"
+    ],
+    [
+     "Étanchéité",
+     "200 m"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Pas directement. Fixation G-Shock propriétaire ; standard possible via adaptateurs tiers (souvent 20 ou 22 mm)."
+    ]
+   ],
+   "pros": [
+    "Fonctions très complètes pour le prix.",
+    "Précision automatique grâce au radio-pilotage.",
+    "Très bonne autonomie et vraie robustesse."
+   ],
+   "cons": [
+    "Affichage un peu daté et angles LCD moyens face aux écrans MIP modernes.",
+    "Look G-Shock plus utilitaire qu’élégant.",
+    "Pas de bracelet standard sans adaptateur."
+   ],
+   "collectionNote": "",
+   "reviews": "Les retours professionnels et amateurs convergent fortement : c’est l’une des meilleures Casio jamais positionnées en rapport qualité/fonctions/prix. Elle est célébrée pour son côté “outil parfait”. Les réserves portent surtout sur l’écran LCD classique, moins flatteur visuellement que les nouvelles générations MIP, et sur l’allure résolument utilitaire.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/fr/watches/gshock/product.GW-M5610U-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1/assets/GW-M5610U-1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/T1IAAOSwrUJnIfCO/s-l1600.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "écran positif",
+     "ref": "GW-M5610U-1",
+     "color": "#c8cbc4",
+     "note": "La référence la plus lisible et la plus recommandée.",
+     "url": "https://www.casio.com/fr/watches/gshock/product.GW-M5610U-1/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1/assets/GW-M5610U-1.png.transform/main-visual-pc/image.png",
+       "https://i.ebayimg.com/images/g/T1IAAOSwrUJnIfCO/s-l1600.webp"
+      ]
+     }
+    },
+    {
+     "name": "écran négatif",
+     "ref": "GW-M5610U-1B",
+     "color": "#2b2b2b",
+     "note": "Plus épurée visuellement, mais lisibilité souvent inférieure.",
+     "url": "https://www.casio.com/europe/watches/gshock/product.GW-M5610U-1B/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1B/assets/GW-M5610U-1B.png.transform/main-visual-pc/image.png",
+       "https://i.ebayimg.com/thumbs/images/g/rhYAAeSwRT9qfs83/s-l500.jpg"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 6"
+  },
+  {
+   "id": "citizen-eco-drive-chandler-bm8180-03e",
+   "brand": "Citizen",
+   "model": "Eco-Drive Chandler BM8180-03E",
+   "reference": "",
+   "categories": [
+    "field"
+   ],
+   "status": "alternative",
+   "eyebrow": "Bonus field style • solaire",
+   "headline": "Le bonus field / fieldmaster",
+   "tagline": "Le détour field qui a du sens.",
+   "summary": "Si tu veux une esthétique field propre, lisible et sobre, tout en gardant le confort d’un solaire sans pile à changer, c’est une très bonne extension à ta sélection.",
+   "style": "Field",
+   "movement": "Solaire",
+   "movementDetail": "Eco-Drive solaire",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 9.5,
+    "diameter": 37.0,
+    "lugWidth": 18
+   },
+   "crystal": "Verre minéral",
+   "case": "Acier inoxydable",
+   "water": "100 m",
+   "lume": "Lume aiguilles + index • pas de rétroéclairage actif",
+   "price": "≈ 140–180 €",
+   "priceEur": 140,
+   "availability": "UE assez facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 140–180 €"
+    ],
+    [
+     "Style général",
+     "Field"
+    ],
+    [
+     "Énergie",
+     "Eco-Drive solaire"
+    ],
+    [
+     "Autonomie",
+     "≈ 6 mois pleine charge"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Lume aiguilles + index • pas de rétroéclairage actif"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Verre minéral"
+    ],
+    [
+     "Dimensions / poids",
+     "37 mm • env. 9,5 mm"
+    ],
+    [
+     "Étanchéité",
+     "100 m"
+    ],
+    [
+     "Disponibilité",
+     "EU assez facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 18 mm standard. Excellent candidat au changement de bracelet : cuir brun, NATO, canvas, caoutchouc…"
+    ]
+   ],
+   "pros": [
+    "Vrai look field, compact et très portable.",
+    "Eco-Drive pratique et fiable.",
+    "Jour + date en analogique, ce qui reste rare à ce prix."
+   ],
+   "cons": [
+    "Pas de radio-pilotage.",
+    "Verre minéral seulement.",
+    "Rendu plus outil que luxueux."
+   ],
+   "collectionNote": "",
+   "reviews": "Très bien vu par les amateurs de field watch abordable : taille jugée juste, cadran fonctionnel, excellent confort et zéro stress grâce à l’Eco-Drive. Les critiques notent qu’il reste simple sur les finitions et moins “premium” que des modèles plus chers, mais c’est précisément ce qui le rend attachant.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.citizenwatch.com/us/en/product/BM8180-03E.html"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://citizenwatch.widen.net/content/gzoliud0hm/webp",
+      "https://product.hstatic.net/1000223154/product/z4857766081493_69b243191dd413e29b7ccfc9b33b719a_b3824a599a7f451a82c6fcb052911349_master.jpg",
+      "https://m.media-amazon.com/images/I/71VjM5LOeYL._AC_SL1500_.jpg",
+      "https://m.media-amazon.com/images/I/81rW7pWFYWL._AC_SL1500_.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 7"
+  },
+  {
+   "id": "citizen-eco-drive-bm7108-22l",
+   "brand": "Citizen",
+   "model": "Eco-Drive BM7108-22L",
+   "reference": "",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Dress / casual • Eco-Drive • saphir",
+   "headline": "Le dress-casual solaire qui coche presque toutes les cases",
+   "tagline": "Saphir, 10 bar et seulement 10 mm d’épaisseur.",
+   "summary": "Le chaînon manquant de la sélection : une analogique discrète à index, assez habillée pour le bureau ou un costume mais assez robuste pour le quotidien. Elle combine Eco-Drive, saphir et 100 m dans un boîtier de 41 mm, avec un cuir brun d’origine.",
+   "style": "Dress / casual",
+   "movement": "Solaire • Eco-Drive",
+   "movementDetail": "Eco-Drive solaire • calibre E111",
+   "caliber": "E111",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 64.0,
+    "thickness": 10.0,
+    "diameter": 41.0,
+    "lugWidth": 22
+   },
+   "crystal": "Saphir",
+   "case": "Acier inoxydable • fond vissé",
+   "water": "10 bar / 100 m",
+   "lume": "Aiguilles + index luminescents",
+   "price": "≈ 150–169 €",
+   "priceEur": 150,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 150–169 € selon vendeur • 169 € tarif Citizen EU"
+    ],
+    [
+     "Style général",
+     "Dress / casual"
+    ],
+    [
+     "Énergie",
+     "Eco-Drive solaire • calibre E111"
+    ],
+    [
+     "Autonomie",
+     "≈ 180 jours pleine charge"
+    ],
+    [
+     "Affichage",
+     "Analogique • index bâtons uniquement"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple • correction manuelle selon les mois"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Aiguilles + index luminescents"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable • fond vissé"
+    ],
+    [
+     "Verre",
+     "Saphir"
+    ],
+    [
+     "Dimensions / poids",
+     "41 × 10 mm • 64 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "UE officiel • Citizen Europe"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 22 mm standard • cuir brun à boucle ardillon. Citizen indique une plage de poignet de 150 à 200 mm : à 20 cm, le bracelet d’origine est donc à sa limite haute."
+    ]
+   ],
+   "pros": [
+    "Rare combinaison Eco-Drive + saphir + 100 m dans cette gamme de prix.",
+    "41 mm mais seulement 10 mm d’épaisseur : nettement plus discrète qu’une field épaisse.",
+    "Cadran bleu à index simples et cuir brun : très facile à porter du jean au costume.",
+    "22 mm standard si tu veux changer de style plus tard."
+   ],
+   "cons": [
+    "Pas de radio-pilotage ni de calendrier perpétuel.",
+    "Petit guichet de date, assez discret.",
+    "Le bracelet d’origine peut être juste sur un poignet de 20 cm ; à vérifier avant achat.",
+    "Finition volontairement sobre plutôt que luxueuse."
+   ],
+   "collectionNote": "",
+   "reviews": "Les retours disponibles mettent surtout en avant le rapport équipement/prix : saphir, Eco-Drive, 100 m et boîtier relativement fin. Plusieurs propriétaires apprécient son côté polyvalent et sa lisibilité ; les réserves que l’on rencontre concernent surtout le bracelet d’origine chez certains utilisateurs et, plus ponctuellement, l’alignement de la trotteuse avec les index.",
+   "links": [
+    {
+     "label": "Fiche officielle Citizen EU",
+     "url": "https://citizenwatch.eu/en/p/bm7108-22l/"
+    },
+    {
+     "label": "Retours utilisateurs",
+     "url": "https://www.testbericht.de/produkte/citizen-bm7108-22l"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://citizenwatch.eu/media/thumbs/13/18/b49e67804c75644d54f557a1212c4a277ee3/1400x_crop%3Dcenter%3Bformat%3Dwebp/managed/be/a2/bea265ff10fbe44507909e0b51f97f44/BM7108-22L.png.thumb.webp",
+      "https://ocarat.twic.pics/286638-thickbox_default/montre-homme-bm7108-22l-citizen.jpg",
+      "https://ocarat.twic.pics/286638-large_default/montre-homme-bm7108-22l-citizen.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 8"
+  },
+  {
+   "id": "timex-expedition-field-post-solar",
+   "brand": "Timex",
+   "model": "Expedition Field Post Solar",
+   "reference": "TW2V03600",
+   "categories": [
+    "field"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field • solaire • analogique",
+   "headline": "La field solaire simple, robuste et disponible en Europe",
+   "tagline": "Le look Expedition sans pile à remplacer régulièrement.",
+   "summary": "Une field très lisible et volontairement simple : cadran bleu à chiffres arabes, boîtier acier, cuir brun et mouvement solaire. Elle n'a pas de radio-pilotage, mais apporte saphir antireflet, couronne vissée et 100 m à un tarif encore raisonnable.",
+   "style": "Field",
+   "movement": "Solaire",
+   "movementDetail": "Quartz solaire",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 70.98,
+    "thickness": 12.0,
+    "diameter": 41.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Acier inoxydable • finition brossée / microbillée",
+   "water": "100 m • couronne et fond vissés",
+   "lume": "Aiguilles et marquages luminescents",
+   "price": "189 €",
+   "priceEur": 189,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "189 € tarif officiel Timex EU"
+    ],
+    [
+     "Style général",
+     "Field"
+    ],
+    [
+     "Énergie",
+     "Quartz solaire"
+    ],
+    [
+     "Autonomie",
+     "Jusqu’à ≈ 4 mois sur charge complète"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Aiguilles et marquages luminescents"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable • finition brossée / microbillée"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "41 × 12 mm • 70,98 g"
+    ],
+    [
+     "Étanchéité",
+     "100 m • couronne et fond vissés"
+    ],
+    [
+     "Disponibilité",
+     "UE officiel • Timex Europe"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm • cuir Ecco DriTan à pompes rapides"
+    ]
+   ],
+   "pros": [
+    "Vrai dessin field, simple et très lisible.",
+    "Saphir antireflet et 100 m à moins de 200 €.",
+    "Solaire, donc très peu d’entretien au quotidien.",
+    "20 mm standard : excellente base pour NATO, canvas ou cuir."
+   ],
+   "cons": [
+    "41 mm : sensiblement plus grande que les field compactes recherchées précédemment.",
+    "Aucun radio-pilotage ni calendrier perpétuel.",
+    "Réserve solaire annoncée de 4 mois, inférieure aux Eco-Drive / Tough Solar les plus endurants.",
+    "Retours utilisateurs partagés sur la qualité du lume."
+   ],
+   "collectionNote": "",
+   "reviews": "Les retours mettent surtout en avant la lisibilité, la simplicité, le confort et le bon rapport entre saphir, solaire et étanchéité. La réserve la plus récurrente concerne le lume, jugé trop faible ou trop court par certains propriétaires. Elle reste surtout intéressante comme field solaire accessible plutôt que comme montre technologique sophistiquée.",
+   "links": [
+    {
+     "label": "Fiche officielle Timex EU",
+     "url": "https://timex.eu/products/expedition-field-post-solar-41mm-eco-friendly-leather-strap-watch-tw2v03600"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://cdn.shopify.com/s/files/1/0787/5375/9521/files/TW2V03600.jpg?v=1740482135",
+      "https://cdn.shopify.com/s/files/1/0787/5375/9521/files/TW2V03600_B.jpg?v=1740482135",
+      "https://cdn.shopify.com/s/files/1/0787/5375/9521/files/TW2V03600_C.jpg?v=1740482136"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 9"
+  },
+  {
+   "id": "casio-g-shock-gw-bx5600-1",
+   "brand": "Casio",
+   "model": "G-Shock GW-BX5600-1",
+   "reference": "",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Milieu de gamme • digital avancé",
+   "headline": "La square moderne à écran MIP",
+   "tagline": "Le carré Casio entre dans l’ère moderne.",
+   "summary": "Une square Casio contemporaine : lisibilité nettement supérieure, connectivité utile, et toujours le couple gagnant solaire + radio.",
+   "style": "Sport / tool",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6 + Bluetooth",
+   "display": "Numérique",
+   "dims": {
+    "weight": 51.0,
+    "thickness": 13.4,
+    "diameter": 44.1,
+    "lugToLug": 49.1
+   },
+   "crystal": "Verre minéral",
+   "case": "Résine • structure G-Shock",
+   "water": "200 m",
+   "lume": "LED blanche • rétroéclairage complet • auto-light",
+   "price": "≈ 190–230 €",
+   "priceEur": 190,
+   "availability": "UE variable / import",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 190–230 €"
+    ],
+    [
+     "Style général",
+     "Sport / tool"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 6 mois sans lumière • ≈ 22 mois en obscurité avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Digital • écran MIP"
+    ],
+    [
+     "Date",
+     "Mois + quantième + jour de la semaine"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’en 2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6 + Bluetooth"
+    ],
+    [
+     "Éclairage / lume",
+     "LED blanche • rétroéclairage complet • auto-light"
+    ],
+    [
+     "Boîtier",
+     "Résine • structure G-Shock"
+    ],
+    [
+     "Verre",
+     "Verre minéral"
+    ],
+    [
+     "Dimensions / poids",
+     "49,1 × 44,1 × 13,4 mm • 51 g"
+    ],
+    [
+     "Étanchéité",
+     "200 m"
+    ],
+    [
+     "Disponibilité",
+     "Disponibilité variable en Europe • import parfois nécessaire"
+    ],
+    [
+     "Bracelets standards",
+     "Pas directement. Fixation propriétaire ; standard possible via adaptateurs."
+    ]
+   ],
+   "pros": [
+    "Écran MIP très lisible, gros point fort.",
+    "Radio + Bluetooth = confort maximal.",
+    "Excellente polyvalence d’usage."
+   ],
+   "cons": [
+    "Plus chère que la M5610U.",
+    "Esthétique moins “puriste” pour certains amateurs.",
+    "Toujours pas de bracelets standards natifs."
+   ],
+   "collectionNote": "",
+   "reviews": "Les premiers retours saluent presque tous l’écran MIP, enfin à la hauteur de l’usage quotidien. Les plus attachés aux squares historiques trouvent parfois qu’elle perd un peu de l’âme austère des anciennes 5600, mais sur le plan pratique la plupart la jugent meilleure.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/uk/watches/gshock/product.GW-BX5600-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/uk/en-gb/timepiece/product/watch/G/GW/GWB/gw-bx5600-1/assets/GW-BX5600-1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/1H0AAeSwHjZpJpo9/s-l1600.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 10"
+  },
+  {
+   "id": "casio-lineage-lcw-m170d-1a",
+   "brand": "Casio",
+   "model": "Lineage LCW-M170D-1A",
+   "reference": "",
+   "categories": [
+    "gada",
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Milieu de gamme • hybride analogique/digital",
+   "headline": "Le sleeper chic et technologique",
+   "tagline": "La Casio des connaisseurs.",
+   "summary": "Une Casio étonnamment élégante et discrète, bourrée de fonctions sans tomber dans le look “gadget”. L’une des meilleures surprises de toute ta liste.",
+   "style": "Dress / sport",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6",
+   "display": "Hybride",
+   "dims": {
+    "weight": 122.0,
+    "thickness": 9.2,
+    "diameter": 39.5,
+    "lugToLug": 46.4,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir",
+   "case": "Acier inoxydable",
+   "water": "5 bar",
+   "lume": "LED ambre sur zone digitale / cadran • éclairage partiel",
+   "price": "≈ 200–249 €",
+   "priceEur": 200,
+   "availability": "UE + JDM",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 200–249 €"
+    ],
+    [
+     "Style général",
+     "Dress / sport"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 4 mois sans lumière • ≈ 22 mois en obscurité avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Hybride analogique + petit écran digital"
+    ],
+    [
+     "Date",
+     "Écran : mois + quantième + jour ; multiples affichages"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’en 2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6"
+    ],
+    [
+     "Éclairage / lume",
+     "LED ambre sur zone digitale / cadran • éclairage partiel"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Saphir"
+    ],
+    [
+     "Dimensions / poids",
+     "46,4 × 39,5 × 9,2 mm • 122 g"
+    ],
+    [
+     "Étanchéité",
+     "5 bar"
+    ],
+    [
+     "Disponibilité",
+     "EU + JDM selon la référence exacte"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Bon candidat pour cuir ou textile si tu veux accentuer le côté habillé."
+    ]
+   ],
+   "pros": [
+    "Format fin, acier, saphir : très portable au quotidien.",
+    "Solaire + radio + calendrier complet dans une montre habillée.",
+    "Affichage hybride intelligent."
+   ],
+   "cons": [
+    "Écran digital petit.",
+    "Éclairage moins spectaculaire qu’une vraie digitale.",
+    "Bracelet et finition sérieux, mais pas au niveau du vrai luxe."
+   ],
+   "collectionNote": "",
+   "reviews": "Beaucoup de passionnés la décrivent comme un “presque watch parfaite du quotidien” tant elle combine sobriété, technologie et dimensions raisonnables. Les critiques portent surtout sur le petit affichage numérique et sur un feeling de bracelet correct sans plus, mais globalement sa réputation est excellente.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/fr/watches/casio/product.LCW-M170D-1A/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/jp/ja/timepiece/product/watch/L/LC/LCW/LCW-M170D-1A/assets/LCW-M170D-1A.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/1u0AAOSwUYxnpaRt/s-l1600.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 11"
+  },
+  {
+   "id": "orient-bambino-38-4-mm",
+   "brand": "Orient",
+   "model": "Bambino 38,4 mm",
+   "reference": "RA-AC0M03S",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Milieu de gamme • automatique",
+   "headline": "Le cœur mécanique de la sélection",
+   "tagline": "L’option sentimentale, dans le bon sens du terme.",
+   "summary": "La Bambino n’est pas la plus technique ici, mais c’est celle qui apporte de l’émotion mécanique et un vrai classicisme habillé.",
+   "style": "Dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique F6724 • remontage manuel + stop seconde",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 12.5,
+    "diameter": 38.4,
+    "lugWidth": 20
+   },
+   "crystal": "Verre minéral bombé",
+   "case": "Acier inoxydable",
+   "water": "30 m",
+   "lume": "Pas de lume notable",
+   "price": "≈ 255–300 €",
+   "priceEur": 255,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 255–300 €"
+    ],
+    [
+     "Style général",
+     "Dress"
+    ],
+    [
+     "Énergie",
+     "Automatique F6724 • remontage manuel + stop seconde"
+    ],
+    [
+     "Autonomie",
+     "> 40 h hors poignet"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h uniquement"
+    ],
+    [
+     "Calendrier",
+     "Non perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Pas de lume notable"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Verre minéral bombé"
+    ],
+    [
+     "Dimensions / poids",
+     "38,4 mm • 12,5 mm"
+    ],
+    [
+     "Étanchéité",
+     "30 m"
+    ],
+    [
+     "Disponibilité",
+     "EU facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. L’un des meilleurs modèles de la liste pour jouer avec le cuir."
+    ]
+   ],
+   "pros": [
+    "Très beau style dress watch, particulièrement dans ce diamètre.",
+    "Mouvement automatique très correct pour le prix.",
+    "Changement de bracelet particulièrement gratifiant."
+   ],
+   "cons": [
+    "Étanchéité modeste.",
+    "Pas de lume, pas de solaire, pas de radio.",
+    "Verre minéral, donc moins premium que le saphir."
+   ],
+   "collectionNote": "",
+   "reviews": "Les amateurs la recommandent souvent comme première montre mécanique habillée sérieuse : belle, abordable, attachante. Les critiques relèvent surtout que, face aux solaires radio de ta sélection, elle joue sur un autre registre : moins pratique, mais plus émotionnel et plus traditionnel.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://orient-watch.com/en/orient/collection/classic/classic-and-simple-style-38/RA-AC0M03S/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://orientwatchtaiwan.com/cdn/shop/files/RA-AC0M03S_s.jpg?v=1721290122"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 12"
+  },
+  {
+   "id": "seiko-selection-sbtm31x",
+   "brand": "Seiko",
+   "model": "Selection SBTM31x",
+   "reference": "les trois cadrans",
+   "categories": [
+    "gada",
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Import Japon • solaire radio • page regroupée",
+   "headline": "Même base technique, trois tempéraments : bleu, noir et vert",
+   "tagline": "Un trio JDM très cohérent : solaire, radio, saphir et 39,5 mm.",
+   "summary": "Les trois références reposent sur exactement la même architecture : boîtier fin, saphir, solaire, radio-pilotage et 100 m. Le choix se fait donc presque uniquement sur la couleur de cadran et la personnalité visuelle.",
+   "style": "Dress / classique",
+   "movement": "Solaire",
+   "movementDetail": "Solaire • calibre 7B72",
+   "caliber": "7B72",
+   "radio": "Oui • multibande",
+   "display": "Analogique",
+   "dims": {
+    "weight": 115.0,
+    "thickness": 9.5,
+    "diameter": 39.5,
+    "lugToLug": 46.1,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir Super-Clear",
+   "case": "Acier inoxydable",
+   "water": "10 bar / 100 m",
+   "lume": "LumiBrite aiguilles + index",
+   "price": "≈ 260–320 € rendu UE*",
+   "priceEur": 260,
+   "availability": "Import Japon",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 260–320 € rendu UE*"
+    ],
+    [
+     "Style général",
+     "Dress / classique"
+    ],
+    [
+     "Énergie",
+     "Solaire • calibre 7B72"
+    ],
+    [
+     "Autonomie",
+     "≈ 9 mois pleine charge • ≈ 2 ans avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième uniquement"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’au 31/12/2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Japon / Chine / USA / Allemagne / Royaume-Uni"
+    ],
+    [
+     "Éclairage / lume",
+     "LumiBrite aiguilles + index"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Saphir Super-Clear"
+    ],
+    [
+     "Dimensions / poids",
+     "39,5 × 46,1 × 9,5 mm • 115 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "Principalement import Japon"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard"
+    ]
+   ],
+   "pros": [
+    "Excellente base technique à ce niveau de prix.",
+    "39,5 mm et 9,5 mm : très bon compromis d’épaisseur.",
+    "Les trois cadrans restent sobres, sans surcharge inutile."
+   ],
+   "cons": [
+    "Import JDM à gérer.",
+    "Seulement la date, pas le jour.",
+    "Pas de photo de nuit officielle vraiment exploitable pour les trois variantes."
+   ],
+   "collectionNote": "",
+   "reviews": "Les avis sérieux et les retours d’amateurs convergent : c’est un trio extrêmement cohérent, très pratique au quotidien et plus fin qu’on ne l’imagine. La bleue est souvent jugée la plus élégante, la noire la plus polyvalente, et la verte la plus originale.",
+   "links": [
+    {
+     "label": "Fiche principale",
+     "url": "https://store.seikowatches.com/collections/seiko-selection-mens"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.youtube.com/watch?v=1oM6SgQ6sYU"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://tshop.r10s.jp/tokeiten/cabinet/seiko-08/seiko-sl-solar11_2.jpg?fitin=720%3A720"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "cadran bleu",
+     "ref": "SBTM321",
+     "color": "#24364b",
+     "note": "La plus élégante et lumineuse du trio.",
+     "url": "https://store.seikowatches.com/products/sbtm321",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://store.seikowatches.com/cdn/shop/files/SBTM321_1400x.png?v=1701741539",
+       "https://shop.theclockhouse.jp/cdn/shop/products/sbtm321_5_1800x1800.jpg?v=1771829801"
+      ]
+     }
+    },
+    {
+     "name": "cadran noir",
+     "ref": "SBTM323",
+     "color": "#1b1c1e",
+     "note": "La plus sobre et la plus facile à tout porter.",
+     "url": "https://store.seikowatches.com/collections/seiko-selection-mens/products/sbtm323",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/14/20/SBTM323/SBTM323.png?mh=1200&mw=1200"
+      ]
+     }
+    },
+    {
+     "name": "cadran vert",
+     "ref": "SBTM319",
+     "color": "#2f4a3a",
+     "note": "La plus singulière, avec juste ce qu’il faut de caractère.",
+     "url": "https://store.seikowatches.com/collections/seiko-selection_s-series/products/sbtm319",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://store.seikowatches.com/cdn/shop/files/SBTM319_1800x1800.png?v=1701741531"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 13"
+  },
+  {
+   "id": "citizen-attesa-cb3010-57e",
+   "brand": "Citizen",
+   "model": "Attesa CB3010-57E",
+   "reference": "",
+   "categories": [
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Milieu / haut de gamme • titane",
+   "headline": "Le titane japonais à l’efficacité feutrée",
+   "tagline": "La précision en sourdine.",
+   "summary": "Une montre sérieuse, légère, presque clinique dans sa maîtrise : peu démonstrative, mais extrêmement bien pensée.",
+   "style": "Sport / dress",
+   "movement": "Solaire",
+   "movementDetail": "Eco-Drive solaire • calibre H128",
+   "caliber": "H128",
+   "radio": "Oui • multibande",
+   "display": "Analogique",
+   "dims": {
+    "weight": 87.0,
+    "thickness": 9.3,
+    "diameter": 40.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Super Titanium",
+   "water": "10 bar",
+   "lume": "Lume aiguilles + index",
+   "price": "≈ 285–320 € import* • ≈ 470 € stock UE",
+   "priceEur": 285,
+   "availability": "Import JDM / UE rare",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 285–320 € import* • ≈ 470 € stock UE"
+    ],
+    [
+     "Style général",
+     "Sport / dress"
+    ],
+    [
+     "Énergie",
+     "Eco-Drive solaire • calibre H128"
+    ],
+    [
+     "Autonomie",
+     "Jusqu’à ≈ 2 ans avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième uniquement"
+    ],
+    [
+     "Calendrier",
+     "Calendrier perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Japon / Chine / Europe / USA"
+    ],
+    [
+     "Éclairage / lume",
+     "Lume aiguilles + index"
+    ],
+    [
+     "Boîtier",
+     "Super Titanium"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "40 mm • 9,3 mm • 87 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar"
+    ],
+    [
+     "Disponibilité",
+     "Surtout JDM / import ; quelques revendeurs UE"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard sur cette famille. Le passage sur cuir ou textile est envisageable, même si le bracelet titane fait partie de son charme."
+    ]
+   ],
+   "pros": [
+    "Titane très léger et très confortable.",
+    "Solaire + radio + calendrier perpétuel = entretien minimal.",
+    "Boîtier fin et qualitatif."
+   ],
+   "cons": [
+    "Design très sobre, presque trop discret pour certains.",
+    "Import/garantie à surveiller.",
+    "Affichage de date seulement."
+   ],
+   "collectionNote": "",
+   "reviews": "Les amateurs de quartz haut de gamme l’apprécient pour sa cohérence : légèreté, précision, confort, sophistication discrète. Ceux qui la trouvent moins séduisante lui reprochent surtout un style un peu froid ou trop sage ; techniquement, elle est rarement critiquée.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://citizen.jp/shop/attesa/g/gCB3010-57E/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://citizen.jp/img/goods/5/ATS_CB3010-57E_00_EC.png",
+      "https://botticino.cafe24.com/web/product/medium/FIORITTO/CITIZEN%202-26/CB3010-57E.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 14"
+  },
+  {
+   "id": "seiko-selection-sbtm329",
+   "brand": "Seiko",
+   "model": "Selection SBTM329",
+   "reference": "",
+   "categories": [
+    "field",
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field classique officieuse • solaire radio • JDM",
+   "headline": "La field classique solaire + radio que l’on cherchait",
+   "tagline": "Le meilleur candidat “field solaire + radio” de la sélection.",
+   "summary": "Ce n’est pas une “field” officielle chez Seiko, mais c’est probablement le modèle le plus proche de ton idéal : cadran noir à grands chiffres arabes, très lisible, léger, fin, solaire, radio-piloté en Europe, saphir et 100 m. Sur un bracelet cuir ou textile, son identité field devient évidente.",
+   "style": "Field / classique",
+   "movement": "Solaire",
+   "movementDetail": "Solaire radio • calibre 7B75",
+   "caliber": "7B75",
+   "radio": "Oui • multibande",
+   "display": "Analogique",
+   "dims": {
+    "weight": 72.0,
+    "thickness": 9.5,
+    "diameter": 39.5,
+    "lugToLug": 46.1,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir Super-Clear",
+   "case": "Titane pur avec traitement DiaShield",
+   "water": "10 bar / 100 m",
+   "lume": "LumiBrite sur aiguilles + plots/index ; chiffres arabes non luminescents",
+   "price": "≈ 320–380 € rendu UE*",
+   "priceEur": 320,
+   "availability": "Import Japon",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 320–380 € rendu UE*"
+    ],
+    [
+     "Style général",
+     "Field / classique"
+    ],
+    [
+     "Énergie",
+     "Solaire radio • calibre 7B75"
+    ],
+    [
+     "Autonomie",
+     "≈ 9 mois pleine charge • ≈ 2 ans avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’au 31/12/2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Japon / Chine / USA / Allemagne / Royaume-Uni"
+    ],
+    [
+     "Éclairage / lume",
+     "LumiBrite sur aiguilles + plots/index ; chiffres arabes non luminescents"
+    ],
+    [
+     "Boîtier",
+     "Titane pur avec traitement DiaShield"
+    ],
+    [
+     "Verre",
+     "Saphir Super-Clear"
+    ],
+    [
+     "Dimensions / poids",
+     "39,5 × 46,1 × 9,5 mm • 72 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "JDM • import Japon principalement"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Très bon candidat au cuir brun, NATO, canvas ou caoutchouc."
+    ]
+   ],
+   "pros": [
+    "Le combo rare : solaire + radio européen + look field classique.",
+    "Titane, seulement 72 g, saphir et 9,5 mm d’épaisseur.",
+    "20 mm standard : énorme liberté de bracelets."
+   ],
+   "cons": [
+    "Import Japon presque obligatoire.",
+    "Les chiffres arabes eux-mêmes ne sont pas luminescents.",
+    "Le rehaut des villes/fuseaux ajoute un peu de texte autour du cadran."
+   ],
+   "collectionNote": "",
+   "reviews": "Les avis d’utilisateurs sont particulièrement positifs sur la lisibilité, la légèreté et le côté “toujours prête”. Plusieurs passionnés la décrivent spontanément comme une field watch idéale ou un excellent GADA. Les critiques sont mineures : absence de lume sur les chiffres et esthétique du rehaut world-time un peu plus technique qu’une Hamilton très pure.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.seikowatches.com/jp-ja/products/seikoselection/sbtm329"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.reddit.com/r/Watches/comments/1rxn5ib/seiko_jdm_the_perfect_field_watch_doesnt_ex_sbtm/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/14/20/SBTM329/SBTM329.png?mh=1200&mw=1200",
+      "https://thejapanesefactory.com/cdn/shop/files/Seiko_Selection_SBTM329_JDM_Solar_Radio_Wave_Men_s_Wristwatch_1.webp?v=1776159156&width=1200"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 15"
+  },
+  {
+   "id": "seiko-5-sports-field",
+   "brand": "Seiko",
+   "model": "5 Sports Field",
+   "reference": "SRPG35 / SRPG27",
+   "categories": [
+    "field"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field • mécanique automatique",
+   "headline": "La vraie field automatique accessible et sans batterie",
+   "tagline": "Même montre, deux caractères : terrain ou acier.",
+   "summary": "Deux déclinaisons très proches techniquement de la Seiko 5 Sports Field : boîtier compact de 39,4 mm, calibre automatique 4R36 avec remontage manuel, jour/date et 100 m. La SRPG35 assume davantage l’esprit field avec son nylon kaki et ses chiffres beige ; la SRPG27 conserve le même cadran militaire mais sur bracelet acier.",
+   "style": "Field",
+   "movement": "Mécanique auto",
+   "movementDetail": "Mécanique automatique • remontage manuel possible",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 13.2,
+    "diameter": 39.4,
+    "lugToLug": 48.1,
+    "lugWidth": 20,
+    "weight": 77.0
+   },
+   "crystal": "Hardlex bombé",
+   "case": "Acier inoxydable • fond vissé transparent",
+   "water": "10 bar / 100 m",
+   "lume": "LumiBrite sur aiguilles et index",
+   "price": "320 € tarif officiel UE",
+   "priceEur": 320,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "320 € tarif officiel UE • promotions possibles selon revendeur"
+    ],
+    [
+     "Style général",
+     "Field"
+    ],
+    [
+     "Énergie",
+     "Mécanique automatique • remontage manuel possible"
+    ],
+    [
+     "Calibre",
+     "Seiko 4R36 • 24 rubis • 21 600 alternances/h"
+    ],
+    [
+     "Autonomie",
+     "≈ 41 heures"
+    ],
+    [
+     "Affichage",
+     "Analogique • échelle 12 h + 24 h"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "LumiBrite sur aiguilles et index"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable • fond vissé transparent"
+    ],
+    [
+     "Verre",
+     "Hardlex bombé"
+    ],
+    [
+     "Dimensions",
+     "39,4 × 13,2 mm • corne à corne 48,1 mm"
+    ],
+    [
+     "Poids",
+     "SRPG35 : 77 g • SRPG27 : 146 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "UE officiel • encore au catalogue Seiko France / Belgique"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm. Très facile à passer sur NATO, canvas, cuir ou bracelet acier."
+    ]
+   ],
+   "pros": [
+    "39,4 mm : taille très cohérente pour une field moderne.",
+    "Calibre 4R36 simple, répandu, remontable à la main et sans batterie.",
+    "Jour + date très pratiques au quotidien.",
+    "100 m et LumiBrite : vraie polyvalence terrain / ville.",
+    "20 mm standard : énorme choix de bracelets."
+   ],
+   "cons": [
+    "13,2 mm d’épaisseur : plus épaisse qu’une field quartz ou solaire.",
+    "Hardlex plutôt que saphir.",
+    "Précision mécanique nettement moins rigoureuse qu’un quartz/radio.",
+    "41 h de réserve seulement : arrêt possible après un week-end sans la porter."
+   ],
+   "collectionNote": "",
+   "reviews": "La famille SRPG est appréciée pour ses proportions beaucoup plus équilibrées que les anciennes Seiko 5 field de grand diamètre, sa lisibilité et son calibre 4R36 facile à vivre. La SRPG35 est généralement la plus convaincante si l’objectif est un vrai look field ; la SRPG27 est plus polyvalente grâce à l’acier. Les critiques reviennent surtout sur l’épaisseur, le Hardlex et la réserve de marche assez courte face aux mouvements automatiques plus récents.",
+   "links": [
+    {
+     "label": "SRPG35 officielle",
+     "url": "https://www.seikowatches.com/fr-fr/products/5sports/srpg35"
+    },
+    {
+     "label": "SRPG27 officielle",
+     "url": "https://www.seikowatches.com/fr-fr/products/5sports/srpg27"
+    },
+    {
+     "label": "Histoire de la Field series",
+     "url": "https://www.seikowatches.com/fr-fr/products/5sports/special/heritage_in_motion/field_series/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://seikousa.com/cdn/shop/products/SRPG35_4.png?v=1744226842",
+      "https://misekionline.com/cdn/shop/files/SEIKO5SPORTS_SRPG35_01.png?v=1754780780"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "Nylon kaki • chiffres beige",
+     "ref": "SRPG35K1",
+     "color": "#5b5a3c",
+     "note": "La plus field et la plus légère : 77 g avec bracelet nylon traversant.",
+     "url": "https://www.seikowatches.com/fr-fr/products/5sports/srpg35",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://seikousa.com/cdn/shop/products/SRPG35_4.png?v=1744226842",
+       "https://misekionline.com/cdn/shop/files/SEIKO5SPORTS_SRPG35_01.png?v=1754780780"
+      ]
+     }
+    },
+    {
+     "name": "Bracelet acier • cadran noir",
+     "ref": "SRPG27K1",
+     "color": "#1b1c1e",
+     "note": "Même base technique, mais plus polyvalente en ville et nettement plus lourde : 146 g.",
+     "url": "https://www.seikowatches.com/fr-fr/products/5sports/srpg27",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.seikowatches.com/de-de/-/media/Images/Product--Image/Germany/Seiko/5sports/SRPG27K1/SRPG27K1_1.jpg?mh=1200&mw=1200",
+       "https://cdn11.bigcommerce.com/s-bg3ti/images/stencil/760x760/products/13315/43722/SRPG27K1__02755.1769708704.png?c=2"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 16"
+  },
+  {
+   "id": "casio-oceanus-ocw-t200s-1ajf",
+   "brand": "Casio",
+   "model": "Oceanus OCW-T200S-1AJF",
+   "reference": "",
+   "categories": [
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Haut de gamme accessible • analogique",
+   "headline": "Le raffinement discret version Casio",
+   "tagline": "L’anti-bling ultra cohérent.",
+   "summary": "L’Oceanus T200 est souvent perçue comme l’une des meilleures montres quartz habillées à budget encore raisonnable.",
+   "style": "Sport / dress",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6 + Bluetooth",
+   "display": "Analogique",
+   "dims": {
+    "weight": 133.0,
+    "thickness": 10.7,
+    "diameter": 41.4,
+    "lugToLug": 49.5,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Acier inoxydable",
+   "water": "10 bar",
+   "lume": "Neobrite / lume",
+   "price": "≈ 320–420 €",
+   "priceEur": 320,
+   "availability": "Import JDM",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 320–420 €"
+    ],
+    [
+     "Style général",
+     "Sport / dress"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 5 mois sans lumière • ≈ 20 mois en économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième uniquement"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6 + Bluetooth"
+    ],
+    [
+     "Éclairage / lume",
+     "Neobrite / lume"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "49,5 × 41,4 × 10,7 mm • 133 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar"
+    ],
+    [
+     "Disponibilité",
+     "JDM ; import Japon courant, stock UE gris possible"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Très intéressante sur cuir si tu veux l’assagir encore davantage."
+    ]
+   ],
+   "pros": [
+    "Très belles finitions pour le prix.",
+    "Radio + Bluetooth + solaire : très complet.",
+    "Excellent équilibre entre usage habillé et quotidien."
+   ],
+   "cons": [
+    "Toujours seulement un quantième.",
+    "Look un peu trop sage pour certains.",
+    "Import souvent nécessaire."
+   ],
+   "collectionNote": "",
+   "reviews": "La T200 jouit d’une réputation remarquable chez les amateurs de montres japonaises : qualité perçue très au-dessus du tarif, grand confort d’usage, et une vraie identité Oceanus. Les critiques portent surtout sur une esthétique discrète et sur un lume plus accessoire que spectaculaire.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/jp/watches/oceanus/product.OCW-T200S-1A/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/jp/ja/timepiece/product/watch/O/OC/OCW/OCW-T200S-1A/assets/OCW-T200S-1A_Seq1.png.transform/main-visual-sp/image.png",
+      "https://img.chrono24.com/images/uhren/13053615-gzedyy2zl5pl39ogr1o2njzt-ExtraLarge.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 17"
+  },
+  {
+   "id": "citizen-zenshin-three-hand-eco-drive",
+   "brand": "Citizen",
+   "model": "Zenshin Three-Hand Eco-Drive",
+   "reference": "AW0130-85A",
+   "categories": [
+    "sport"
+   ],
+   "status": "alternative",
+   "eyebrow": "Sport-chic • Super Titanium • solaire",
+   "headline": "Le sport-chic titane, léger et sans entretien",
+   "tagline": "Une alternative légère et moderne aux sport-chic acier.",
+   "summary": "La Zenshin apporte quelque chose de différent au dossier : un vrai boîtier/bracelet intégré sport-chic, mais en Super Titanium très léger et avec Eco‑Drive. La version blanche est probablement la plus sobre et la plus facile à garder longtemps.",
+   "style": "Sport / dress",
+   "movement": "Solaire",
+   "movementDetail": "Eco‑Drive J800",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 91.0,
+    "thickness": 10.0,
+    "diameter": 40.0,
+    "integrated": true
+   },
+   "crystal": "Saphir",
+   "case": "Super Titanium avec traitement Duratect",
+   "water": "10 bar / 100 m",
+   "lume": "Aiguilles + index luminescents",
+   "price": "≈ 329–349 € en Europe",
+   "priceEur": 329,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 329–349 € en Europe"
+    ],
+    [
+     "Style général",
+     "Sport / dress"
+    ],
+    [
+     "Énergie",
+     "Eco‑Drive J800"
+    ],
+    [
+     "Autonomie",
+     "≈ 8 mois de réserve pleine charge"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Jour de la semaine + quantième"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple jour/date • non perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Aiguilles + index luminescents"
+    ],
+    [
+     "Boîtier",
+     "Super Titanium avec traitement Duratect"
+    ],
+    [
+     "Verre",
+     "Saphir"
+    ],
+    [
+     "Dimensions / poids",
+     "39,5–40 mm • 10 mm • 91 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "EU officiel et facile"
+    ],
+    [
+     "Bracelets standards",
+     "Non • bracelet intégré propriétaire. C’est un point important si tu veux passer régulièrement du métal au cuir."
+    ]
+   ],
+   "pros": [
+    "Super Titanium très léger, agréable au quotidien.",
+    "Eco‑Drive + 8 mois de réserve : extrêmement facile à vivre.",
+    "Saphir, 100 m et day-date pour un prix contenu.",
+    "Cadran texturé et alternance poli/brossé intéressants à ce niveau de prix."
+   ],
+   "cons": [
+    "Bracelet intégré : presque aucune liberté pour passer au cuir.",
+    "Pas de radio-pilotage.",
+    "Réglage fin du bracelet assez limité selon plusieurs propriétaires.",
+    "La qualité perçue du cadran divise davantage que les spécifications."
+   ],
+   "collectionNote": "",
+   "reviews": "La presse spécialisée la considère comme une très forte proposition de valeur en titane intégré : légère, bien proportionnée, très pratique et plus mature que son tarif ne le laisse penser. Les retours d’amateurs sont plus partagés sur le bracelet et sur le rendu réel de certains cadrans ; en revanche, l’Eco‑Drive, le confort et la légèreté sont presque toujours cités comme de vrais points forts.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://fr.citizenwatch.eu/fr/zenshin/"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://teddybaldassarre.com/en-int/blogs/watches/citizen-zenshin-review"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://citizenwatch.widen.net/content/vv5ayxirdi/webp/Zenshin%2BThree-Hand.webp?color=F9F8F6&crop=false&height=800&keep=c&quality=80&u=41zuoe&width=800",
+      "https://starbuy.com.au/cdn/shop/files/citizen-zenshin-39mm-aw0130-85a-3690290.jpg?v=1754984218&width=1000"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 18"
+  },
+  {
+   "id": "casio-pro-trek-prw-61-1a",
+   "brand": "Casio",
+   "model": "Pro Trek PRW-61-1A",
+   "reference": "",
+   "categories": [
+    "outdoor"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field / outdoor • solaire radio • ana-digi",
+   "headline": "La field/outdoor solaire + radio qui fonctionne vraiment en Europe",
+   "tagline": "La field Casio version instrument de terrain.",
+   "summary": "C’est la montre qui répond le mieux à ton envie de “field Solar + radio” sans sacrifier la réception en Europe. Elle est plus technique qu’une field militaire classique, mais très légère et étonnamment portable.",
+   "style": "Outdoor / tool",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6",
+   "display": "Hybride",
+   "dims": {
+    "weight": 53.0,
+    "thickness": 14.7,
+    "diameter": 47.4,
+    "lugToLug": 51.0,
+    "lugWidth": 23
+   },
+   "crystal": "Verre minéral",
+   "case": "Résine biosourcée + lunette acier",
+   "water": "100 m • résistance au froid −10 °C",
+   "lume": "Double LED Super Illuminator + aiguilles/index luminescents",
+   "price": "≈ 350–390 €",
+   "priceEur": 350,
+   "availability": "UE / import facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 350–390 €"
+    ],
+    [
+     "Style général",
+     "Outdoor / tool"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 6 mois sans lumière • ≈ 25 mois avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Hybride analogique + digital"
+    ],
+    [
+     "Date",
+     "Mois + quantième + jour de la semaine sur l’écran digital"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6 • réception Europe incluse"
+    ],
+    [
+     "Éclairage / lume",
+     "Double LED Super Illuminator + aiguilles/index luminescents"
+    ],
+    [
+     "Boîtier",
+     "Résine biosourcée + lunette acier"
+    ],
+    [
+     "Verre",
+     "Verre minéral"
+    ],
+    [
+     "Dimensions / poids",
+     "51 × 47,4 × 14,7 mm • 53 g"
+    ],
+    [
+     "Étanchéité",
+     "100 m • résistance au froid −10 °C"
+    ],
+    [
+     "Disponibilité",
+     "EU / import très facile"
+    ],
+    [
+     "Bracelets standards",
+     "Pas idéal pour les bracelets standards : largeur annoncée autour de 23 mm et intégration Pro Trek spécifique. Mieux vaut viser bracelets Casio/compatibles dédiés."
+    ]
+   ],
+   "pros": [
+    "Tough Solar + Multi Band 6 : très peu d’entretien et mise à l’heure automatique.",
+    "Boussole, baromètre/altimètre et thermomètre réellement utiles en extérieur.",
+    "Très lisible de jour comme de nuit malgré l’abondance d’informations."
+   ],
+   "cons": [
+    "Plus volumineuse qu’une vraie field classique de 38–40 mm.",
+    "Verre minéral difficile à défendre à ce niveau de prix.",
+    "Bracelet moins facile à personnaliser qu’un simple 20 mm standard."
+   ],
+   "collectionNote": "",
+   "reviews": "Les essais et retours d’utilisateurs mettent surtout en avant sa lisibilité, sa légèreté surprenante et le confort du couple solaire + radio. Les réserves concernent le verre minéral, la taille visuelle et l’altimètre barométrique qui demande un calibrage régulier. Pour une montre de randonnée qui reste portable au quotidien, sa réputation est très bonne.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/us/watches/protrek/product.PRW-61-1A/"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.lheurepassion.com/blog/casio/avis-casio-pro-trek-prw-61.html"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com.cn/content/dam/casio/product-info/locales/cn/zh-cn/timepiece/product/watch/P/PR/PRW/prw-61-1a/assets/PRW-61-1A_front.jpg.transform/main-visual-sp/image.jpg",
+      "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/P/PR/PRW/prw-61-1a/assets/PRW-61-1A.png.transform/main-visual-pc/image.png",
+      "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/P/PR/PRW/prw-61-1a/assets/PRW-61-1A_04.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 19"
+  },
+  {
+   "id": "citizen-nb1050-59",
+   "brand": "Citizen",
+   "model": "NB1050-59",
+   "reference": "la famille complète",
+   "categories": [
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • GADA minimaliste • page regroupée",
+   "headline": "Le minimalisme japonais en quatre cadrans sobres",
+   "tagline": "Même boîtier 38 mm, même mouvement 9011, quatre interprétations discrètes.",
+   "summary": "La famille NB1050 devient encore plus intéressante quand on voit les quatre cadrans côte à côte : même montre, quatre ambiances. Toutes restent sobres, très lisibles, et remarquablement bien placées pour le prix.",
+   "style": "Sport / dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Citizen 9011 automatique + remontage manuel • 28 800 a/h",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 132.0,
+    "thickness": 10.5,
+    "diameter": 38.0,
+    "lugWidth": 19
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Acier avec Duratect Platinum",
+   "water": "10 bar / 100 m",
+   "lume": "Lume sur aiguilles + index",
+   "price": "≈ 400–500 € selon la référence / import",
+   "priceEur": 400,
+   "availability": "Import Japon",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 400–500 € selon la référence / import"
+    ],
+    [
+     "Style général",
+     "Sport / dress"
+    ],
+    [
+     "Énergie",
+     "Citizen 9011 automatique + remontage manuel • 28 800 a/h"
+    ],
+    [
+     "Autonomie",
+     "≈ 42 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Lume sur aiguilles + index"
+    ],
+    [
+     "Boîtier",
+     "Acier avec Duratect Platinum"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "38 mm • 10,5 mm • env. 132 g"
+    ],
+    [
+     "Étanchéité",
+     "10 bar / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "JDM • import Japon principalement"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 19 mm standard"
+    ]
+   ],
+   "pros": [
+    "Probablement la meilleure proposition mécanique japonaise sous 500 € dans ce style.",
+    "Quatre cadrans tous assez épurés.",
+    "38 mm, saphir et 100 m : vraie polyvalence quotidienne."
+   ],
+   "cons": [
+    "Toujours un guichet de date.",
+    "Import JDM.",
+    "19 mm de bracelets : un peu moins pratique que 20 mm."
+   ],
+   "collectionNote": "",
+   "reviews": "Les essais et retours propriétaires saluent souvent la qualité de cadran, la précision en pratique souvent meilleure que la fiche technique, et le traitement Duratect. La blanche et la noire sont généralement perçues comme les plus habillées ; la bleue et la grise comme les plus polyvalentes.",
+   "links": [
+    {
+     "label": "Fiche principale",
+     "url": "https://citizen.jp/shop/collection/s/nb1050/"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.youtube.com/watch?v=40_ny7HVobU"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://citizen.jp/img/goods/5/CCL_NB1050-59A_00_EC.png",
+      "https://www.sakurawatches.com/image/cache/catalog/watches/citizen/UPLOAD/NB1050-59A-1000x1000.png"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "cadran blanc / argenté",
+     "ref": "NB1050-59A",
+     "color": "#f2f0ea",
+     "note": "La plus lumineuse et la plus “dress”.",
+     "url": "https://citizen.jp/shop/g/gNB1050-59A/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://citizen.jp/img/goods/5/CCL_NB1050-59A_00_EC.png",
+       "https://www.sakurawatches.com/image/cache/catalog/watches/citizen/UPLOAD/NB1050-59A-1000x1000.png"
+      ]
+     }
+    },
+    {
+     "name": "cadran gris",
+     "ref": "NB1050-59H",
+     "color": "#7d7f82",
+     "note": "La plus discrète, très équilibrée.",
+     "url": "https://citizen.jp/shop/g/gNB1050-59H/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://citizen.jp/img/goods/5/CCL_NB1050-59H_00_EC.png",
+       "https://www.sakurawatches.com/image/cache/catalog/watches/citizen/UPLOAD/NB1050-59H-1000x1000.png"
+      ]
+     }
+    },
+    {
+     "name": "cadran bleu",
+     "ref": "NB1050-59L",
+     "color": "#24364b",
+     "note": "La plus vivante, tout en restant sobre.",
+     "url": "https://citizen.jp/shop/g/gNB1050-59L/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://citizen.jp/img/goods/5/CCL_NB1050-59L_00_EC.png",
+       "https://i.ebayimg.com/images/g/OscAAOSwcF1gmLgt/s-l400.png"
+      ]
+     }
+    },
+    {
+     "name": "cadran noir",
+     "ref": "NB1050-59E",
+     "color": "#1b1c1e",
+     "note": "La plus classique et la plus intemporelle.",
+     "url": "https://citizen.jp/shop/g/gNB1050-59E/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://citizen.jp/img/goods/5/CCL_NB1050-59E_00_EC.png",
+       "https://static.wixstatic.com/media/4c1bd5_b41fcc7085d7487dbee8da759e58f525~mv2.png/v1/fill/w_863%2Ch_960%2Cal_c%2Cq_90%2Cenc_avif%2Cquality_auto/4c1bd5_b41fcc7085d7487dbee8da759e58f525~mv2.png"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 20"
+  },
+  {
+   "id": "nite-mx10-signal",
+   "brand": "NITE",
+   "model": "MX10 SIGNAL",
+   "reference": "",
+   "categories": [
+    "field",
+    "outdoor"
+   ],
+   "status": "alternative",
+   "eyebrow": "Field • tritium T25 • quartz suisse",
+   "headline": "La field qui reste lisible toute la nuit sans “recharger” le lume",
+   "tagline": "Tritium autonome, saphir, 100 m et Ronda suisse.",
+   "summary": "Une proposition technologiquement différente du solaire ou du radio-pilotage : ici, l’intérêt vient surtout de l’éclairage au tritium T25, qui émet en continu sans être exposé à la lumière. La montre reste à quartz et demande donc une pile à terme, mais sa lisibilité nocturne est totalement passive.",
+   "style": "Field / tool",
+   "movement": "Quartz • pile",
+   "movementDetail": "Quartz • pile",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 78.0,
+    "thickness": 11.6,
+    "diameter": 39.0,
+    "lugWidth": 18,
+    "integrated": true
+   },
+   "crystal": "Saphir • traitement antireflet",
+   "case": "Acier inoxydable 316L • protège-couronne",
+   "water": "100 m",
+   "lume": "T25 tritium vert + repère orange • émission continue sans source d’énergie externe",
+   "price": "£350 • ≈ 409 € au 15/09/2026, avant éventuels frais",
+   "priceEur": 410,
+   "availability": "UK / selon pays",
+   "specs": [
+    [
+     "Prix indicatif",
+     "£350 • ≈ 409 € au 15/09/2026, avant éventuels frais"
+    ],
+    [
+     "Style général",
+     "Field / tool"
+    ],
+    [
+     "Énergie",
+     "Quartz • pile"
+    ],
+    [
+     "Autonomie",
+     "≈ 4–5 ans par pile"
+    ],
+    [
+     "Mouvement",
+     "Ronda 715 • Swiss Made"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles"
+    ],
+    [
+     "Date",
+     "Quantième"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple • pas perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "T25 tritium vert + repère orange • émission continue sans source d’énergie externe"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable 316L • protège-couronne"
+    ],
+    [
+     "Verre",
+     "Saphir • traitement antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "39 mm × 11,6 mm • cadran 32 mm • 78 g"
+    ],
+    [
+     "Étanchéité",
+     "100 m"
+    ],
+    [
+     "Disponibilité",
+     "NITE UK • précommande au 15/09/2026 • disponibilité variable selon pays"
+    ],
+    [
+     "Bracelets standards",
+     "Entrecornes 18 mm • NITE propose webbing, caoutchouc et acier. La géométrie des cornes peut rendre certains bracelets droits visuellement moins intégrés."
+    ]
+   ],
+   "pros": [
+    "Lisibilité nocturne permanente, sans bouton ni charge lumineuse.",
+    "Saphir + 100 m + acier 316L : vraie construction de field watch.",
+    "39 mm : diamètre raisonnable et polyvalent.",
+    "Ronda 715 simple, robuste et facile à vivre."
+   ],
+   "cons": [
+    "Ce n’est pas une montre sans pile : remplacement annoncé tous les 4–5 ans.",
+    "Le tritium faiblit progressivement sur le très long terme.",
+    "Les cornes et l’intégration du bracelet peuvent paraître massives sur un petit poignet.",
+    "Achat direct UK : prix final à surveiller selon taxes et import."
+   ],
+   "collectionNote": "",
+   "reviews": "Les retours apprécient surtout le caractère très robuste, le saphir et le fait que le tritium reste lisible toute la nuit sans aucune recharge. Le point qui divise le plus est la géométrie assez présente des cornes / embouts, qui peut donner un porté plus massif que les 39 mm ne le suggèrent.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.nitewatches.com/products/mx10-signal"
+    },
+    {
+     "label": "Avis propriétaire détaillé",
+     "url": "https://www.fifthwrist.com/nite-watches-mx10-review/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.nitewatches.com/cdn/shop/files/mx10_201_front_day_red_2b12edc4-9f66-43b1-b113-bf7d2d282429.png?v=1724239544&width=900"
+     ]
+    },
+    "night": {
+     "src": null,
+     "remote": [
+      "https://www.nitewatches.com/cdn/shop/files/mx10_201_front_night_3_953b8df3-a9f8-44d1-ac4c-331792ae1d6f.png?v=1732205144"
+     ],
+     "caption": "Vue constructeur du tritium T25 vert + orange : lumière continue sans recharge préalable."
+    }
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 21"
+  },
+  {
+   "id": "charlie-paris-initial-slim",
+   "brand": "Charlie Paris",
+   "model": "Initial Slim",
+   "reference": "Blanc",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • dress minimaliste • très fine",
+   "headline": "Une vraie dress automatique de 8,6 mm autour de 450 €",
+   "tagline": "La finesse de la Mido à budget intermédiaire — presque.",
+   "summary": "C’est probablement la meilleure étape intermédiaire entre la Bambino et la Mido si la finesse compte beaucoup : 8,6 mm, saphir, Miyota 9015 et un dessin très propre. Son défaut pour toi est double : elle reste en 40 mm et conserve un guichet de date.",
+   "style": "Dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique Citizen Miyota 9015 • 28 800 a/h",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 8.6,
+    "diameter": 40.0,
+    "lugToLug": 46.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Acier inoxydable 316L poli / brossé • fond transparent",
+   "water": "3 ATM / 30 m",
+   "lume": "Pas de lume significatif",
+   "price": "445 € sur cuir • 485 € sur acier",
+   "priceEur": 445,
+   "availability": "UE facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "445 € sur cuir • 485 € sur acier"
+    ],
+    [
+     "Style général",
+     "Dress"
+    ],
+    [
+     "Énergie",
+     "Automatique Citizen Miyota 9015 • 28 800 a/h"
+    ],
+    [
+     "Autonomie",
+     "≈ 42 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles centrales"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Pas de lume significatif"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable 316L poli / brossé • fond transparent"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "40 mm • 46 mm corne-à-corne • 8,6 mm"
+    ],
+    [
+     "Étanchéité",
+     "3 ATM / 30 m"
+    ],
+    [
+     "Disponibilité",
+     "EU facile • dessinée et assemblée à Paris"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard, système quick-release. Excellent choix pour alterner cuir, maille milanaise ou bracelet acier."
+    ]
+   ],
+   "pros": [
+    "Seulement 8,6 mm : beaucoup plus fine que la Bambino.",
+    "Miyota 9015 fiable et suffisamment fin pour une vraie dress watch.",
+    "Saphir AR et bracelets 20 mm interchangeables sans outil.",
+    "Prix autour de 450 € sur cuir, exactement dans la zone recherchée."
+   ],
+   "cons": [
+    "40 mm uniquement pour l’Initial Slim actuelle.",
+    "Guichet de date à 3 h, donc cadran moins pur que ton idéal.",
+    "30 m seulement : montre habillée, pas montre à tout faire.",
+    "Réserve de marche de 42 h assez ordinaire."
+   ],
+   "collectionNote": "",
+   "reviews": "Les avis clients reviennent beaucoup sur la sobriété, l’élégance et surtout la finesse de la montre, ainsi que sur la facilité de changer de bracelet. Le cadran blanc et l’aiguille des secondes bleue sont souvent appréciés. Les limites sont surtout techniques : 3 ATM, réserve de marche classique et diamètre de 40 mm qui peut sembler grand si l’on recherche les proportions plus contenues de la Bambino 38 ou de la Traska 36.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://charlie-paris.com/products/montre-automatique-homme-francaise-initial-blanc"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.youtube.com/watch?v=081Ty_URbi8"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://charlie-paris.com/cdn/shop/files/INI-40-015-01.jpg?v=1751571465&width=3200",
+      "https://charlie-paris.com/cdn/shop/files/INI-40blancporteDSC03740-carre.jpg?v=1774373491&width=3200"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 22"
+  },
+  {
+   "id": "seiko-presage-cocktail-time",
+   "brand": "Seiko",
+   "model": "Presage Cocktail Time",
+   "reference": "SRPK15J1",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • dress • Cocktail Time",
+   "headline": "Le Cocktail Time classique, dans une version bleu profond très réussie",
+   "tagline": "Plus élégant et plus cohérent avec ton goût que les variantes 38,5 mm très colorées.",
+   "summary": "La SRPK15J1 reprend la recette emblématique Cocktail Time : cadran soleillé bleu, index bâtons facettés, peu d’écriture et allure habillée. Elle est plus grande et un peu plus épaisse que les options les plus minimalistes de ta sélection, mais visuellement elle est beaucoup plus proche de ce que tu sembles aimer.",
+   "style": "Dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Seiko 4R35 automatique + remontage manuel",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 11.8,
+    "diameter": 40.5,
+    "lugWidth": 20
+   },
+   "crystal": "Hardlex bombé",
+   "case": "Acier inoxydable",
+   "water": "5 bar / 50 m",
+   "lume": "",
+   "price": "≈ 450–500 €",
+   "priceEur": 450,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 450–500 €"
+    ],
+    [
+     "Style général",
+     "Dress"
+    ],
+    [
+     "Mouvement",
+     "Seiko 4R35 automatique + remontage manuel"
+    ],
+    [
+     "Autonomie",
+     "≈ 41 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles"
+    ],
+    [
+     "Date",
+     "Quantième vers 3 h"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Hardlex bombé"
+    ],
+    [
+     "Dimensions",
+     "40,5 mm • env. 11,8 mm"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m"
+    ],
+    [
+     "Bracelets",
+     "20 mm standard"
+    ],
+    [
+     "Disponibilité",
+     "EU officielle"
+    ]
+   ],
+   "pros": [
+    "Cadran bleu profond très élégant et beaucoup moins chargé que les variantes les plus démonstratives.",
+    "Index bâtons et très peu de texte.",
+    "20 mm standard : facile à mettre sur cuir.",
+    "Prix raisonnable pour une Presage habillée."
+   ],
+   "cons": [
+    "40,5 mm : plus grand que tes 38–39 mm idéaux.",
+    "Hardlex et non saphir.",
+    "4R35 solide mais assez basique en précision.",
+    "50 m seulement."
+   ],
+   "collectionNote": "",
+   "reviews": "La Cocktail Time est régulièrement saluée pour la qualité visuelle de son cadran, qui paraît plus haut de gamme que le prix de la montre. Les critiques récurrentes concernent surtout le Hardlex, le 4R35 plutôt ordinaire et un boîtier qui reste plus épais et plus large que ce que certains amateurs de dress watches souhaitent.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.seikowatches.com/us-en/products/presage/srpk15j1"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.seikowatches.com/fr-fr/-/media/Images/Product--Image/All/Seiko/2023/05/22/11/49/SRPK15J1/SRPK15J1.png?mh=1200&mw=1200",
+      "https://www.abtsaat.com/productimages/101875/big/seiko-presage-srpk15j-otomatik-erkek-kol-saati3.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 23"
+  },
+  {
+   "id": "casio-g-shock-gmw-b5000d-1",
+   "brand": "Casio",
+   "model": "G-Shock GMW-B5000D-1",
+   "reference": "bonus",
+   "categories": [
+    "beater"
+   ],
+   "status": "alternative",
+   "eyebrow": "Bonus premium • full metal",
+   "headline": "L’idée la plus proche d’une A168 solaire + radio",
+   "tagline": "La square adulte et assumée.",
+   "summary": "C’est le bonus qui répond le mieux à ton envie : esprit square rétro, métal, solaire, radio. Mais il faut accepter le gabarit et le poids d’une vraie G-Shock tout acier.",
+   "style": "Sport / tool",
+   "movement": "Solaire",
+   "movementDetail": "Tough Solar",
+   "caliber": "",
+   "radio": "Oui • MB6 + Bluetooth",
+   "display": "Numérique",
+   "dims": {
+    "weight": 167.0,
+    "thickness": 13.0,
+    "diameter": 43.2,
+    "lugToLug": 49.3
+   },
+   "crystal": "Verre minéral",
+   "case": "Acier inoxydable",
+   "water": "200 m",
+   "lume": "LED blanche Super Illuminator • plein écran",
+   "price": "≈ 495–565 € en UE",
+   "priceEur": 495,
+   "availability": "UE officiel + Japon",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 495–565 € en UE"
+    ],
+    [
+     "Style général",
+     "Sport / tool"
+    ],
+    [
+     "Énergie",
+     "Tough Solar"
+    ],
+    [
+     "Autonomie",
+     "≈ 10 mois sans lumière • ≈ 22 mois en obscurité avec économie d’énergie"
+    ],
+    [
+     "Affichage",
+     "Digital • LCD STN"
+    ],
+    [
+     "Date",
+     "Mois + quantième + jour de la semaine"
+    ],
+    [
+     "Calendrier",
+     "Calendrier automatique complet jusqu’en 2099"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Multi Band 6 + Bluetooth"
+    ],
+    [
+     "Éclairage / lume",
+     "LED blanche Super Illuminator • plein écran"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Verre minéral"
+    ],
+    [
+     "Dimensions / poids",
+     "49,3 × 43,2 × 13 mm • 167 g"
+    ],
+    [
+     "Étanchéité",
+     "200 m"
+    ],
+    [
+     "Disponibilité",
+     "EU officiel + Japon"
+    ],
+    [
+     "Bracelets standards",
+     "Pas directement. Boîtier square propriétaire ; bracelets standards possibles seulement via adaptateurs dédiés."
+    ]
+   ],
+   "pros": [
+    "Construction très premium.",
+    "Fonctions complètes et confort d’usage maximal.",
+    "Charisme énorme pour les amateurs de squares Casio."
+   ],
+   "cons": [
+    "Beaucoup plus lourde et massive qu’une A168.",
+    "Prix sans commune mesure avec les Casio Vintage.",
+    "Toujours une approche très G-Shock dans le porté."
+   ],
+   "collectionNote": "",
+   "reviews": "Très appréciée pour sa qualité de fabrication et son statut de “square ultime”. Les réserves reviennent toujours sur le poids, le prix et le fait qu’elle n’est pas du tout une petite vintage discrète ; elle en reprend le langage, pas l’échelle.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.casio.com/europe/watches/gshock/product.GMW-B5000D-1/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq1.png.transform/main-visual-pc/image.png",
+      "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GM/GMW/gmw-b5000d-1/assets/GMW-B5000D-1.png.transform/main-visual-pc/image.png",
+      "https://i.ebayimg.com/images/g/6Q0AAOSwZqBjn0TS/s-l1600.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "acier / écran positif",
+     "ref": "GMW-B5000D-1",
+     "color": "#c8cbc4",
+     "note": "La version acier claire : lecture facile et esprit rétro très net.",
+     "url": "https://www.casio.com/europe/watches/gshock/product.GMW-B5000D-1/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.casio.com/content/dam/casio/product-info/locales/us/en/timepiece/product/watch/G/GM/GMW/GMW-B5000D-1/assets/GMW-B5000D-1_Seq1.png.transform/main-visual-pc/image.png",
+       "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GM/GMW/gmw-b5000d-1/assets/GMW-B5000D-1.png.transform/main-visual-pc/image.png"
+      ]
+     }
+    },
+    {
+     "name": "black ion / écran négatif",
+     "ref": "GMW-B5000BD-1",
+     "color": "#1b1c1e",
+     "note": "La version noire négative, plus stealth et plus moderne.",
+     "url": "https://www.casio.com/europe/watches/gshock/product.GMW-B5000BD-1/",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GM/GMW/gmw-b5000bd-1/assets/GMW-B5000BD-1.png.transform/main-visual-sp/image.png",
+       "https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GM/GMW/gmw-b5000bd-1/assets/GMW-B5000BD-1.png.transform/main-visual-pc/image.png"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 24"
+  },
+  {
+   "id": "bulova-lunar-pilot",
+   "brand": "Bulova",
+   "model": "Lunar Pilot",
+   "reference": "96K111",
+   "categories": [
+    "chrono"
+   ],
+   "status": "alternative",
+   "eyebrow": "Chronographe • Apollo 15 • quartz haute précision",
+   "headline": "L’héritage lunaire dans un grand chronographe noir et acier",
+   "tagline": "262 kHz, saphir et vraie histoire spatiale.",
+   "summary": "Inspirée du chronographe Bulova porté sur la Lune pendant Apollo 15 en 1971, cette réinterprétation contemporaine conserve le cadran noir, les larges index et les poussoirs caractéristiques, tout en adoptant un mouvement quartz haute précision. Cette version de 43,5 mm est moins imposante que la Lunar Pilot moderne de 45 mm, mais reste une montre de caractère, très différente des modèles fins du dossier.",
+   "style": "Chronographe / sport rétro",
+   "movement": "Quartz HPQ • pile",
+   "movementDetail": "Quartz haute précision Bulova NP20 (262 kHz) • pile",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • chrono",
+   "dims": {
+    "weight": 171.0,
+    "thickness": 13.2,
+    "diameter": 43.5,
+    "lugToLug": 51.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir plat avec traitement antireflet",
+   "case": "Acier inoxydable 316L • poussoirs profilés et fond vissé",
+   "water": "5 bar / 50 m • pas une plongeuse",
+   "lume": "Super-LumiNova sur les aiguilles et index • pas de rétroéclairage",
+   "price": "≈ 520–699 € en UE • 699 € officiel",
+   "priceEur": 520,
+   "availability": "UE officiel / revendeurs",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 520–699 € selon revendeur européen • 699 € prix public Bulova (sept. 2026)"
+    ],
+    [
+     "Style général",
+     "Chronographe / sport rétro • héritage spatial"
+    ],
+    [
+     "Énergie",
+     "Quartz haute précision Bulova NP20 (262 kHz) • pile"
+    ],
+    [
+     "Autonomie",
+     "Remplacement périodique de la pile • ≈ 24 mois annoncés par un revendeur, selon utilisation du chronographe"
+    ],
+    [
+     "Affichage",
+     "Analogique • six aiguilles et trois sous-cadrans"
+    ],
+    [
+     "Date",
+     "Pas de guichet de date sur cette version"
+    ],
+    [
+     "Calendrier",
+     "Aucun"
+    ],
+    [
+     "Radio / connexion",
+     "Non • précision élevée sans synchronisation externe"
+    ],
+    [
+     "Éclairage / lume",
+     "Super-LumiNova sur les aiguilles et index • pas de rétroéclairage"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable 316L • poussoirs profilés et fond vissé"
+    ],
+    [
+     "Verre",
+     "Saphir plat avec traitement antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "43,5 mm de diamètre × 13,2 mm d’épaisseur • ≈ 51 mm corne à corne • ≈ 171 g sur acier"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m • pas une plongeuse"
+    ],
+    [
+     "Disponibilité",
+     "UE officiel et revendeurs européens • prix et stocks variables"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • entrecornes 20 mm. Bracelet acier trois maillons + bracelet NATO en cuir noir fourni, changement rapide."
+    ],
+    [
+     "Chronographe",
+     "1/20 s à 3 h • petite seconde à 6 h • compteur 60 min à 9 h • échelle tachymétrique"
+    ]
+   ],
+   "pros": [
+    "Vrai lien historique avec Apollo 15, sans se limiter à un simple thème « spatial ».",
+    "Mouvement haute fréquence 262 kHz : grande précision et aiguille centrale du chronographe au mouvement fluide.",
+    "Cadran noir très lisible, saphir antireflet et échelle tachymétrique bien intégrée.",
+    "Bracelet acier et cuir fournis ; entrecornes 20 mm faciles à personnaliser."
+   ],
+   "cons": [
+    "43,5 mm, environ 51 mm corne à corne et 171 g sur acier : essai recommandé sur un poignet fin.",
+    "Pile à remplacer périodiquement, sans solaire ni radio-pilotage.",
+    "Pas de date ; étanchéité limitée à 50 m pour une montre d’allure instrumentale.",
+    "Le bracelet d’origine ne convient pas à tous les poignets : vérifier son réglage."
+   ],
+   "collectionNote": "",
+   "reviews": "Les essais saluent le lien documenté avec Apollo 15, le très beau contraste du cadran et la précision du mouvement haute fréquence. Les retours de propriétaires insistent surtout sur la présence au poignet : les 43,5 mm sont plus faciles à porter que l’ancienne version de 45 mm, mais la longueur et l’épaisseur restent importantes. L’ajustement du bracelet acier fait aussi débat, ce qui rend le changement en 20 mm intéressant.",
+   "links": [
+    {
+     "label": "Fiche officielle & dimensions",
+     "url": "https://de.bulova.com/de/p/96k111/"
+    },
+    {
+     "label": "Fiche & tarif UE",
+     "url": "https://ie.bulova.com/lunar-pilot-silver-tone-stainless-steel-watch-96k111.html"
+    },
+    {
+     "label": "Essai du boîtier 43,5 mm",
+     "url": "https://www.hodinky-365.com/blog/bulova-lunar-pilot-review"
+    },
+    {
+     "label": "Exemple de prix revendeur",
+     "url": "https://www.timeshop24.fr/bulova-96k111-lunar-pilot-special-set.html"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://de.bulova.com/media/managed/2c/7b/2c7b0c801875a7b748c8d926dc84e0a3/96K111.png",
+      "https://de.bulova.com/media/thumbs/8c/0f/5e704a1ae7a365d6fa20975d7cb994ebfd98/1400x_crop%3Dcenter%3Bformat%3Dwebp/managed/2c/7b/2c7b0c801875a7b748c8d926dc84e0a3/96K111.png.thumb.webp"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 25"
+  },
+  {
+   "id": "hamilton-jazzmaster-thinline-auto",
+   "brand": "Hamilton",
+   "model": "Jazzmaster Thinline Auto",
+   "reference": "H38525721",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • dress minimaliste • très fine",
+   "headline": "Une dress automatique fine, sobre et mieux réglée que les entrées de gamme",
+   "tagline": "Une alternative rationnelle à la Mido, avec un excellent mouvement fin.",
+   "summary": "La Hamilton se place exactement dans le vide entre Charlie et Mido : plus fine que beaucoup d’automatiques abordables, avec un ETA 2892-A2 réputé pour sa finesse et sa régularité. Le cadran reste très propre grâce à l’absence de trotteuse centrale, même si la date à 6 h empêche le minimalisme absolu.",
+   "style": "Dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique ETA 2892-A2",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 8.45,
+    "diameter": 40.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir",
+   "case": "Acier inoxydable",
+   "water": "5 bar / 50 m",
+   "lume": "Pas de lume significatif",
+   "price": "≈ 590–830 € selon état / ancien stock",
+   "priceEur": 590,
+   "availability": "UE • occasion / ancien stock",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 590–830 € selon état / ancien stock"
+    ],
+    [
+     "Style général",
+     "Dress"
+    ],
+    [
+     "Énergie",
+     "Automatique ETA 2892-A2"
+    ],
+    [
+     "Autonomie",
+     "≈ 42 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • deux aiguilles + date"
+    ],
+    [
+     "Date",
+     "Quantième à 6 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Pas de lume significatif"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Saphir"
+    ],
+    [
+     "Dimensions / poids",
+     "40 mm • 8,45 mm"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m"
+    ],
+    [
+     "Disponibilité",
+     "EU facile en occasion / ancien stock"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Très adaptée au cuir fin, suédé ou maille."
+    ]
+   ],
+   "pros": [
+    "8,45 mm seulement pour une automatique.",
+    "ETA 2892-A2 : mouvement fin, éprouvé et généralement bien réglé.",
+    "50 m d’étanchéité, mieux que les 30 m de la Mido/Charlie.",
+    "Bracelets standards 20 mm et vrai potentiel sur cuir.",
+    "Prix souvent contenu en occasion ou ancien stock."
+   ],
+   "cons": [
+    "40 mm, donc pas plus compacte que la Charlie.",
+    "Date à 6 h, même si elle reste discrète.",
+    "Réserve de marche de 42 h assez classique.",
+    "Modèle ancien / disponibilité neuve irrégulière."
+   ],
+   "collectionNote": "",
+   "reviews": "Les reviews sérieuses soulignent régulièrement que le vrai intérêt de cette Jazzmaster est son ETA 2892-A2 : plus fin et plus haut de gamme que les mouvements généralement utilisés dans cette tranche de prix. Plusieurs essais ont relevé une précision pratique de quelques secondes par jour seulement sur leurs exemplaires, ce qui est nettement plus rassurant que les dérives importantes signalées sur certains modèles concurrents. La finition et le profil très mince sont également souvent cités comme ses meilleurs arguments.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.hamiltonwatch.com/en-int/h38525721-jazzmaster-thinline-auto.html"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.fratellowatches.com/hamilton-jazzmaster-thinline-review/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.hamiltonwatch.com/media/catalog/product/cache/d24a34bded6d2df740ef66d66d2112c9/h/3/h38525721.png",
+      "https://product.hstatic.net/1000223154/product/z6067849166406_f5c0aa414d881394b4c2834c57f7a800_8b973eefb4914bc7a4364f290c5f8c45_master.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 26"
+  },
+  {
+   "id": "seiko-presage-style60s",
+   "brand": "Seiko",
+   "model": "Presage Style60’s",
+   "reference": "SRPL07 / SRPL09",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • sport-dress rétro • deux cadrans",
+   "headline": "La Presage la plus sobre et la plus rétro de la sélection",
+   "tagline": "39,5 mm, index bâtons et une esthétique très simple malgré la lunette graduée.",
+   "summary": "Les SRPL07 et SRPL09 sont probablement les Presage les plus compatibles avec ton goût pour les cadrans propres. Elles sont plus sportives qu’une Bambino ou une Mido, mais le cadran reste très lisible, sans chiffres arabes et avec peu d’écriture.",
+   "style": "Rétro / sport-dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Seiko 4R35 automatique + remontage manuel",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 12.0,
+    "diameter": 39.5,
+    "lugToLug": 46.2,
+    "lugWidth": 20
+   },
+   "crystal": "Hardlex en forme de boîte",
+   "case": "Acier inoxydable",
+   "water": "5 bar / 50 m",
+   "lume": "",
+   "price": "≈ 590 € tarif officiel",
+   "priceEur": 590,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 590 € tarif officiel"
+    ],
+    [
+     "Style général",
+     "Rétro / sport-dress"
+    ],
+    [
+     "Mouvement",
+     "Seiko 4R35 automatique + remontage manuel"
+    ],
+    [
+     "Autonomie",
+     "≈ 41 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles"
+    ],
+    [
+     "Date",
+     "Quantième vers 4 h 30"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable"
+    ],
+    [
+     "Verre",
+     "Hardlex en forme de boîte"
+    ],
+    [
+     "Dimensions",
+     "39,5 mm • 12 mm • 46,2 mm corne-à-corne"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m"
+    ],
+    [
+     "Bracelets",
+     "20 mm standard"
+    ],
+    [
+     "Disponibilité",
+     "EU officielle"
+    ],
+    [
+     "Variantes",
+     "SRPL07 bleu • SRPL09 brun"
+    ]
+   ],
+   "pros": [
+    "39,5 mm et proportions améliorées face aux premières Style60’s.",
+    "Cadran très simple, index bâtons, peu d’écriture.",
+    "20 mm standard et style facile à porter sur cuir.",
+    "Vraie personnalité Seiko sans cadran trop chargé."
+   ],
+   "cons": [
+    "12 mm d’épaisseur.",
+    "Hardlex et non saphir.",
+    "50 m seulement.",
+    "4R35 assez basique face aux Citizen 9011 ou ETA/Sellita de la sélection."
+   ],
+   "collectionNote": "",
+   "reviews": "Fratello apprécie particulièrement le nouveau diamètre de 39,5 mm et juge les proportions très réussies. Hodinkee avait déjà salué le dessin simple de la famille Style60’s, tout en rappelant que le 4R35 est surtout un mouvement fiable et fonctionnel, pas un argument de précision.",
+   "links": [
+    {
+     "label": "Collection officielle",
+     "url": "https://www.seikowatches.com/be-fr/products/presage/special/style60s/"
+    },
+    {
+     "label": "Review sérieuse",
+     "url": "https://www.fratellowatches.com/hands-on-with-the-charming-seiko-presage-style60s-srpl07-and-srpl09/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.seikowatches.com/us-en/-/media/Images/Product--Image/All/Seiko/2024/04/16/21/17/SRPL07J1/SRPL07J1.png?mh=1200&mw=1200",
+      "https://www.citychain.com.sg/cdn/shop/files/SRPL07J1_02_1800x1800.jpg?v=1716018491"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "cadran bleu",
+     "ref": "SRPL07J1",
+     "color": "#24364b",
+     "note": "La variante montrée en grand.",
+     "url": "https://www.seikowatches.com/us-en/products/presage/srpl07j1",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.seikowatches.com/us-en/-/media/Images/Product--Image/All/Seiko/2024/04/16/21/17/SRPL07J1/SRPL07J1.png?mh=1200&mw=1200"
+      ]
+     }
+    },
+    {
+     "name": "cadran brun",
+     "ref": "SRPL09J1",
+     "color": "#6b4a32",
+     "note": "Même base technique, ambiance plus chaude.",
+     "url": "https://www.seikowatches.com/ch-fr/products/presage/srpl09j1",
+     "photo": {
+      "src": null,
+      "remote": [
+       "https://www.seikowatches.com/ch-fr/-/media/Images/Product--Image/All/Seiko/2024/04/11/21/40/SRPL09J1/SRPL09J1.png?mh=1200&mw=1200"
+      ]
+     }
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 27"
+  },
+  {
+   "id": "traska-commuter-36-no-date",
+   "brand": "TRASKA",
+   "model": "Commuter 36 No Date",
+   "reference": "Sterling Silver",
+   "categories": [
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • GADA minimaliste • no-date",
+   "headline": "Minimaliste, sans date et réellement polyvalente",
+   "tagline": "La plus minimaliste et la plus polyvalente du trio intermédiaire.",
+   "summary": "Elle ne tient pas totalement l’objectif des 9 mm une fois le verre bombé compté, mais visuellement elle reste très fine. Surtout, elle réalise ce que beaucoup de dress watches n’osent pas : cadran sans date, 100 m, couronne vissée, saphir et acier fortement durci dans un format de 36,5 mm.",
+   "style": "Everyday / sport-dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique Miyota 9039 • 28 800 a/h • mouvement no-date natif",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 8.75,
+    "diameter": 36.5,
+    "lugToLug": 44.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir double bombé type box, traitement AR sous le verre",
+   "case": "Acier 316L durci à ≈ 1200 HV • couronne vissée",
+   "water": "10 ATM / 100 m",
+   "lume": "Super-LumiNova BGW9 Grade A sur index et aiguilles",
+   "price": "690 USD • ≈ 598 € au 15/09/2026 + éventuels frais d’import",
+   "priceEur": 635,
+   "availability": "Import USA",
+   "specs": [
+    [
+     "Prix indicatif",
+     "690 USD • ≈ 598 € au 15/09/2026 + éventuels frais d’import"
+    ],
+    [
+     "Style général",
+     "Everyday / sport-dress"
+    ],
+    [
+     "Énergie",
+     "Automatique Miyota 9039 • 28 800 a/h • mouvement no-date natif"
+    ],
+    [
+     "Autonomie",
+     "≈ 42 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles centrales"
+    ],
+    [
+     "Date",
+     "Aucune date"
+    ],
+    [
+     "Calendrier",
+     "Sans calendrier"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Super-LumiNova BGW9 Grade A sur index et aiguilles"
+    ],
+    [
+     "Boîtier",
+     "Acier 316L durci à ≈ 1200 HV • couronne vissée"
+    ],
+    [
+     "Verre",
+     "Saphir double bombé type box, traitement AR sous le verre"
+    ],
+    [
+     "Dimensions / poids",
+     "36,5 mm • 44 mm corne-à-corne • 8,75 mm de boîtier / 10,5 mm verre inclus"
+    ],
+    [
+     "Étanchéité",
+     "10 ATM / 100 m"
+    ],
+    [
+     "Disponibilité",
+     "Import • marque américaine / microbrand"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard, bracelet acier à pompes rapides. Très facile à passer sur cuir ou textile."
+    ]
+   ],
+   "pros": [
+    "Vrai mouvement no-date : aucune position fantôme de couronne.",
+    "36,5 mm et cadran très propre, proche de ton goût minimaliste.",
+    "100 m + couronne vissée : bien plus polyvalente que Bambino, Charlie ou Mido.",
+    "Acier durci très résistant aux micro-rayures.",
+    "20 mm standard et bracelet quick-release avec micro-ajustement."
+   ],
+   "cons": [
+    "10,5 mm au total à cause du saphir bombé : ce n’est donc pas une vraie <9 mm.",
+    "Prix neuf plus élevé que la Charlie, avec import à prévoir.",
+    "Miyota 9039 fiable mais rotor parfois audible.",
+    "Lume jugé seulement moyen par certains utilisateurs."
+   ],
+   "collectionNote": "",
+   "reviews": "La Commuter a une excellente réputation chez les amateurs : proportions jugées très justes, finition et bracelet souvent considérés supérieurs à ce que son prix laisse attendre, et traitement anti-rayures réellement efficace. Les critiques récentes concernent surtout le rotor Miyota audible, un lume pas toujours homogène et quelques détails du bracelet. La version no-date est particulièrement appréciée pour la symétrie du cadran.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.traskawatch.com/products/commuter-36-sterling-silver"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.youtube.com/watch?v=nt4o9vH6ITk"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.traskawatch.com/cdn/shop/files/Traska_Commuter_36_3quarters_Nov2025_Silver_4000x4000_7165d8ad-d524-46bb-ac61-942795c6538d.jpg?v=1763301333&width=4000",
+      "https://www.traskawatch.com/cdn/shop/files/Traska_Commuter_36_Silver_No_Date.jpg?v=1763301333&width=4000"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 28"
+  },
+  {
+   "id": "sternglas-naos-pro-automatik",
+   "brand": "Sternglas",
+   "model": "Naos Pro Automatik",
+   "reference": "Alabaster",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • Bauhaus • très fine",
+   "headline": "Le Bauhaus fin, propre et moderne à 38 mm",
+   "tagline": "Le meilleur Bauhaus automatique fin sous 1 000 € de la sélection.",
+   "summary": "C’est la plus proche visuellement de l’esprit Mido/Junghans à prix intermédiaire : 38 mm, seulement 9 mm, cadran Bauhaus très sobre et un Miyota 9015 plus fin et plus haut de gamme que le 8215 de la Naos standard.",
+   "style": "Dress / minimaliste",
+   "movement": "Mécanique auto",
+   "movementDetail": "Miyota 9015 Gilt • 28 800 a/h",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 9.0,
+    "diameter": 38.0,
+    "lugToLug": 42.4,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir bombé double antireflet",
+   "case": "Acier inoxydable 316L poli / brossé",
+   "water": "5 bar / 50 m",
+   "lume": "Luminova sur aiguilles + index",
+   "price": "699 € sur cuir • ≈ 749 € sur acier",
+   "priceEur": 699,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "699 € sur cuir • ≈ 749 € sur acier"
+    ],
+    [
+     "Style général",
+     "Dress / minimaliste"
+    ],
+    [
+     "Énergie",
+     "Miyota 9015 Gilt • 28 800 a/h"
+    ],
+    [
+     "Autonomie",
+     "≈ 42 h"
+    ],
+    [
+     "Affichage",
+     "Analogique • trois aiguilles"
+    ],
+    [
+     "Date",
+     "Quantième à 6 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Luminova sur aiguilles + index"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable 316L poli / brossé"
+    ],
+    [
+     "Verre",
+     "Saphir bombé double antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "38 mm • 9 mm • 42,4 mm corne-à-corne"
+    ],
+    [
+     "Étanchéité",
+     "5 bar / 50 m"
+    ],
+    [
+     "Disponibilité",
+     "EU officiel et facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard, quick-release."
+    ]
+   ],
+   "pros": [
+    "9 mm seulement : vraie finesse au poignet.",
+    "38 mm et corne-à-corne court de 42,4 mm.",
+    "Saphir double AR et mouvement 4 Hz.",
+    "Bracelets 20 mm standard."
+   ],
+   "cons": [
+    "699 € : elle dépasse nettement la zone des 500 €.",
+    "Date à 6 h, même si elle est bien intégrée.",
+    "50 m seulement.",
+    "Miyota 9015 officiellement donné à −10/+30 s/j."
+   ],
+   "collectionNote": "",
+   "reviews": "Fratello a particulièrement apprécié la refonte du boîtier et le passage au 9015, jugeant la Pro plus équilibrée et plus premium que la Naos standard. Chrononautix a mesuré ses deux exemplaires à environ +9 et −3 s/j, ce qui est rassurant par rapport à la large tolérance officielle. Les critiques portent surtout sur le prix en hausse et une étanchéité limitée à 50 m.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.sternglas.com/products/naos-pro-automatik-alabaster"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.fratellowatches.com/hands-on-new-sternglas-naos-pro-automatik/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.sternglas.com/cdn/shop/files/Naos_Pro_alabaster_BuyBox_3_1445x.jpg?v=1759324758",
+      "https://www.donkel.de/cdn/shop/files/S02-NP26-BR03_Naos_Pro_Alabaster_Bridle_dunkelbraun_frontal.png?v=1733913527&width=1600"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 29"
+  },
+  {
+   "id": "mido-baroncelli-heritage-gent",
+   "brand": "Mido",
+   "model": "Baroncelli Heritage Gent",
+   "reference": "M027.407.16.010.00",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Automatique • dress watch ultra-fine",
+   "headline": "L’alternative à la Bambino quand la finesse devient prioritaire",
+   "tagline": "Une vraie dress automatique, mais sans l’épaisseur.",
+   "summary": "C’est exactement le contrepoint de la Bambino : toujours classique, toujours automatique, mais beaucoup plus fine. À 7,3 mm, elle passe sous une manche comme une vraie dress watch et gagne aussi un saphir très convaincant.",
+   "style": "Dress",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique suisse • famille ETA 2892 / calibre Mido",
+   "caliber": "Mido",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "weight": 51.0,
+    "thickness": 7.3,
+    "diameter": 39.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir double antireflet",
+   "case": "Acier inoxydable 316L • fond transparent",
+   "water": "30 m",
+   "lume": "Pas de lume significatif • pas de rétroéclairage",
+   "price": "≈ 940–1 170 €",
+   "priceEur": 940,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 940–1 170 €"
+    ],
+    [
+     "Style général",
+     "Dress"
+    ],
+    [
+     "Énergie",
+     "Automatique suisse • famille ETA 2892 / calibre Mido"
+    ],
+    [
+     "Autonomie",
+     "Jusqu’à ≈ 72 h selon la version actuelle"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième à 3 h"
+    ],
+    [
+     "Calendrier",
+     "Calendrier simple • correction manuelle selon les mois"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Éclairage / lume",
+     "Pas de lume significatif • pas de rétroéclairage"
+    ],
+    [
+     "Boîtier",
+     "Acier inoxydable 316L • fond transparent"
+    ],
+    [
+     "Verre",
+     "Saphir double antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "39 mm • 7,3 mm • env. 51 g sur cuir"
+    ],
+    [
+     "Étanchéité",
+     "30 m"
+    ],
+    [
+     "Disponibilité",
+     "EU officiel / très facile"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Excellente base pour alterner cuir noir, brun, suédé ou maille fine."
+    ]
+   ],
+   "pros": [
+    "Seulement 7,3 mm d’épaisseur : environ 5 mm de moins que la Bambino.",
+    "Saphir double antireflet et belle finesse de cadran.",
+    "Automatique, 39 mm et entrecornes 20 mm : proportions très faciles à vivre."
+   ],
+   "cons": [
+    "Prix nettement supérieur à l’Orient.",
+    "30 m d’étanchéité seulement.",
+    "La fenêtre de date casse un peu la symétrie pour les puristes."
+   ],
+   "collectionNote": "",
+   "reviews": "La presse spécialisée a longtemps présenté la Baroncelli Heritage comme une excellente proposition de valeur dans l’automatique habillée, en insistant sur la finesse du boîtier et la qualité du dessin. Les amateurs louent aussi les aiguilles, le cadran très propre et le confort sous manche. Les critiques récurrentes concernent surtout l’étanchéité modeste et la présence du guichet de date sur une montre aussi minimaliste.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.midowatches.com/fr/baroncelli-heritage-gent-m0274071601000.html"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.hodinkee.com/articles/the-mido-baroncelli-heritage-take-two"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://cdnx.jumpseller.com/intervalo111/image/63039443/resize/1438/1918?1746039947="
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 30"
+  },
+  {
+   "id": "junghans-max-bill-mega-solar",
+   "brand": "Junghans",
+   "model": "max bill MEGA Solar",
+   "reference": "59/2022.46",
+   "categories": [
+    "dress",
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Premium • design • sans chiffres aux heures",
+   "headline": "Le Bauhaus solaire dans sa version la plus épurée",
+   "tagline": "La technologie disparaît derrière le dessin.",
+   "summary": "C’est la Junghans qui colle le mieux à ta préférence : aucun chiffre aux heures, seulement des index très fins, avec toute la technologie MEGA Solar invisible derrière un dessin presque silencieux.",
+   "style": "Dress / Bauhaus",
+   "movement": "Solaire",
+   "movementDetail": "Solaire • mouvement radio connecté J101.85",
+   "caliber": "",
+   "radio": "Oui • radio + app",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 9.0,
+    "diameter": 38.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir antireflet",
+   "case": "Titane",
+   "water": "5 bar",
+   "lume": "Points et aiguilles luminescents • pas de rétroéclairage actif",
+   "price": "≈ 1 215–1 465 €",
+   "priceEur": 1215,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 1 215–1 465 €"
+    ],
+    [
+     "Style général",
+     "Dress / Bauhaus"
+    ],
+    [
+     "Énergie",
+     "Solaire • mouvement radio connecté J101.85"
+    ],
+    [
+     "Autonomie",
+     "Jusqu’à ≈ 3 ans en mode économie / obscurité"
+    ],
+    [
+     "Affichage",
+     "Analogique"
+    ],
+    [
+     "Date",
+     "Quantième uniquement"
+    ],
+    [
+     "Calendrier",
+     "Calendrier perpétuel"
+    ],
+    [
+     "Radio / connexion",
+     "Radio Europe / UK / USA / Japon + réglage via application"
+    ],
+    [
+     "Éclairage / lume",
+     "Points et aiguilles luminescents • pas de rétroéclairage actif"
+    ],
+    [
+     "Boîtier",
+     "Titane"
+    ],
+    [
+     "Verre",
+     "Saphir antireflet"
+    ],
+    [
+     "Dimensions / poids",
+     "38 mm • 9 mm"
+    ],
+    [
+     "Étanchéité",
+     "5 bar"
+    ],
+    [
+     "Disponibilité",
+     "EU officiel"
+    ],
+    [
+     "Bracelets standards",
+     "Oui • 20 mm standard. Le bracelet milanais titane d’origine peut être remplacé par un cuir 20 mm pour un rendu encore plus classique."
+    ]
+   ],
+   "pros": [
+    "Cadran sans chiffres, très pur et très fidèle à l’esprit Bauhaus.",
+    "Titane, 38 × 9 mm : légère et réellement élégante au poignet.",
+    "Solaire + radio + calendrier perpétuel + saphir."
+   ],
+   "cons": [
+    "Prix élevé face aux japonaises solaires radio.",
+    "5 bar seulement.",
+    "La sophistication technique est volontairement invisible : elle peut sembler “trop simple” au premier regard."
+   ],
+   "collectionNote": "",
+   "reviews": "Les professionnels apprécient surtout la manière dont Junghans cache une technologie très avancée derrière un dessin d’une grande simplicité. Les amateurs sensibles à Max Bill trouvent cette version à index particulièrement équilibrée ; ceux qui hésitent évoquent surtout le prix, car l’objet paraît volontairement beaucoup plus simple que ce qu’il contient.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://junghans.de/shop/uhren/junghans-max-bill/max-bill-mega-solar/max-bill-mega-solar-4/"
+    },
+    {
+     "label": "Essai / avis",
+     "url": "https://www.hodinkee.com/articles/introducing-junghans-max-bill-mega"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://junghans.de/wp-content/uploads/2026/02/v0fzl2krgt1d5u06oeq7jqgm08ge.png"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 31"
+  },
+  {
+   "id": "vario-eclipse-handwound",
+   "brand": "Vario",
+   "model": "Eclipse Handwound",
+   "reference": "Onyx",
+   "categories": [
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "Collection cœur • dress",
+   "headline": "La dress moderne qui cache son intérêt mécanique",
+   "tagline": "Choix actuel • dress",
+   "summary": "Son charme vient précisément de sa retenue : un cadran presque silencieux, un boîtier compact et un Miyota 6T33 manuel à 28 800 A/h qui apporte une vraie singularité sans rien afficher de spectaculaire.",
+   "style": "Dress",
+   "movement": "Mécanique manuelle",
+   "movementDetail": "Mécanique manuelle • Miyota 6T33",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique",
+   "dims": {
+    "thickness": 8.0,
+    "diameter": 38.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir double dôme, AR interne",
+   "case": "",
+   "water": "5 ATM",
+   "lume": "",
+   "price": "328 USD • env. 300 €",
+   "priceEur": 302,
+   "availability": "Import Singapour",
+   "specs": [
+    [
+     "Prix indicatif",
+     "328 USD • env. 300 € selon change / import"
+    ],
+    [
+     "Style général",
+     "Dress moderne"
+    ],
+    [
+     "Énergie / mouvement",
+     "Mécanique manuelle • Miyota 6T33"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • 3 aiguilles"
+    ],
+    [
+     "Dimensions",
+     "38 mm • 8 mm de boîtier • 11 mm au sommet du saphir"
+    ],
+    [
+     "Verre",
+     "Saphir double dôme, AR interne"
+    ],
+    [
+     "Fréquence / réserve",
+     "28 800 A/h • ≈ 40 h"
+    ],
+    [
+     "Étanchéité",
+     "5 ATM"
+    ],
+    [
+     "Bracelet",
+     "20 mm • Harris Tweed / cuir selon version"
+    ],
+    [
+     "Disponibilité",
+     "Séries limitées / disponibilité variable"
+    ]
+   ],
+   "pros": [
+    "Très sobre visuellement, donc facile à habiller.",
+    "Remontage manuel haute fréquence inhabituel à ce prix.",
+    "38 mm et profil fin adaptés à ton poignet et à ton goût."
+   ],
+   "cons": [
+    "5 ATM seulement.",
+    "Certaines couleurs sont produites en petites séries et peuvent être épuisées.",
+    "Le cadran peut sembler trop minimaliste si l’on cherche un effet “waouh” immédiat."
+   ],
+   "collectionNote": "",
+   "reviews": "Dans la collection, elle a une raison d’être très nette : c’est la montre habillée qui apporte le geste du remontage manuel et un mouvement peu courant, sans tomber dans le rétro chargé.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://vario.sg/products/eclipse-onyx-handwound-watch"
+    },
+    {
+     "label": "Essai Monochrome",
+     "url": "https://monochrome-watches.com/value-proposition-vario-eclipse-1960s-inspired-singapore-designed-mechanical-watch/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://vario.sg/cdn/shop/products/eclipse_angle_black.jpg?v=1693494321&width=3200"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "Argent",
+     "ref": "",
+     "color": "#d7d8da",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Gris",
+     "ref": "",
+     "color": "#8b8f94",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Ivoire",
+     "ref": "",
+     "color": "#e8dfcf",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Noir",
+     "ref": "",
+     "color": "#202124",
+     "note": "",
+     "url": "",
+     "photo": null
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 32"
+  },
+  {
+   "id": "sugess-chrono-heritage",
+   "brand": "Sugess",
+   "model": "Chrono Heritage",
+   "reference": "ST1901",
+   "categories": [
+    "chrono"
+   ],
+   "status": "alternative",
+   "eyebrow": "Collection cœur • chronographe",
+   "headline": "Le mouvement est presque la moitié du spectacle",
+   "tagline": "Choix actuel • chronographe",
+   "summary": "Un chronographe mécanique manuel à roue à colonnes, avec fond transparent et un dessin rétro qui supporte bien davantage de couleur que le reste de la collection. La version crème/orange SUCHP005Z V2 colle particulièrement bien à cette place.",
+   "style": "Chronographe / rétro",
+   "movement": "Mécanique manuelle",
+   "movementDetail": "Mécanique manuelle • Sea-Gull ST1901",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • chrono",
+   "dims": {
+    "thickness": 12.0,
+    "diameter": 40.0
+   },
+   "crystal": "Saphir sur les références retenues",
+   "case": "",
+   "water": "5 ATM",
+   "lume": "",
+   "price": "≈ 190–240 USD • import",
+   "priceEur": 175,
+   "availability": "Import direct",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 190–240 USD • import"
+    ],
+    [
+     "Style général",
+     "Chronographe rétro"
+    ],
+    [
+     "Énergie / mouvement",
+     "Mécanique manuelle • Sea-Gull ST1901"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • chrono 30 min"
+    ],
+    [
+     "Dimensions",
+     "40 mm • 12 à 13 mm selon version"
+    ],
+    [
+     "Verre",
+     "Saphir sur les références retenues"
+    ],
+    [
+     "Architecture",
+     "Chronographe à roue à colonnes"
+    ],
+    [
+     "Fréquence / réserve",
+     "21 600 A/h • ≈ 45 h"
+    ],
+    [
+     "Étanchéité",
+     "5 ATM"
+    ],
+    [
+     "Fond",
+     "Transparent • mouvement visible"
+    ]
+   ],
+   "pros": [
+    "Roue à colonnes et commande mécanique réellement intéressante.",
+    "Mouvement très photogénique derrière le fond transparent.",
+    "Permet d’introduire crème, turquoise ou orange sans contaminer toute la palette."
+   ],
+   "cons": [
+    "5 ATM seulement.",
+    "Contrôle qualité et SAV moins rassurants qu’une grande marque japonaise ou suisse.",
+    "Épaisseur à surveiller selon la variante exacte."
+   ],
+   "collectionNote": "",
+   "reviews": "C’est exactement le type de montre “imparfaite mais attachante” qui enrichit la collection : elle n’est pas rationnellement supérieure, mais elle rend un vrai mécanisme de chronographe accessible et visible.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.sugessofficial.com/products/chronograph-suchp005z"
+    },
+    {
+     "label": "Collection Chrono Heritage",
+     "url": "https://sugesswatch.com/en-de/pages/chrono-heritage"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://seakors.com/cdn/shop/products/5_38320409-0e1a-4143-bc21-cc527ff46794.jpg?v=1644583769&width=1946"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "Crème",
+     "ref": "",
+     "color": "#efe3c6",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Turquoise",
+     "ref": "",
+     "color": "#69c7c8",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Orange",
+     "ref": "",
+     "color": "#e98a2c",
+     "note": "",
+     "url": "",
+     "photo": null
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 33"
+  },
+  {
+   "id": "henry-archer-nutid",
+   "brand": "Henry Archer",
+   "model": "NUTID",
+   "reference": "Azura / famille NUTID",
+   "categories": [
+    "sport"
+   ],
+   "status": "alternative",
+   "eyebrow": "Collection cœur • sport-chic",
+   "headline": "Le bracelet intégré avec une vraie fonction sportive",
+   "tagline": "Choix actuel • sport intégré",
+   "summary": "NUTID combine ce qui manque souvent aux montres à bracelet intégré : une vraie robustesse d’usage. Le cadran segmenté reste graphique et propre, tandis que le boîtier et le bracelet HV1200, le saphir et les 200 m évitent l’effet “bijou fragile”.",
+   "style": "Sport-chic intégré",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique • Miyota 9015",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • date",
+   "dims": {
+    "thickness": 11.2,
+    "diameter": 40.0,
+    "lugToLug": 46.5,
+    "integrated": true
+   },
+   "crystal": "Saphir plat, AR 6 couches",
+   "case": "Acier 316L • traitement HV1200",
+   "water": "20 ATM / 200 m",
+   "lume": "",
+   "price": "≈ 688,95 €",
+   "priceEur": 689,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 688,95 € pour les variantes courantes • Azura parfois épuisée"
+    ],
+    [
+     "Style général",
+     "Sport-chic intégré"
+    ],
+    [
+     "Énergie / mouvement",
+     "Automatique • Miyota 9015"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • date"
+    ],
+    [
+     "Dimensions",
+     "40 mm • 46,5 mm L2L • 11,2 mm"
+    ],
+    [
+     "Verre",
+     "Saphir plat, AR 6 couches"
+    ],
+    [
+     "Boîtier / bracelet",
+     "Acier 316L • traitement HV1200"
+    ],
+    [
+     "Fréquence / réserve",
+     "28 800 A/h • ≈ 42 h"
+    ],
+    [
+     "Étanchéité",
+     "20 ATM / 200 m"
+    ],
+    [
+     "Fermoir",
+     "Micro-ajustement sans outil"
+    ]
+   ],
+   "pros": [
+    "Très cohérente avec 18 cm de poignet.",
+    "Vraie différenciation par le bracelet intégré et le cadran segmenté.",
+    "Construction plus “tool” qu’une sport-chic purement esthétique."
+   ],
+   "cons": [
+    "Le prix est en haut de la zone visée.",
+    "182 g environ avec tous les maillons : présence réelle au poignet.",
+    "La teinte Azura turquoise peut être ponctuellement indisponible."
+   ],
+   "collectionNote": "",
+   "reviews": "Elle remplit un rôle distinct de la dress : même propre et graphique, son bracelet intégré, ses 200 m et son traitement de surface en font clairement une sportive moderne.",
+   "links": [
+    {
+     "label": "Fiche Azura",
+     "url": "https://henryarcher.com/en-us/products/nutid-azura"
+    },
+    {
+     "label": "Collection NUTID",
+     "url": "https://henryarcher.com/en-us/collections/nutid"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://henryarcher.com/cdn/shop/files/Nutid_-_Azura_00001.jpg?v=1782823478&width=1080"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "Turquoise",
+     "ref": "",
+     "color": "#55c8c6",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Bleu glacier",
+     "ref": "",
+     "color": "#b8d7e6",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Violet",
+     "ref": "",
+     "color": "#7f69c6",
+     "note": "",
+     "url": "",
+     "photo": null
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 34"
+  },
+  {
+   "id": "charlie-paris-concordia",
+   "brand": "Charlie Paris",
+   "model": "Concordia",
+   "reference": "Bleu Antarctique",
+   "categories": [
+    "diver",
+    "outdoor"
+   ],
+   "status": "alternative",
+   "eyebrow": "Collection cœur • exploration",
+   "headline": "Le choix émotionnel qui reste objectivement très portable",
+   "tagline": "Choix actuel • toolwatch",
+   "summary": "La Concordia gagne sa place non parce qu’elle maximise les specs, mais parce que le cadran bleu, les proportions et l’histoire de l’expédition antarctique créent un attachement immédiat. Le VH31 à 4 battements par seconde lui donne aussi un comportement visuel plus vivant qu’un quartz classique.",
+   "style": "Tool / exploration",
+   "movement": "Quartz • VH31",
+   "movementDetail": "Quartz • Seiko/TMI VH31",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • sweep",
+   "dims": {
+    "thickness": 11.1,
+    "diameter": 38.0,
+    "lugToLug": 45.5
+   },
+   "crystal": "Saphir bombé AR • 3 mm",
+   "case": "",
+   "water": "30 ATM / 300 m • couronne vissée",
+   "lume": "",
+   "price": "295–345 €",
+   "priceEur": 295,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "à partir de 295 € • env. 345 € sur bracelet acier"
+    ],
+    [
+     "Style général",
+     "Toolwatch / exploration"
+    ],
+    [
+     "Énergie / mouvement",
+     "Quartz • Seiko/TMI VH31"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • seconde 4 pas/s"
+    ],
+    [
+     "Dimensions",
+     "38 mm • 45,5 mm L2L • 11,1 mm"
+    ],
+    [
+     "Verre",
+     "Saphir bombé AR • 3 mm"
+    ],
+    [
+     "Mouvement",
+     "VH31 • 4 battements par seconde"
+    ],
+    [
+     "Étanchéité",
+     "30 ATM / 300 m • couronne vissée"
+    ],
+    [
+     "Cadran",
+     "Bleu légèrement sablé • Super-LumiNova"
+    ],
+    [
+     "Histoire",
+     "Concordia développée à l’origine pour l’expédition antarctique de Matthieu Tordeur"
+    ]
+   ],
+   "pros": [
+    "Cadran et équilibre visuel très forts sans ostentation.",
+    "300 m et format compact : vraie montre de vacances, eau et randonnée.",
+    "Histoire de modèle authentique et mémorable."
+   ],
+   "cons": [
+    "Pas de date.",
+    "Encore une montre bleue dans la collection.",
+    "Le mouvement reste simple malgré sa seconde plus fluide."
+   ],
+   "collectionNote": "",
+   "reviews": "Ici la hiérarchie est claire : le SBTM couvre déjà le rôle rationnel. La Concordia peut donc être choisie pour le plaisir du cadran, du design et du récit, sans devoir justifier chaque euro par une fiche technique.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://charlie-paris.com/products/montre-plongee-homme-francaise-concordia-quartz-bleu"
+    },
+    {
+     "label": "Histoire de la Concordia",
+     "url": "https://charlie-paris.com/collections/concordia-antarctique"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": "seed/img/charlie-paris-concordia/main.png",
+     "remote": []
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 35"
+  },
+  {
+   "id": "erebus-twenty-four-40",
+   "brand": "Erebus",
+   "model": "Twenty-Four 40",
+   "reference": "Green",
+   "categories": [
+    "field"
+   ],
+   "status": "alternative",
+   "eyebrow": "Collection cœur • originale / field",
+   "headline": "Une complication visible seulement quand on sait ce qu’on regarde",
+   "tagline": "Choix actuel • 24 heures",
+   "summary": "La Twenty-Four garde l’allure familière d’une field watch, mais son disque transforme l’échelle 1–12 en 13–24 à midi avant de revenir à minuit. C’est exactement le bon niveau d’originalité : intellectuellement amusant, visuellement sobre.",
+   "style": "Field / complication",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique • Miyota 9000 modifié",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • 24 h",
+   "dims": {
+    "thickness": 11.6,
+    "diameter": 40.0,
+    "lugToLug": 47.0
+   },
+   "crystal": "Saphir plat avec AR",
+   "case": "",
+   "water": "10 ATM / 100 m",
+   "lume": "BGW9 Super-LumiNova",
+   "price": "599 USD • import",
+   "priceEur": 551,
+   "availability": "Import Australie",
+   "specs": [
+    [
+     "Prix indicatif",
+     "599 USD • import"
+    ],
+    [
+     "Style général",
+     "Field / complication"
+    ],
+    [
+     "Énergie / mouvement",
+     "Automatique • Miyota 9000 modifié"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • véritable affichage 24 h"
+    ],
+    [
+     "Dimensions",
+     "40 mm • 47 mm L2L • 11,6 mm"
+    ],
+    [
+     "Verre",
+     "Saphir plat avec AR"
+    ],
+    [
+     "Mouvement",
+     "Miyota 9000 modifié avec module 24 h"
+    ],
+    [
+     "Étanchéité",
+     "10 ATM / 100 m"
+    ],
+    [
+     "Lume",
+     "BGW9 Super-LumiNova"
+    ],
+    [
+     "Bracelets",
+     "Cuir assorti + nylon single-pass"
+    ]
+   ],
+   "pros": [
+    "Complication originale sans cadran gadget.",
+    "Dimensions compatibles avec tes préférences.",
+    "100 m et saphir : vraie montre quotidienne."
+   ],
+   "cons": [
+    "Prix plus élevé qu’une field classique.",
+    "Le mécanisme 24 h ajoute de la complexité sans utilité indispensable.",
+    "Import et disponibilité par vagues."
+   ],
+   "collectionNote": "",
+   "reviews": "Elle n’a pas besoin d’être “la meilleure field”. Son intérêt est d’apporter une architecture de lecture du temps différente de tout le reste de la boîte.",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://erebuswatches.com/products/twenty-four-40-green"
+    },
+    {
+     "label": "Présentation Worn & Wound",
+     "url": "https://wornandwound.com/quick-release/erebus-introduces-a-unique-and-affordable-field-watch-with-a-transforming-24-hour-dial-complication/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://erebuswatches.com/cdn/shop/files/ErebusWebPics_0000s_0003_SW0006GL-40-08_jpg.jpg?v=1772170643"
+     ]
+    },
+    "night": null
+   },
+   "variants": [
+    {
+     "name": "Vert sombre",
+     "ref": "",
+     "color": "#3f5a43",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Sable",
+     "ref": "",
+     "color": "#c9b48e",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Noir",
+     "ref": "",
+     "color": "#222222",
+     "note": "",
+     "url": "",
+     "photo": null
+    },
+    {
+     "name": "Gris",
+     "ref": "",
+     "color": "#7e848a",
+     "note": "",
+     "url": "",
+     "photo": null
+    }
+   ],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 36"
+  },
+  {
+   "id": "orient-diver-design-40",
+   "brand": "Orient",
+   "model": "Diver Design 40",
+   "reference": "RA-AC0Q16N",
+   "categories": [
+    "diver"
+   ],
+   "status": "future",
+   "eyebrow": "Piste future • diver",
+   "headline": "La vraie plongeuse automatique, uniquement si l’envie reste",
+   "tagline": "Piste future • diver",
+   "summary": "Cette Orient n’est plus nécessaire pour couvrir l’eau : la Concordia le fait déjà. Elle garde néanmoins une place crédible en watchlist comme vraie plongeuse automatique à lunette tournante, compacte et discrète, avec un cadran gris “stealth” très éloigné des divers trop colorées.",
+   "style": "Diver",
+   "movement": "Mécanique auto",
+   "movementDetail": "Automatique • Orient F6722",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • date",
+   "dims": {
+    "thickness": 12.8,
+    "diameter": 39.9,
+    "lugToLug": 46.5
+   },
+   "crystal": "Saphir plat",
+   "case": "",
+   "water": "20 ATM / 200 m",
+   "lume": "",
+   "price": "≈ 280–399 €",
+   "priceEur": 280,
+   "availability": "UE / import facile",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 280–399 € selon revendeur UE • MSRP autour de 479 €"
+    ],
+    [
+     "Style général",
+     "Diver automatique"
+    ],
+    [
+     "Énergie / mouvement",
+     "Automatique • Orient F6722"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • date"
+    ],
+    [
+     "Dimensions",
+     "39,9 mm • 46,5 mm L2L • 12,8 mm"
+    ],
+    [
+     "Verre",
+     "Saphir plat"
+    ],
+    [
+     "Mouvement",
+     "Orient F6722 • remontage manuel + stop seconde"
+    ],
+    [
+     "Réserve",
+     "> 40 h"
+    ],
+    [
+     "Étanchéité",
+     "20 ATM / 200 m"
+    ],
+    [
+     "Cadran",
+     "Grey gradation • édition 2026"
+    ]
+   ],
+   "pros": [
+    "Proportions très justes pour une plongeuse.",
+    "Calibre Orient maison et vraie lunette tournante.",
+    "Cadran gris fumé original mais discret."
+   ],
+   "cons": [
+    "12,8 mm : au-dessus de ta préférence habituelle.",
+    "Elle fait partiellement doublon d’usage avec la Concordia.",
+    "Aucune raison de l’acheter tant que l’envie d’une vraie diver n’est pas concrète."
+   ],
+   "collectionNote": "",
+   "reviews": "Elle fonctionne mieux comme désir futur que comme “case diver” obligatoire. Si un jour tu veux réellement la gestuelle et l’esthétique d’une plongeuse automatique, elle devient alors très cohérente.",
+   "links": [
+    {
+     "label": "Fiche Orient",
+     "url": "https://orient-watch.com/en/orient/collection/sports/diver-design-40/RA-AC0Q16N/"
+    },
+    {
+     "label": "Prix / revendeur UE",
+     "url": "https://www.seriouswatches.com/products/orient-ra-ac0q16n-mako-40-limited-edition"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://possibile.bg/img/bt43886.jpg"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 37"
+  },
+  {
+   "id": "seiko-astron-sbxy031",
+   "brand": "Seiko",
+   "model": "Astron SBXY031",
+   "reference": "",
+   "categories": [
+    "gada"
+   ],
+   "status": "alternative",
+   "eyebrow": "Alternative premium • GADA / set-and-forget",
+   "headline": "La logique SBTM, mais avec davantage d’objet et de cadran",
+   "tagline": "Alternative GADA premium • titane + cadran ondulé",
+   "summary": "La SBXY031 reprend presque exactement ce qui rend la SBTM séduisante — solaire, radio, calendrier automatique, finesse et discrétion — mais dans une exécution plus haut de gamme. Le vrai supplément d’âme vient du cadran bleu-gris parcouru de fines ondulations rayonnantes : assez travaillé pour donner envie de regarder la montre, sans devenir démonstratif.",
+   "style": "GADA / sport-dress",
+   "movement": "Solaire",
+   "movementDetail": "Solaire-radio • Seiko 7B72",
+   "caliber": "",
+   "radio": "Oui • multibande",
+   "display": "Analogique • date",
+   "dims": {
+    "thickness": 9.6,
+    "diameter": 39.0,
+    "lugToLug": 45.8,
+    "weight": 68.5
+   },
+   "crystal": "Saphir courbe • Super Clear Coating",
+   "case": "Titane pur • traitement DiaShield",
+   "water": "10 ATM / 100 m",
+   "lume": "",
+   "price": "≈ 556–583 € + port/import • 137 500 ¥ catalogue",
+   "priceEur": 556,
+   "availability": "Import JDM",
+   "specs": [
+    [
+     "Prix indicatif",
+     "≈ 556–583 € + port/import depuis le Japon • 137 500 ¥ tarif Seiko"
+    ],
+    [
+     "Style général",
+     "GADA / sport-dress premium"
+    ],
+    [
+     "Énergie / mouvement",
+     "Solaire-radio • Seiko 7B72"
+    ],
+    [
+     "Précision hors réception",
+     "±15 s/mois"
+    ],
+    [
+     "Autonomie",
+     "≈ 9 mois • jusqu’à 2 ans en économie d’énergie"
+    ],
+    [
+     "Calendrier",
+     "Entièrement automatique jusqu’au 31/12/2099"
+    ],
+    [
+     "Radio",
+     "Japon, Chine, USA, Allemagne et Royaume-Uni"
+    ],
+    [
+     "Dimensions",
+     "39,0 mm • 45,8 mm L2L • 9,6 mm"
+    ],
+    [
+     "Boîtier / bracelet",
+     "Titane pur • traitement DiaShield"
+    ],
+    [
+     "Verre",
+     "Saphir courbe • Super Clear Coating"
+    ],
+    [
+     "Étanchéité",
+     "10 ATM / 100 m"
+    ],
+    [
+     "Poids",
+     "68,5 g"
+    ]
+   ],
+   "pros": [
+    "Le même confort mental que la SBTM : solaire, radio et calendrier qui demandent très peu d’attention.",
+    "39 × 45,8 × 9,6 mm : des proportions presque idéales pour ton cahier des charges.",
+    "Le titane la rend très légère et apporte une sensation plus premium.",
+    "Le cadran ondulé donne précisément le supplément émotionnel qui manque parfois aux montres purement rationnelles."
+   ],
+   "cons": [
+    "Import JDM et prix nettement supérieur à la SBTM.",
+    "Le dessin est plus habillé : moins neutre et moins “passe-partout absolu”.",
+    "Pas de LumiBrite indiqué ; les retours utilisateurs mentionnent une lisibilité nocturne limitée.",
+    "Bracelet très léger, mais sans micro-ajustement moderne."
+   ],
+   "collectionNote": "",
+   "reviews": "Je la vois moins comme une remplaçante évidente de la SBTM que comme sa version plaisir. La SBTM reste le GADA rationnel idéal ; la SBXY031 devient celle que tu choisis si tu veux conserver le set-and-forget tout en ayant, chaque fois que tu regardes l’heure, un cadran qui te donne réellement quelque chose à contempler.",
+   "links": [
+    {
+     "label": "Fiche officielle Seiko",
+     "url": "https://www.seikowatches.com/jp-ja/products/astron/sbxy031"
+    },
+    {
+     "label": "Revendeur JDM / disponibilité",
+     "url": "https://www.ippojapanwatch.com/products/seiko-astron-sbxy031-solar-pure-titanium-watch"
+    },
+    {
+     "label": "Annonces Chrono24 Belgique",
+     "url": "https://www.chrono24.be/seiko/ref-sbxy031.htm"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/15/18/SBXY031/SBXY031.png?mh=1200&mw=1200"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 38"
+  },
+  {
+   "id": "citizen-tsuyosa-yellow",
+   "brand": "Citizen",
+   "model": "Tsuyosa Yellow",
+   "reference": "NJ0150-81Z",
+   "categories": [
+    "sport"
+   ],
+   "status": "alternative",
+   "eyebrow": "Alternative couleur • sport-chic accessible",
+   "headline": "La porte d’entrée la plus simple vers le bracelet intégré coloré",
+   "tagline": "Alternative / watchlist • sport-chic intégré",
+   "summary": "La Tsuyosa n’essaie pas d’être la plus technique de la sélection ; elle gagne par sa lisibilité immédiate : cadran jaune soleillé, boîtier sport-chic de 40 mm, bracelet intégré et automatique maison à un tarif encore très raisonnable. C’est la proposition « fun » et facile à recommander quand l’envie de couleur devient prioritaire.",
+   "style": "Sport-chic intégré",
+   "movement": "Mécanique auto",
+   "movementDetail": "Mécanique auto • Citizen calibre 8210",
+   "caliber": "8210",
+   "radio": "Non",
+   "display": "Analogique • date",
+   "dims": {
+    "weight": 138.0,
+    "diameter": 40.0,
+    "integrated": true
+   },
+   "crystal": "Saphir",
+   "case": "",
+   "water": "5 bar",
+   "lume": "",
+   "price": "299 €",
+   "priceEur": 299,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "299 €"
+    ],
+    [
+     "Style général",
+     "Sport-chic intégré"
+    ],
+    [
+     "Énergie / mouvement",
+     "Mécanique auto • Citizen calibre 8210"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • date à 3 h"
+    ],
+    [
+     "Dimensions / poids",
+     "40 mm • 138 g"
+    ],
+    [
+     "Verre",
+     "Saphir"
+    ],
+    [
+     "Réserve de marche",
+     "≈ 40 h"
+    ],
+    [
+     "Étanchéité",
+     "5 bar"
+    ],
+    [
+     "Bracelet",
+     "Acier intégré"
+    ],
+    [
+     "Signature",
+     "Cadran jaune vif • loupe de date • vraie présence visuelle"
+    ]
+   ],
+   "pros": [
+    "Une dose de couleur très franche, absente du reste de la collection.",
+    "Le look intégré sans monter dans les tarifs d’un MAEN ou d’un sport-chic plus ambitieux.",
+    "Excellent point d’entrée mécanique pour une montre plaisir très simple à porter."
+   ],
+   "cons": [
+    "Moins raffinée et moins technique qu’une NB1050 ou qu’une NUTID.",
+    "Seulement 5 bar : usage quotidien oui, vraie montre d’eau non.",
+    "Le jaune est précisément ce qui fait son intérêt… et limite un peu sa polyvalence."
+   ],
+   "collectionNote": "",
+   "reviews": "Dans cette sélection, la Tsuyosa n’est pas là pour remplacer la NUTID. Elle sert plutôt de version plus légère, plus accessible et plus joyeuse du sport-chic intégré — celle qu’on ajoute quand on veut surtout du cadran et de la bonne humeur au poignet.",
+   "links": [
+    {
+     "label": "Fiche officielle Citizen FR",
+     "url": "https://fr.citizenwatch.eu/fr/p/nj0150-81z/"
+    },
+    {
+     "label": "Fiche Citizen EU",
+     "url": "https://citizenwatch.eu/en/p/nj0150-81z/"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": "seed/img/citizen-tsuyosa-yellow/main.png",
+     "remote": []
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 39"
+  },
+  {
+   "id": "glycine-combat-sub-39",
+   "brand": "Glycine",
+   "model": "Combat Sub 39",
+   "reference": "GL0540",
+   "categories": [
+    "diver"
+   ],
+   "status": "alternative",
+   "eyebrow": "Alternative suisse • diver compacte",
+   "headline": "La plongeuse suisse sérieuse qui reste portable",
+   "tagline": "Alternative / watchlist • diver / sport",
+   "summary": "Si l’envie d’une vraie plongeuse automatique plus classique que la Concordia se confirme, la Combat Sub 39 est une excellente candidate : diamètre contenu, 300 m, couronne vissée, saphir plat et mouvement suisse. Elle a moins de charme narratif que la Charlie, mais davantage de légitimité “tool diver” au sens traditionnel.",
+   "style": "Diver / sport",
+   "movement": "Mécanique auto",
+   "movementDetail": "Mécanique auto • GL224 Swiss Automatic",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • date",
+   "dims": {
+    "diameter": 39.0,
+    "lugWidth": 20
+   },
+   "crystal": "Saphir plat",
+   "case": "",
+   "water": "300 m",
+   "lume": "",
+   "price": "540 USD • ≈ 500–650 € selon canal",
+   "priceEur": 497,
+   "availability": "Marque / import",
+   "specs": [
+    [
+     "Prix indicatif",
+     "540 USD sur le site US • ≈ 500–650 € selon canal"
+    ],
+    [
+     "Style général",
+     "Diver compacte / sport"
+    ],
+    [
+     "Énergie / mouvement",
+     "Mécanique auto • GL224 Swiss Automatic"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • date"
+    ],
+    [
+     "Dimensions",
+     "39 mm"
+    ],
+    [
+     "Verre",
+     "Saphir plat"
+    ],
+    [
+     "Couronne / fond",
+     "Couronne vissée • fond plein vissé"
+    ],
+    [
+     "Étanchéité",
+     "300 m"
+    ],
+    [
+     "Bracelet",
+     "Acier 20 mm avec boucle de sécurité"
+    ],
+    [
+     "Positionnement",
+     "Alternative suisse plus traditionnelle à la Concordia / Mako 40"
+    ]
+   ],
+   "pros": [
+    "Format 39 mm très convaincant pour une vraie plongeuse.",
+    "300 m, saphir, acier et mouvement suisse : fiche solide et rassurante.",
+    "Une option nettement plus “diver classique” que les choix actuels."
+   ],
+   "cons": [
+    "Beaucoup plus conventionnelle émotionnellement que la Concordia.",
+    "Le tarif réel varie fortement selon le canal de vente.",
+    "Ajoute encore une montre acier sportive dans une collection déjà bien couverte."
+   ],
+   "collectionNote": "",
+   "reviews": "Elle n’est pertinente que si tu veux explicitement une plongeuse automatique “comme dans les livres”, avec lunette, 300 m et ADN suisse assumé. Sinon la Concordia suffit déjà à couvrir l’eau, les vacances et l’usage baroudeur avec plus de personnalité.",
+   "links": [
+    {
+     "label": "Boutique officielle EU",
+     "url": "https://www.glycinestore.eu/fr/glycine-combat-sub-39-gl0540/?srsltid=AU7gw4Wq5bwgionxS2NW6ktu5UDBiV3gro25tVA0rml17RXzgdeFBlgp"
+    },
+    {
+     "label": "Fiche Glycine US",
+     "url": "https://www.glycinewatches.com/products/glycine-gl0540"
+    },
+    {
+     "label": "Specs marque",
+     "url": "https://www.glycine-watch.ch/watches/gl0540-combat-sub-sport-unisex"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://www.glycinewatches.com/cdn/shop/files/GL0540.png?v=1782491372&width=3150"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 40"
+  },
+  {
+   "id": "beaubleu-la-piece-n1",
+   "brand": "Beaubleu",
+   "model": "La Pièce n°1",
+   "reference": "Bleu Empire",
+   "categories": [
+    "dress",
+    "art"
+   ],
+   "status": "alternative",
+   "eyebrow": "Alternative objet design • dress créative",
+   "headline": "Le contre-pied artistique et parisien",
+   "tagline": "Alternative / watchlist • dress créative",
+   "summary": "Cette Beaubleu n’entre pas dans la sélection par rationalité pure mais par singularité : cadran monobloc, lecture du temps poétique avec aiguille flottante et vraie présence d’objet. Elle parle davantage à l’envie de posséder une pièce de design horloger qu’à celle d’optimiser un rapport specs/prix.",
+   "style": "Dress créative",
+   "movement": "Mécanique auto",
+   "movementDetail": "Mécanique auto • mouvement automatique français",
+   "caliber": "",
+   "radio": "Non",
+   "display": "Analogique • aiguille flottante",
+   "dims": {
+    "diameter": 39.0,
+    "lugWidth": 20
+   },
+   "crystal": "",
+   "case": "Acier 316L",
+   "water": "",
+   "lume": "",
+   "price": "1 790 €",
+   "priceEur": 1790,
+   "availability": "UE officiel",
+   "specs": [
+    [
+     "Prix indicatif",
+     "1 790 €"
+    ],
+    [
+     "Style général",
+     "Dress créative / objet horloger"
+    ],
+    [
+     "Énergie / mouvement",
+     "Mécanique auto • mouvement automatique français"
+    ],
+    [
+     "Radio / connexion",
+     "Non"
+    ],
+    [
+     "Affichage",
+     "Analogique • aiguille flottante"
+    ],
+    [
+     "Dimensions",
+     "39 mm"
+    ],
+    [
+     "Boîtier",
+     "Acier 316L"
+    ],
+    [
+     "Signature de cadran",
+     "Cadran monobloc bleu • lecture très minimaliste"
+    ],
+    [
+     "Bracelet",
+     "20 mm • cuir ou acier selon configuration"
+    ],
+    [
+     "Positionnement",
+     "Édition limitée"
+    ],
+    [
+     "Promesse",
+     "Plus proche d’une pièce de design que d’une simple dress classique"
+    ]
+   ],
+   "pros": [
+    "Probablement l’ajout le plus singulier visuellement de toute la watchlist.",
+    "Une manière crédible d’aller vers quelque chose de plus “artistique” sans tomber dans le gadget.",
+    "Très cohérente si la Vario semble trop sage et que la MAEN trop froide."
+   ],
+   "cons": [
+    "Très au-dessus du budget médian de la collection.",
+    "Le plaisir vient du concept et du design plus que d’une fiche technique spectaculaire.",
+    "Lecture de l’heure plus contemplative que strictement utilitaire."
+   ],
+   "collectionNote": "",
+   "reviews": "La Beaubleu ne remplace pas une dress rationnelle : elle ouvre une autre porte. Si un jour tu veux une montre qui ressemble davantage à un manifeste esthétique qu’à une solution horlogère optimisée, c’est exactement son terrain.",
+   "links": [
+    {
+     "label": "Fiche officielle demandée",
+     "url": "https://beaubleu-paris.com/en/products/la-piece-n-1-empire-blue?_gl=1*jqvgee*_up*MQ..*_gs*MQ..*_ga*MzQ3NDE3MzQ1LjE3OTA5MzEwMTk.*_ga_KYFRHZ9VWH*czE3OTA5MzEwMTgkbzEkZzAkdDE3OTA5MzEwMzQkajQ0JGwwJGgyMDUzMTkyMTA0&gclid=CjwKCAjwrP3VBhBbEiwAnaqpQ9TCfYG--9oHIj_RFXTlQXkagyn_p9xUzJtwLbD1BdE_3EFAzjxsfRoCR3sQAvD_BwE&gbraid=0AAAAABr6Uz-oxyIsnQ72tXYbbmblcyW0J"
+    },
+    {
+     "label": "Fiche FR",
+     "url": "https://beaubleu-paris.com/products/la-piece-n-1-bleu-empire"
+    }
+   ],
+   "photos": {
+    "main": {
+     "src": null,
+     "remote": [
+      "https://beaubleu-paris.com/cdn/shop/files/FORMATCARRE1_9a58abea-096f-438a-8b38-eb71ed0e3d2c.webp?v=1784798938&width=800",
+      "https://beaubleu-paris.com/cdn/shop/files/FORMATCARRE2_b832cca1-ec18-4d10-b293-10a7a41675bb.webp?v=1784798938&width=800",
+      "https://beaubleu-paris.com/cdn/shop/files/SMALLBANNERHAUT.webp?v=1784798938&width=2000"
+     ]
+    },
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · page 41"
+  },
+  {
+   "id": "knot-at-38-urushi",
+   "brand": "Knot",
+   "model": "AT-38 Urushi",
+   "reference": "",
+   "categories": [
+    "dress",
+    "art"
+   ],
+   "status": "alternative",
+   "eyebrow": "",
+   "headline": "",
+   "tagline": "",
+   "summary": "38 mm, saphir, Miyota 9015, cadran urushi japonais réalisé avec des artisans d’Aizu. Très belle alternative « cadran d’art » à la dress.",
+   "style": "",
+   "movement": "",
+   "movementDetail": "",
+   "caliber": "",
+   "radio": "",
+   "display": "",
+   "dims": {
+    "diameter": 38.0
+   },
+   "crystal": "",
+   "case": "",
+   "water": "",
+   "lume": "",
+   "price": "",
+   "priceEur": null,
+   "availability": "",
+   "specs": [],
+   "pros": [],
+   "cons": [],
+   "collectionNote": "",
+   "reviews": "",
+   "links": [
+    {
+     "label": "Collection officielle",
+     "url": "https://en.knot-designs.com/collections/at-38"
+    }
+   ],
+   "photos": {
+    "main": null,
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · carte de collection"
+  },
+  {
+   "id": "citizen-nb1060-silver-leaf",
+   "brand": "Citizen",
+   "model": "NB1060 Silver Leaf",
+   "reference": "",
+   "categories": [
+    "dress",
+    "art"
+   ],
+   "status": "alternative",
+   "eyebrow": "",
+   "headline": "",
+   "tagline": "",
+   "summary": "38,2 mm, 10 ATM, saphir, calibre 9011 et cadran laqué sur feuille d’argent. Plus épaisse et aujourd’hui nettement plus chère, mais très forte émotion visuelle.",
+   "style": "",
+   "movement": "",
+   "movementDetail": "",
+   "caliber": "",
+   "radio": "",
+   "display": "",
+   "dims": {
+    "diameter": 38.2
+   },
+   "crystal": "",
+   "case": "",
+   "water": "",
+   "lume": "",
+   "price": "",
+   "priceEur": null,
+   "availability": "",
+   "specs": [],
+   "pros": [],
+   "cons": [],
+   "collectionNote": "",
+   "reviews": "",
+   "links": [
+    {
+     "label": "Fiche Citizen Japon",
+     "url": "https://citizen.jp/shop/collection/g/gNB1060-12L/"
+    }
+   ],
+   "photos": {
+    "main": null,
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · carte de collection"
+  },
+  {
+   "id": "maen-manhattan-39-ultra-thin",
+   "brand": "MAEN",
+   "model": "Manhattan 39 Ultra-Thin",
+   "reference": "",
+   "categories": [
+    "sport",
+    "dress"
+   ],
+   "status": "alternative",
+   "eyebrow": "",
+   "headline": "",
+   "tagline": "",
+   "summary": "39 mm × 6,9 mm, 10 ATM, La Joux-Perret D101 manuel et bracelet intégré. Techniquement superbe, mais clairement au-dessus de la zone de budget visée.",
+   "style": "",
+   "movement": "",
+   "movementDetail": "",
+   "caliber": "",
+   "radio": "",
+   "display": "",
+   "dims": {
+    "diameter": 39.0,
+    "thickness": 6.9
+   },
+   "crystal": "",
+   "case": "",
+   "water": "",
+   "lume": "",
+   "price": "",
+   "priceEur": null,
+   "availability": "",
+   "specs": [],
+   "pros": [],
+   "cons": [],
+   "collectionNote": "",
+   "reviews": "",
+   "links": [
+    {
+     "label": "Fiche officielle",
+     "url": "https://www.maenwatches.com/collections/manhattan-39-ultra-thin"
+    }
+   ],
+   "photos": {
+    "main": null,
+    "night": null
+   },
+   "variants": [],
+   "favoriteVariant": 0,
+   "notes": "",
+   "source": "v27 · carte de collection"
+  }
+ ]
+}

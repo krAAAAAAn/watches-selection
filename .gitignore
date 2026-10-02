@@ -1,0 +1,3 @@
+# Données vivantes (propres à chaque installation) : sauvegardées avec le volume, pas dans git
+app/data/
+app/img/
