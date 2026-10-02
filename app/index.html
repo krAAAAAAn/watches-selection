@@ -309,8 +309,8 @@ td b{font:400 18px/1.15 var(--display)}
    État & persistance
    ===================================================================== */
 let DB = null;                 // contenu de data/watches.json
-let READONLY = false;          // vrai si api.php ne répond pas (fichier ouvert sans serveur)
-const API = "api.php";
+let READONLY = false;          // vrai si le serveur ne répond pas (fichier ouvert directement)
+const API = "api";
 
 async function api(action, body){
   const r = await fetch(`${API}?a=${action}`, body === undefined ? {} : {method:"POST", headers:{"Content-Type":"application/json"}, body: JSON.stringify(body)});
@@ -325,15 +325,42 @@ async function load(){
     DB = await fetch("seed/watches.json").then(r => r.json());
   }
 }
-let saveTimer;
+/* Enregistrement : tout le fichier, une requête à la fois. Le serveur numérote les versions (rev)
+   et refuse une sauvegarde faite sur des données périmées (autre appareil) → on recharge. */
+let saveTimer, saving = false, dirty = false, pending = false;
 function save(){
-  if (READONLY) return flash("Lecture seule — api.php indisponible", true);
+  if (READONLY) return flash("Lecture seule — serveur indisponible", true);
+  pending = true;
   clearTimeout(saveTimer);
-  saveTimer = setTimeout(async () => {
-    try { await api("save", DB); flash("Enregistré"); }
-    catch (e) { flash("Échec de l'enregistrement : " + e.message, true); }
-  }, 500);
+  saveTimer = setTimeout(flush, 500);
 }
+async function flush(){
+  clearTimeout(saveTimer); pending = false;
+  if (saving) { dirty = true; return; }
+  saving = true; dirty = false;
+  try { const r = await api("save", DB); DB.rev = r.rev; flash("Enregistré"); }
+  catch (e) {
+    if (e.message === "conflict") {
+      DB = await api("load");
+      flash("Données modifiées depuis un autre appareil : rechargées. Refais ta dernière modification si elle manque.", true);
+      if (!DRAFT && !DET) render(true);
+    } else flash("Échec de l'enregistrement : " + e.message, true);
+  }
+  finally { saving = false; if (dirty) await flush(); }
+}
+// Fermeture de l'onglet alors qu'une modification part encore : le navigateur demande confirmation,
+// ce qui laisse le temps à l'enregistrement de se terminer (les données dépassent la taille
+// autorisée pour un envoi « en partant », d'où cette approche).
+window.addEventListener("beforeunload", e => { if (pending || saving) { flush(); e.preventDefault(); e.returnValue = ""; } });
+/* En revenant sur l'onglet (ou l'appli sur le téléphone), on récupère les changements faits ailleurs. */
+document.addEventListener("visibilitychange", async () => {
+  if (document.visibilityState === "hidden") { if (pending) flush(); return; }   // on quitte l'appli : enregistrer tout de suite
+  if (READONLY || saving || pending || DRAFT || DET) return;
+  try {
+    const fresh = await api("load");
+    if ((fresh.rev || 0) !== (DB.rev || 0)) { DB = fresh; render(true); flash("Mis à jour depuis un autre appareil"); }
+  } catch {}
+});
 function flash(msg, err = false){
   const el = $("#saveState");
   el.textContent = msg; el.className = "save-state show" + (err ? " err" : "");
@@ -669,8 +696,7 @@ function toggleCat(id, cid){
   const c = catOf(cid); if (c.pick === id && !w.categories.includes(cid)) c.pick = null;
   touch(w); save(); render();
 }
-let noteT;
-function noteInput(id, val){ clearTimeout(noteT); noteT = setTimeout(() => { const w = byId(id); w.notes = val; touch(w); save(); }, 400); }
+function noteInput(id, val){ const w = byId(id); w.notes = val; touch(w); save(); }
 const touch = w => { w.updated = new Date().toISOString().slice(0, 10); };
 function deleteWatch(id){
   const w = byId(id);
@@ -768,7 +794,7 @@ function viewEdit(id){
     <div class="actions-bar">
       <button class="btn" onclick="commitEdit()">${isNew ? "Ajouter à ma sélection" : "Enregistrer"}</button>
       <button class="btn line" onclick="cancelEdit()">Annuler</button>
-      ${READONLY ? `<span class="hint">Lecture seule : api.php indisponible.</span>` : ""}
+      ${READONLY ? `<span class="hint">Lecture seule : serveur indisponible.</span>` : ""}
     </div>
   </div>`;
 }
@@ -1053,7 +1079,7 @@ function viewSettings(){
       <label class="wide"><span>Profil</span><textarea rows="12" onchange="DB.profile=this.value;save()">${esc(DB.profile || "")}</textarea></label>
     </div></div>
 
-    <div class="form-sec"><h2>Données<small>Le serveur garde aussi les 50 dernières versions dans data/backup/.</small></h2><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
+    <div class="form-sec"><h2>Données<small>Le serveur garde aussi les 50 dernières versions dans watch-data/backup/.</small></h2><div style="display:flex;gap:12px;flex-wrap:wrap;align-items:flex-start">
       <button class="btn line" onclick="exportJson()">Exporter (JSON)</button>
       <button class="btn line" onclick="importJson()">Importer (JSON)</button>
     </div></div>
@@ -1069,7 +1095,7 @@ async function bulkFetch(){
       x.s.src = r.src; ok++;
       log(`${n + 1}/${todo.length} ✓ ${nameOf(x.w)} (${x.key})`, "ok");
     } catch (e) { log(`${n + 1}/${todo.length} ✗ ${nameOf(x.w)} (${x.key}) — ${e.message}`, "ko"); }
-    if (ok && ok % 5 === 0) await api("save", DB).catch(() => {});
+    if (ok && ok % 5 === 0) await flush();
   }
   save(); log(`Terminé : ${ok} / ${todo.length} photos rapatriées. Pour les échecs : « Modifier → Photos → Depuis une URL » ou « Fichier ».`);
 }
@@ -1114,7 +1140,7 @@ function importJson(){
       const d = JSON.parse(await input.files[0].text());
       if (!Array.isArray(d.watches) || !Array.isArray(d.categories)) throw new Error("Ce fichier ne ressemble pas à des données Watch Selection.");
       if (!confirm(`Remplacer les données actuelles (${DB.watches.length} montres) par celles du fichier (${d.watches.length} montres) ?`)) return;
-      DB = d; save(); render();
+      d.rev = DB.rev; DB = d; save(); render();
     } catch (e) { alert(e.message); }
   };
   input.click();
@@ -1123,7 +1149,8 @@ function importJson(){
 /* =====================================================================
    Routeur
    ===================================================================== */
-function render(){
+function render(keepScroll = false){
+  const y = window.scrollY;
   const [, route = "collection", arg] = location.hash.split("#")[1]?.split("/") || [];
   $$("nav.main a").forEach(a => a.classList.toggle("on", a.dataset.r === route || (["fiche", "edit"].includes(route) && a.dataset.r === "catalogue")));
   if (route !== "edit" && route !== "ajouter") DRAFT = null;
@@ -1134,9 +1161,9 @@ function render(){
   if (route === "catalogue") fillCatalogue();
   if (route === "fiche") initDetail(arg);
   if (view === viewCollection) setupRail();
-  if (READONLY && !render.warned) { render.warned = true; flash("Lecture seule — api.php indisponible", true); }
+  if (READONLY && !render.warned) { render.warned = true; flash("Lecture seule — serveur indisponible", true); }
   if (EDIT_SCROLL && route === "edit") { const t = document.getElementById(EDIT_SCROLL); EDIT_SCROLL = null; setTimeout(() => t?.scrollIntoView(), 50); }
-  else window.scrollTo(0, 0);
+  else window.scrollTo(0, keepScroll ? y : 0);
 }
 window.addEventListener("hashchange", () => { if (!location.hash.startsWith("#fam-")) render(); });
 document.addEventListener("keydown", e => {

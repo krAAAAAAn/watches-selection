@@ -20,7 +20,7 @@
 
 | Sujet | Décision |
 |---|---|
-| Hébergement | Homelab ; le projet doit rester **très simple** → un conteneur `php:apache` officiel |
+| Hébergement | Webapp accessible depuis PC et téléphone, données persistées, **le plus portable possible** → **un seul exécutable**, sans PHP ni Docker (§3) |
 | Accès | Protégé par **Pangolin** en amont → l'application ne gère **aucune authentification** |
 | IA | **Indépendante du fournisseur** (API standard) — **reportée à l'étape 2** : on valide d'abord tout le reste |
 | Recherche web (pour l'IA) | **SearXNG** auto-hébergé : gratuit, sans compte (comparatif §4) |
@@ -33,29 +33,47 @@
 
 ---
 
-## 3. Architecture
+## 3. Architecture : un seul exécutable
 
 ```
-app/                    ← dossier servi par Apache
-├── index.html          ← toute l'application (HTML + CSS + JS natif, sans librairie ni étape de build)
-├── api.php             ← load / save (+ sauvegardes datées), fetch (rapatrier une photo), upload (déposer une photo)
-├── fonts/              ← polices locales
-├── seed/               ← données de départ (copiées vers data/ au premier lancement)
-├── data/watches.json   ← les données vivantes + data/backup/ (50 dernières versions)
+watch-selection(.exe)   ← UN fichier (~8 Mo) : serveur web + toute l'application embarquée
+watch-data/             ← créé à côté de lui au premier lancement
+├── watches.json        ← les données (texte lisible)
+├── backup/             ← les 50 versions précédentes
 └── img/<id-montre>/    ← photos rapatriées, déposées ou détourées
-docker-compose.yml      ← image officielle php:8.3-apache + un volume
 ```
 
-**Pourquoi PHP ?** C'est la seule technologie qui permet « un fichier = un point d'API » sans framework, sans
-dépendances, sans process à gérer : Apache exécute `api.php` à la demande. Dans le homelab, c'est un conteneur
-officiel `php:8-apache` qui monte le dossier ; on le place derrière Pangolin comme les autres services.
+Dans le dépôt :
 
-**Pas d'authentification dans l'application** : Pangolin s'en charge. `api.php` n'écoute que ce que le
-reverse-proxy lui transmet.
+```
+main.go                 ← le serveur (Go, bibliothèque standard uniquement, ~300 lignes)
+app/                    ← l'application web, embarquée dans l'exécutable à la compilation
+├── index.html          ← toute l'interface (HTML + CSS + JS natif, sans librairie)
+├── fonts/              ← polices locales
+└── seed/               ← données de départ (44 montres de la v27) copiées au premier lancement
+build.sh                ← compile pour Windows, Mac, Linux (PC, NAS, Raspberry Pi)
+.github/workflows/      ← compile et publie automatiquement les exécutables sur GitHub
+```
 
-**Sauvegarde** : à chaque écriture, l'ancien `watches.json` est conservé (`data/backup/watches-AAAAMMJJ-HHMMSS.json`,
-les 50 dernières versions). L'écriture est atomique (fichier temporaire puis renommage). `data/` et `img/` ne sont
-pas versionnés : un `git pull` met à jour l'application sans toucher aux données.
+**Pourquoi un exécutable Go ?** Une webapp accessible depuis le PC et le téléphone avec des données persistées
+demande un serveur. Le plus portable est un fichier unique qui *est* ce serveur : rien à installer (ni PHP, ni
+Docker, ni runtime), il tourne sur n'importe quelle machine — homelab, NAS, Raspberry Pi, PC — et se met à jour en
+remplaçant le fichier. Go produit ces exécutables autonomes pour tous les systèmes depuis un seul code source.
+*(Une première version utilisait PHP + Docker ; abandonnée le 02/10/2026 pour cette raison.)*
+
+**Écarté : un fichier HTML seul, sans serveur.** Les données resteraient dans un seul navigateur (pas de
+synchronisation PC/téléphone), et un navigateur n'a pas le droit de télécharger les photos des sites des marques.
+
+**Pas d'authentification dans l'application** : Pangolin s'en charge pour l'accès depuis l'extérieur. Sur le réseau
+local, quiconque connaît l'adresse peut ouvrir le site (option `-host 127.0.0.1` pour n'autoriser que la machine
+elle-même).
+
+**Sauvegarde** : à chaque écriture, l'ancien `watches.json` est conservé dans `backup/` (50 dernières versions).
+L'écriture est atomique (fichier temporaire puis renommage). Sauvegarder `watch-data/` suffit.
+
+**Plusieurs appareils** : chaque version porte un numéro (`rev`). Si un appareil resté ouvert sur une ancienne
+version tente d'enregistrer, le serveur refuse au lieu d'écraser les changements faits ailleurs ; l'application
+recharge alors les données et prévient. En revenant sur l'onglet ou l'appli, les données sont rafraîchies.
 
 **Une seule écriture : tout le fichier.** L'application envoie l'ensemble des données à chaque modification
 (quelques centaines de Ko). C'est le plus simple et c'est sans risque pour un seul utilisateur.
@@ -70,26 +88,26 @@ relit sans outillage et ne casse pas avec le temps.
 ### Le standard retenu : l'API « Chat Completions » au format OpenAI
 C'est le format que parlent quasiment tous les fournisseurs et serveurs locaux : OpenAI, Mistral, Google Gemini,
 DeepSeek, OpenRouter (qui donne accès à Claude, GPT, Gemini… avec une seule clé), Ollama, LM Studio, vLLM, LiteLLM.
-Changer d'IA = changer 3 lignes dans `config.php` :
+Changer d'IA = changer 3 lignes dans `watch-data/config.json` :
 
-```php
-'ai' => [
-  'base_url' => 'https://api.openai.com/v1',        // ou https://openrouter.ai/api/v1, http://ollama:11434/v1 …
-  'api_key'  => 'sk-…',
-  'model'    => 'gpt-…',                             // ou 'anthropic/claude-…', 'mistral-large-latest', 'qwen3' …
-],
+```jsonc
+"ai": {
+  "base_url": "https://api.openai.com/v1",        // ou https://openrouter.ai/api/v1, http://ollama:11434/v1 …
+  "api_key":  "sk-…",
+  "model":    "gpt-…"                             // ou "anthropic/claude-…", "mistral-large-latest", "qwen3" …
+}
 ```
 
 ### Le problème : la recherche web n'est pas standard
 Chaque fournisseur a sa propre façon de « chercher sur le web » (quand il le propose). Pour rester agnostique,
-**c'est `api.php` qui fait la recherche et lit les pages**, puis donne le texte à l'IA. L'IA n'a plus qu'à
+**c'est le serveur qui fait la recherche et lit les pages**, puis donne le texte à l'IA. L'IA n'a plus qu'à
 **lire et structurer**, ce que tous les modèles savent faire, même locaux.
 
 ```
  « Hamilton Khaki Field Mechanical 38 »   ou   https://…/fiche-produit
             │
             ▼
- api.php ─① recherche ─▶ SearXNG (homelab) ou API Brave Search ─▶ 5-8 meilleurs liens
+ serveur ─① recherche ─▶ SearXNG (homelab) ou API Brave Search ─▶ 5-8 meilleurs liens
          ─② lecture   ─▶ télécharge ces pages (+ le lien donné), garde le texte utile
                          et la liste des images trouvées (og:image, galeries produit)
          ─③ IA        ─▶ /chat/completions : « voici mes critères, mes familles, ces pages ;
@@ -113,10 +131,10 @@ Chaque fournisseur a sa propre façon de « chercher sur le web » (quand il le 
   | Recherche intégrée au fournisseur d'IA | payante à l'usage | Rien à héberger | Propre à chaque fournisseur : casse l'indépendance voulue |
 
   Pour un usage personnel (quelques dizaines d'ajouts par mois), SearXNG et Tavily sont tous deux gratuits ;
-  **SearXNG** est retenu car il ne dépend d'aucun compte. `api.php` sera écrit pour qu'on puisse basculer sur
+  **SearXNG** est retenu car il ne dépend d'aucun compte. Le serveur sera écrit pour qu'on puisse basculer sur
   Tavily en changeant une ligne de configuration si SearXNG se montre capricieux.
 - **Si on donne un lien**, l'étape ① sert seulement à compléter (avis, autres coloris).
-- **Rien n'est enregistré sans validation.** Le JSON de l'IA est vérifié par `api.php` (types, bornes : un diamètre
+- **Rien n'est enregistré sans validation.** Le JSON de l'IA est vérifié par le serveur (types, bornes : un diamètre
   de 400 mm est rejeté).
 - **« Actualiser »** sur une fiche existante relance le même circuit pour mettre à jour prix, liens et avis.
 - **Coût** : selon le modèle, de 0 € (modèle local via Ollama) à quelques centimes par montre. Le nombre de jetons
@@ -127,7 +145,7 @@ Chaque fournisseur a sa propre façon de « chercher sur le web » (quand il le 
 ## 5. Photos : locales, détourées, avec variantes
 
 ### Copie locale
-Toutes les photos sont téléchargées par `api.php` dans `img/<id-montre>/`. Le site n'affiche **jamais** une image
+Toutes les photos sont téléchargées par le serveur dans `watch-data/img/<id-montre>/`. Le site n'affiche **jamais** une image
 distante. Les liens vers les sites des marques restent, mais seulement comme liens cliquables.
 
 ### Détourage
@@ -269,7 +287,7 @@ Pour 18 cm, le dessus du poignet mesure ~51 mm. La donnée la plus parlante est 
 | Étape | Contenu | État |
 |---|---|---|
 | **0** | Conception + maquettes | ✅ |
-| **1** | `index.html` + `api.php` + `docker-compose.yml`. Conversion de la v27 (44 montres). Collection, Catalogue (galerie / tableau), Fiche (variantes, jour/nuit, notes), édition complète, ajout manuel, photos (rapatriement, dépôt, détourage), Réglages (familles, poignet, critères, export/import) | ✅ |
+| **1** | `index.html` + serveur (d'abord PHP, puis exécutable Go autonome). Conversion de la v27 (44 montres). Collection, Catalogue (galerie / tableau), Fiche (variantes, jour/nuit, notes), édition complète, ajout manuel, photos (rapatriement, dépôt, détourage), Réglages (familles, poignet, critères, export/import) | ✅ |
 | **2** | Ajout / actualisation par IA : SearXNG + n'importe quelle API compatible OpenAI, écran de vérification | à faire |
 | **3** | Finitions selon l'usage : comparaison côte à côte, export d'une version HTML autonome, installation sur l'écran d'accueil du téléphone | idées |
 

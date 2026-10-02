@@ -1,0 +1,37 @@
+# Compile les exécutables à chaque modification de l'application.
+#  - sur toute branche : les exécutables sont joints à l'exécution (onglet Actions → l'exécution → « Artifacts »)
+#  - sur la branche principale : ils sont aussi publiés dans la release « latest » (onglet Releases)
+name: Exécutables
+
+on:
+  push:
+    paths: ["main.go", "go.mod", "app/**", "build.sh", ".github/workflows/build.yml"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - name: Vérifier et compiler
+        run: |
+          go vet ./...
+          ./build.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: watch-selection
+          path: dist/
+      - name: Publier la release « latest » (branche principale)
+        if: github.ref_name == github.event.repository.default_branch
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release delete latest --cleanup-tag --yes || true
+          gh release create latest dist/* --target "$GITHUB_SHA" --title "Watch Selection — dernière version" \
+            --notes "Exécutables compilés depuis ${GITHUB_SHA::7}. Télécharger celui de son système, le lancer, ouvrir http://localhost:8080."

@@ -1,3 +1,4 @@
-# Données vivantes (propres à chaque installation) : sauvegardées avec le volume, pas dans git
-app/data/
-app/img/
+# Données vivantes (créées par le serveur à côté de l'exécutable)
+watch-data/
+# Exécutables compilés
+dist/
