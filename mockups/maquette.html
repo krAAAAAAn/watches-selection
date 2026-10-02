@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Watch Selection — maquette</title>
+<base target="_blank">
+<style>
+:root{
+  --bg:#ece6db; --paper:#fbf8f2; --paper2:#f3ede2; --ink:#1b1a18; --muted:#71685d; --line:#ddd4c5;
+  --accent:#26323c; --bronze:#9c6b3d; --good:#3f7d4e; --ok:#8a9a3a; --warn:#c08a2c; --bad:#b0533c;
+  --shadow:0 10px 30px rgba(30,25,15,.08); --radius:22px;
+  --serif:Georgia,"Times New Roman",serif; --sans:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#15171a; --paper:#1e2125; --paper2:#25292e; --ink:#ece7de; --muted:#a39b8f; --line:#363b42;
+  --accent:#c9d3dc; --bronze:#d4a373; --shadow:0 10px 30px rgba(0,0,0,.35);
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.5}
+a{color:inherit}
+button{font:inherit;cursor:pointer}
+.demo-banner{background:var(--accent);color:var(--paper);font:600 .78rem var(--sans);text-align:center;padding:6px 16px;letter-spacing:.03em}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{max-width:1280px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;gap:18px}
+.logo{font:800 .9rem var(--sans);letter-spacing:.32em;text-transform:uppercase;margin-right:auto;text-decoration:none}
+.logo span{color:var(--bronze)}
+nav a{font:600 .92rem var(--sans);text-decoration:none;color:var(--muted);padding:8px 12px;border-radius:999px}
+nav a.on{color:var(--ink);background:var(--paper2)}
+.btn{font:700 .88rem var(--sans);border:0;border-radius:999px;padding:10px 18px;background:var(--accent);color:var(--paper);text-decoration:none;display:inline-flex;gap:8px;align-items:center}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line)}
+.btn.small{padding:6px 12px;font-size:.78rem}
+main{max-width:1280px;margin:0 auto;padding:24px 16px 80px}
+.kicker{font:700 .74rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--bronze)}
+h1{font-size:clamp(2rem,4.5vw,3.4rem);line-height:1.05;margin:.15em 0 .3em}
+h2{font-size:1.9rem;margin:.1em 0 .2em;line-height:1.1}
+.lead{color:var(--muted);max-width:760px;font-size:1.08rem}
+.muted{color:var(--muted)}
+
+/* ---------- image fallback ---------- */
+.ph{display:block;width:100%;height:100%;object-fit:contain}
+
+/* ---------- chips & fit ---------- */
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font:600 .76rem var(--sans);padding:4px 10px;border-radius:999px;background:var(--paper2);border:1px solid var(--line);white-space:nowrap}
+.chip.cat{background:transparent;color:var(--bronze);border-color:color-mix(in srgb,var(--bronze) 40%,transparent)}
+.fit{display:inline-flex;align-items:center;gap:6px;font:700 .76rem var(--sans);white-space:nowrap}
+.fit i{width:7px;height:7px;border-radius:50%;background:var(--line);display:inline-block}
+.fit[data-s="5"] i.on{background:var(--good)} .fit[data-s="4"] i.on{background:var(--ok)}
+.fit[data-s="3"] i.on{background:var(--warn)} .fit[data-s="2"] i.on,.fit[data-s="1"] i.on{background:var(--bad)}
+.status{white-space:nowrap;font:700 .7rem var(--sans);text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:6px}
+.status.principal{background:var(--accent);color:var(--paper)}
+.status.alternative{background:var(--paper2);color:var(--muted);border:1px solid var(--line)}
+.status.future{background:color-mix(in srgb,var(--bronze) 18%,transparent);color:var(--bronze)}
+
+/* ---------- collection: overview wall ---------- */
+.wall{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:14px;margin:26px 0 40px}
+.tile{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:12px;text-decoration:none;box-shadow:var(--shadow);transition:transform .2s}
+.tile:hover{transform:translateY(-3px)}
+.tile .img{aspect-ratio:1;background:#fff;border-radius:12px;overflow:hidden;padding:8px}
+.tile .k{margin-top:10px}
+.tile b{display:block;font-size:.95rem;line-height:1.2;margin-top:2px}
+
+/* ---------- collection: family scene ---------- */
+.scene{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin:0 0 28px;overflow:hidden;scroll-margin-top:80px}
+.hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:0}
+.hero .pic{background:radial-gradient(circle at 50% 45%,#fff 0,#f4efe6 70%);height:clamp(280px,42vw,500px);padding:28px;position:relative}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .hero .pic{background:radial-gradient(circle at 50% 45%,#fdfcf9 0,#d9d3c8 75%)}}
+.hero .pic img{transition:opacity .35s, transform .35s}
+.hero .pic.swap img{opacity:0;transform:scale(.94)}
+.hero .info{padding:30px 32px;display:flex;flex-direction:column;gap:14px}
+.hero .role{font-style:italic;color:var(--muted)}
+.keyspecs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:4px 0}
+.keyspecs div{background:var(--paper2);border-radius:12px;padding:8px 10px}
+.keyspecs small{display:block;font:600 .68rem var(--sans);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.keyspecs span{font:700 .98rem var(--sans)}
+.price{font:800 1.15rem var(--sans)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+.alts{border-top:1px solid var(--line);padding:16px 20px 20px;background:var(--paper2)}
+.alts-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;font:700 .8rem var(--sans);color:var(--muted)}
+.strip{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.alt{flex:0 0 190px;scroll-snap-align:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:10px;display:flex;flex-direction:column;gap:6px}
+.alt .img{aspect-ratio:1;background:#fff;border-radius:10px;padding:6px;cursor:pointer}
+.alt b{font-size:.9rem;line-height:1.2}
+.alt .row{display:flex;justify-content:space-between;align-items:center;font:600 .74rem var(--sans);color:var(--muted)}
+.star{border:1px solid var(--line);background:transparent;color:var(--bronze);border-radius:999px;padding:3px 10px;font:700 .74rem var(--sans)}
+.star:hover{background:var(--bronze);color:#fff}
+
+/* ---------- list ---------- */
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:18px 0}
+.filters input{font:1rem var(--sans);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);min-width:240px;flex:1;max-width:360px}
+.pill{font:600 .8rem var(--sans);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 13px}
+.pill.on{background:var(--accent);color:var(--paper);border-color:var(--accent)}
+.table-wrap{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);overflow-x:auto;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font:.88rem var(--sans)}
+th{text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);padding:12px 10px;border-bottom:1px solid var(--line);white-space:nowrap;cursor:pointer;user-select:none}
+th:hover{color:var(--ink)}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tbody tr{cursor:pointer} tbody tr:hover{background:var(--paper2)}
+td .th{width:54px;height:54px;background:#fff;border-radius:10px;padding:3px}
+td.name b{font-family:var(--serif);font-size:1rem;display:block}
+.num{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- detail ---------- */
+.back{font:600 .85rem var(--sans);color:var(--muted);text-decoration:none;cursor:pointer}
+.detail{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px;margin-top:14px}
+.gallery{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);align-self:start;position:sticky;top:76px}
+.gallery .main{aspect-ratio:1;background:#fff;border-radius:16px;padding:20px;position:relative}
+.gallery .main.night{background:#05070a}
+.tabs{display:flex;gap:6px;margin:12px 0 8px}
+.colors{display:flex;gap:10px;align-items:center;flex-wrap:wrap;font:600 .8rem var(--sans);color:var(--muted)}
+.dot{width:26px;height:26px;border-radius:50%;border:2px solid var(--paper);outline:1px solid var(--line);cursor:pointer}
+.dot.on{outline:2px solid var(--ink)}
+.nightnote{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:#8fa;font:600 .9rem var(--sans);padding:30px;opacity:.85}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin-bottom:18px}
+.card h3{font:800 .76rem var(--sans);text-transform:uppercase;letter-spacing:.12em;color:var(--bronze);margin:0 0 12px}
+.specs{display:grid;grid-template-columns:auto 1fr;gap:6px 18px;font:.9rem var(--sans);margin:0}
+.specs dt{color:var(--muted)} .specs dd{margin:0;font-weight:600}
+.pc{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pc ul{margin:0;padding-left:18px;font-size:.95rem}
+.links a{display:inline-flex;gap:6px;font:600 .88rem var(--sans);text-decoration:none;border:1px solid var(--line);padding:8px 14px;border-radius:999px;margin:0 6px 6px 0}
+.links a:hover{background:var(--paper2)}
+textarea{width:100%;min-height:110px;font:1rem var(--serif);color:var(--ink);background:var(--paper2);border:1px solid var(--line);border-radius:12px;padding:12px;resize:vertical}
+.saved{font:600 .75rem var(--sans);color:var(--good);opacity:0;transition:opacity .3s}
+.saved.show{opacity:1}
+.fitbar{height:10px;border-radius:99px;background:linear-gradient(90deg,var(--muted) 0 10%,var(--good) 10% 55%,var(--ok) 55% 68%,var(--warn) 68% 82%,var(--bad) 82%);position:relative;margin:26px 0 8px}
+.fitbar span{position:absolute;top:-24px;transform:translateX(-50%);font:800 .75rem var(--sans);white-space:nowrap}
+.fitbar span::after{content:"";position:absolute;left:50%;top:18px;width:2px;height:16px;background:var(--ink)}
+.fitscale{display:flex;justify-content:space-between;font:.7rem var(--sans);color:var(--muted)}
+
+/* ---------- add ---------- */
+.add{max-width:820px;margin:0 auto}
+.bigsearch{display:flex;gap:10px;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:8px;box-shadow:var(--shadow);margin:22px 0 10px}
+.bigsearch input{flex:1;border:0;background:transparent;font:1.15rem var(--serif);color:var(--ink);padding:8px 14px;outline:none}
+.steps{list-style:none;padding:0;margin:24px 0;font:.95rem var(--sans)}
+.steps li{padding:8px 0;color:var(--muted);display:flex;gap:10px;align-items:center}
+.steps li.done{color:var(--ink)} .steps li.done::before{content:"✓";color:var(--good);font-weight:800}
+.steps li.run::before{content:"";width:12px;height:12px;border:2px solid var(--bronze);border-top-color:transparent;border-radius:50%;animation:spin .8s linear infinite}
+.steps li.todo::before{content:"○"}
+@keyframes spin{to{transform:rotate(360deg)}}
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+.form label{font:600 .74rem var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.form input,.form select{font:1rem var(--sans);padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--paper2);color:var(--ink);text-transform:none;letter-spacing:0}
+.form .full{grid-column:1/-1}
+.ai-hint{background:color-mix(in srgb,var(--bronze) 12%,transparent);border-left:3px solid var(--bronze);padding:10px 14px;border-radius:8px;font-size:.93rem}
+.found{display:flex;gap:10px}
+.found div{width:96px;height:96px;background:#fff;border-radius:12px;border:2px solid var(--line);padding:6px}
+.found div.on{border-color:var(--bronze)}
+
+.howto{margin-top:40px;font:.85rem var(--sans);color:var(--muted);border-top:1px dashed var(--line);padding-top:14px}
+
+@media (max-width:860px){
+  .hero,.detail{grid-template-columns:1fr}
+  .gallery{position:static}
+  .hero .info{padding:20px}
+  .keyspecs{grid-template-columns:repeat(2,1fr)}
+  .pc,.form{grid-template-columns:1fr}
+  nav a{padding:6px 8px}
+  .bar{gap:8px}
+  .logo{letter-spacing:.18em}
+  .hide-m{display:none}
+}
+</style>
+</head>
+<body>
+<div class="demo-banner">MAQUETTE — données de démonstration (extraites de ta v27, dimensions parfois approximatives). Rien n'est enregistré sur un serveur.</div>
+<header><div class="bar">
+  <a class="logo" href="#/collection" target="_self">Watch <span>Selection</span></a>
+  <nav>
+    <a href="#/collection" target="_self" data-r="collection">Collection</a>
+    <a href="#/liste" target="_self" data-r="liste">Liste</a>
+  </nav>
+  <a class="btn" href="#/ajouter" target="_self">＋ <span class="hide-m">Ajouter</span></a>
+</div></header>
+<main id="app"></main>
+
+<script>
+/* ============================================================
+   Données de démonstration — en vrai : watches.json
+   ============================================================ */
+const WRIST = 18; // cm
+const CATS = [
+  {id:"gada",   label:"GADA",              role:"Set-and-forget : précise, pratique, sans friction.", pick:"seiko-sbtm321"},
+  {id:"beater", label:"Beater / outil",     role:"Le couteau suisse qu'on porte sans précaution.",      pick:"casio-gwm5610u"},
+  {id:"dress",  label:"Dress",              role:"Épurée, fine, l'intérêt vient du mouvement.",         pick:"vario-eclipse"},
+  {id:"chrono", label:"Chronographe",       role:"Le plaisir mécanique et un peu de couleur.",          pick:"sugess-st1901"},
+  {id:"sport",  label:"Sport-chic intégré", role:"Bracelet intégré, graphique et robuste.",              pick:"ha-nutid"},
+  {id:"diver",  label:"Diver / Tool",       role:"L'eau, l'outdoor, l'exploration.",                     pick:"cp-concordia"},
+  {id:"field",  label:"Field",              role:"Lisible, sobre, avec une idée originale.",             pick:"erebus-24"},
+];
+const W = [
+ {id:"seiko-sbtm321",brand:"Seiko",model:"Selection SBTM321",tagline:"Solaire, radio, saphir et profil fin : la montre pratique par excellence.",
+  cats:["gada"],status:"principal",d:39.5,t:9.5,l2l:46.1,lug:20,mvt:"Solaire radio",cal:"7B72",crystal:"Saphir",case:"Acier",wr:"10 bar",weight:115,lume:"LumiBrite",
+  price:"260–320 €",pmin:260,avail:"Import Japon",
+  img:"https://store.seikowatches.com/cdn/shop/files/SBTM321_1400x.png?v=1701741539",
+  variants:[{n:"Bleu — SBTM321",c:"#1e3a64",img:"https://store.seikowatches.com/cdn/shop/files/SBTM321_1400x.png?v=1701741539"},
+            {n:"Noir — SBTM323",c:"#1a1a1a",img:"https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/14/20/SBTM323/SBTM323.png?mh=1200&mw=1200"},
+            {n:"Vert — SBTM319",c:"#2f4a3a",img:"https://store.seikowatches.com/cdn/shop/files/SBTM319_1800x1800.png?v=1701741531"}],
+  pros:["Excellente base technique à ce prix","39,5 × 9,5 mm : très bon compromis","Cadrans sobres, sans surcharge"],
+  cons:["Import JDM à gérer","Date seule, pas le jour","Pas de photo de nuit officielle exploitable"],
+  reviews:"Trio extrêmement cohérent, très pratique au quotidien et plus fin qu'on ne l'imagine. La bleue est jugée la plus élégante, la noire la plus polyvalente, la verte la plus originale.",
+  links:[{l:"Fiche Seiko",u:"https://www.seikowatches.com/jp-ja/products/selection/sbtm321"}]},
+ {id:"seiko-sbxy031",brand:"Seiko",model:"Astron SBXY031",tagline:"Le GADA premium : titane et cadran bleu ondulé.",
+  cats:["gada"],status:"alternative",d:39,t:9.6,l2l:45.5,lug:20,mvt:"Solaire radio",cal:"7B72",crystal:"Saphir",case:"Titane",wr:"10 bar",lume:"LumiBrite",
+  price:"≈ 550–650 €",pmin:550,avail:"Import Japon",
+  img:"https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/15/18/SBXY031/SBXY031.png?mh=1200&mw=1200",
+  pros:["Titane léger","Cadran ondulé très travaillé"],cons:["Nettement plus chère que la SBTM"],reviews:"Même philosophie set-and-forget, mais visuellement plus précieuse.",links:[]},
+ {id:"citizen-cb3010",brand:"Citizen",model:"Attesa CB3010-57E",tagline:"Le titane japonais à l'efficacité feutrée.",
+  cats:["gada"],status:"alternative",d:40,t:9.3,l2l:46,lug:20,mvt:"Solaire radio",cal:"H128",crystal:"Saphir AR",case:"Super Titanium",wr:"10 bar",weight:87,
+  price:"285–320 € import",pmin:285,avail:"Import JDM",img:"https://citizen.jp/img/goods/5/ATS_CB3010-57E_00_EC.png",
+  pros:["Très léger","Calendrier perpétuel"],cons:["Style un peu froid"],reviews:"Rarement critiquée techniquement.",links:[]},
+ {id:"casio-lcw",brand:"Casio",model:"Lineage LCW-M170D",tagline:"Le sleeper élégant : acier, saphir, solaire, radio.",
+  cats:["gada"],status:"alternative",d:40,t:9.6,l2l:47,lug:20,mvt:"Solaire radio",crystal:"Saphir",case:"Acier",wr:"10 bar",
+  price:"200–249 €",pmin:200,avail:"UE + JDM",img:"https://www.casio.com/content/dam/casio/product-info/locales/jp/ja/timepiece/product/watch/L/LC/LCW/LCW-M170D-1A/assets/LCW-M170D-1A.png.transform/main-visual-pc/image.png",
+  pros:["Rapport prix/équipement"],cons:["Lecture hybride"],reviews:"Peut-être la plus sous-estimée de la liste.",links:[]},
+ {id:"casio-gwm5610u",brand:"Casio",model:"G-Shock GW-M5610U",tagline:"Le vrai couteau suisse numérique.",
+  cats:["beater"],status:"principal",d:43.2,t:12.7,l2l:46.7,lug:16,mvt:"Solaire radio",crystal:"Minéral",case:"Résine",wr:"20 bar",weight:52,
+  price:"115–140 €",pmin:115,avail:"UE facile",img:"https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1/assets/GW-M5610U-1.png.transform/main-visual-pc/image.png",
+  variants:[{n:"Noir — GW-M5610U-1",c:"#111",img:"https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1/assets/GW-M5610U-1.png.transform/main-visual-pc/image.png"},
+            {n:"Négatif — GW-M5610U-1B",c:"#333",img:"https://www.casio.com/content/dam/casio/product-info/locales/europe/en-gb/timepiece/product/watch/G/GW/GWM/GW-M5610U-1B/assets/GW-M5610U-1B.png.transform/main-visual-pc/image.png"}],
+  pros:["Indestructible","Solaire + radio","Légère"],cons:["Look très outil"],reviews:"La référence au regard du prix.",links:[{l:"Casio",u:"https://www.casio.com"}]},
+ {id:"casio-gwbx",brand:"Casio",model:"G-Shock GW-BX5600",tagline:"La 5600 avec Bluetooth et écran MIP.",
+  cats:["beater"],status:"alternative",d:42.8,t:13.4,l2l:48.9,lug:16,mvt:"Solaire radio + BT",crystal:"Minéral",case:"Résine bio",wr:"20 bar",
+  price:"190–230 €",pmin:190,avail:"UE variable",img:"https://www.casio.com/content/dam/casio/product-info/locales/uk/en-gb/timepiece/product/watch/G/GW/GWB/gw-bx5600-1/assets/GW-BX5600-1.png.transform/main-visual-pc/image.png",pros:[],cons:[],reviews:"",links:[]},
+ {id:"vario-eclipse",brand:"Vario",model:"Eclipse Handwound",tagline:"Dress moderne à remontage manuel haute fréquence.",
+  cats:["dress"],status:"principal",d:38,t:9,l2l:45,lug:20,mvt:"Manuel",crystal:"Saphir",case:"Acier",wr:"5 bar",
+  price:"328 USD ≈ 300 €",pmin:300,avail:"Import Singapour",img:"https://vario.sg/cdn/shop/products/eclipse_angle_black.jpg?v=1693494321&width=3200",
+  variants:[{n:"Noir",c:"#151515"},{n:"Argent",c:"#c9c9c9"},{n:"Gris",c:"#7d7f82"},{n:"Ivoire",c:"#efe6d2"}],
+  pros:["Mouvement manuel haute fréquence","Design épuré"],cons:["Marque confidentielle"],reviews:"Une dress dont l'intérêt vient du mouvement, pas du cadran.",links:[{l:"Vario",u:"https://vario.sg"}]},
+ {id:"orient-bambino",brand:"Orient",model:"Bambino 38 RA-AC0M03S",tagline:"La dress automatique d'entrée par excellence.",
+  cats:["dress"],status:"alternative",d:38.4,t:11.8,l2l:45,lug:20,mvt:"Automatique",crystal:"Minéral bombé",case:"Acier",wr:"3 bar",
+  price:"255–300 €",pmin:255,avail:"UE facile",img:"https://orientwatchtaiwan.com/cdn/shop/files/RA-AC0M03S_s.jpg?v=1721290122",pros:[],cons:[],reviews:"",links:[]},
+ {id:"charlie-initial",brand:"Charlie Paris",model:"Initial Slim — Blanc",tagline:"Dress française fine et lumineuse.",
+  cats:["dress"],status:"alternative",d:38,t:8,l2l:45,lug:20,mvt:"Quartz",crystal:"Saphir",case:"Acier",wr:"5 bar",
+  price:"≈ 300 €",pmin:300,avail:"UE officiel",img:"https://charlie-paris.com/cdn/shop/files/INI-40-015-01.jpg?v=1751571465&width=3200",pros:[],cons:[],reviews:"",links:[]},
+ {id:"sugess-st1901",brand:"Sugess",model:"Chrono Heritage ST1901",tagline:"Chrono manuel à roue à colonnes, cadran rétro.",
+  cats:["chrono"],status:"principal",d:38,t:13.5,l2l:46,lug:20,mvt:"Manuel — chrono",cal:"ST1901",crystal:"Saphir",case:"Acier",wr:"3 bar",
+  price:"190–240 USD",pmin:200,avail:"Import direct",img:"https://seakors.com/cdn/shop/products/5_38320409-0e1a-4143-bc21-cc527ff46794.jpg?v=1644583769&width=1946",
+  variants:[{n:"Crème",c:"#efe4cc"},{n:"Turquoise",c:"#3aa6a0"},{n:"Orange",c:"#e0782f"}],
+  pros:["Roue à colonnes visible","Prix imbattable"],cons:["Épaisseur","Contrôle qualité variable"],reviews:"Achetée autant pour le mouvement que pour le cadran.",links:[]},
+ {id:"bulova-lunar",brand:"Bulova",model:"Lunar Pilot 96K111",tagline:"Chrono quartz 262 kHz inspiré d'Apollo 15.",
+  cats:["chrono"],status:"alternative",d:43.5,t:13.3,l2l:52.5,lug:20,mvt:"Quartz HF — chrono",crystal:"Saphir",case:"Acier",wr:"5 bar",
+  price:"≈ 450–550 €",pmin:450,avail:"UE officiel",img:"https://de.bulova.com/media/managed/2c/7b/2c7b0c801875a7b748c8d926dc84e0a3/96K111.png",
+  pros:["Histoire spatiale","Trotteuse fluide"],cons:["Grande pour 18 cm : à essayer"],reviews:"",links:[]},
+ {id:"ha-nutid",brand:"Henry Archer",model:"NUTID",tagline:"Bracelet intégré, 200 m, acier durci, Miyota 9015.",
+  cats:["sport"],status:"principal",d:39,t:10.5,l2l:44,lug:0,mvt:"Automatique",cal:"Miyota 9015",crystal:"Saphir",case:"Acier HV1200",wr:"20 bar",
+  price:"≈ 500 €",pmin:500,avail:"UE officiel",img:"https://henryarcher.com/cdn/shop/files/Nutid_-_Azura_00001.jpg?v=1782823478&width=1080",
+  variants:[{n:"Turquoise",c:"#2a9d9a"},{n:"Bleu glacier",c:"#9cc3d8"},{n:"Violet",c:"#5b4a8b"}],pros:[],cons:[],reviews:"",links:[]},
+ {id:"citizen-zenshin",brand:"Citizen",model:"Zenshin Eco-Drive AW0130",tagline:"Le sport-chic rationnel.",
+  cats:["sport"],status:"alternative",d:41,t:10.5,l2l:47,lug:0,mvt:"Solaire",crystal:"Saphir",case:"Super Titanium",wr:"10 bar",
+  price:"329–349 €",pmin:329,avail:"UE officiel",img:"https://citizenwatch.widen.net/content/vv5ayxirdi/webp/Zenshin%2BThree-Hand.webp?color=F9F8F6&crop=false&height=800&keep=c&quality=80&u=41zuoe&width=800",pros:[],cons:[],reviews:"",links:[]},
+ {id:"cp-concordia",brand:"Charlie Paris",model:"Concordia Bleu Antarctique",tagline:"Le choix émotionnel : 300 m et histoire antarctique.",
+  cats:["diver"],status:"principal",d:40,t:12.5,l2l:47,lug:20,mvt:"Quartz (VH31 sweep)",crystal:"Saphir",case:"Acier",wr:"30 bar",
+  price:"295–345 €",pmin:295,avail:"UE officiel",img:"",
+  pros:["Cadran bleu superbe","Seconde fluide"],cons:["Quartz pour certains puristes"],reviews:"",links:[]},
+ {id:"nite-mx10",brand:"NITE",model:"MX10 Signal",tagline:"Le tritium : lisible toute la nuit sans charge.",
+  cats:["diver","field"],status:"alternative",d:40,t:12,l2l:46,lug:18,mvt:"Quartz",crystal:"Saphir",case:"Acier",wr:"20 bar",
+  price:"£350 ≈ 409 €",pmin:409,avail:"UK",img:"https://www.nitewatches.com/cdn/shop/files/mx10_201_front_day_red_2b12edc4-9f66-43b1-b113-bf7d2d282429.png?v=1724239544&width=900",
+  night:"https://www.nitewatches.com/cdn/shop/files/mx10_201_front_night_3_953b8df3-a9f8-44d1-ac4c-331792ae1d6f.png?v=1732205144",
+  pros:["Tubes de tritium","Robuste"],cons:["Import UK"],reviews:"",links:[{l:"NITE",u:"https://www.nitewatches.com"}]},
+ {id:"glycine-cs39",brand:"Glycine",model:"Combat Sub 39 GL0540",tagline:"La voie diver suisse automatique.",
+  cats:["diver"],status:"alternative",d:39,t:12.5,l2l:46,lug:20,mvt:"Automatique",crystal:"Saphir",case:"Acier",wr:"20 bar",
+  price:"≈ 450 €",pmin:450,avail:"UE",img:"https://www.glycinewatches.com/cdn/shop/files/GL0540.png?v=1782491372&width=3150",pros:[],cons:[],reviews:"",links:[]},
+ {id:"orient-mako40",brand:"Orient",model:"Diver Design 40 RA-AC0Q16N",tagline:"Piste future : la plongeuse auto à lunette.",
+  cats:["diver"],status:"future",d:40,t:12.9,l2l:47,lug:20,mvt:"Automatique",crystal:"Minéral",case:"Acier",wr:"20 bar",
+  price:"280–399 €",pmin:280,avail:"UE / import",img:"https://possibile.bg/img/bt43886.jpg",pros:[],cons:[],reviews:"",links:[]},
+ {id:"erebus-24",brand:"Erebus",model:"Twenty-Four 40",tagline:"Une vraie complication 24 h dans une field sobre.",
+  cats:["field"],status:"principal",d:40,t:11.5,l2l:47,lug:20,mvt:"Quartz 24 h",crystal:"Saphir",case:"Acier",wr:"10 bar",
+  price:"≈ 400 €",pmin:400,avail:"UE",img:"https://erebuswatches.com/cdn/shop/files/ErebusWebPics_0000s_0003_SW0006GL-40-08_jpg.jpg?v=1772170643",
+  variants:[{n:"Vert sombre",c:"#2e3d2f"},{n:"Sable",c:"#cbb98f"},{n:"Noir",c:"#161616"},{n:"Gris",c:"#7a7b7d"}],pros:[],cons:[],reviews:"",links:[]},
+ {id:"seiko-sbtm329",brand:"Seiko",model:"Selection SBTM329",tagline:"La field solaire + radio.",
+  cats:["field","gada"],status:"alternative",d:39.5,t:9.5,l2l:46.1,lug:20,mvt:"Solaire radio",cal:"7B75",crystal:"Saphir",case:"Titane",wr:"10 bar",
+  price:"320–380 €",pmin:320,avail:"Import Japon",img:"https://www.seikowatches.com/jp-ja/-/media/Images/Product--Image/All/Seiko/2022/02/19/14/20/SBTM329/SBTM329.png?mh=1200&mw=1200",pros:[],cons:[],reviews:"",links:[]},
+ {id:"timex-fps",brand:"Timex",model:"Expedition Field Post Solar",tagline:"La field classique solaire à petit prix.",
+  cats:["field"],status:"alternative",d:41,t:11,l2l:49,lug:20,mvt:"Solaire",crystal:"Minéral",case:"Acier",wr:"10 bar",
+  price:"189 €",pmin:189,avail:"UE officiel",img:"https://cdn.shopify.com/s/files/1/0787/5375/9521/files/TW2V03600.jpg?v=1740482135",pros:[],cons:[],reviews:"",links:[]},
+];
+
+/* ============================================================
+   Utilitaires
+   ============================================================ */
+const $ = s => document.querySelector(s);
+const byId = id => W.find(w => w.id === id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const catOf = id => CATS.find(c => c.id === id);
+const FALLBACK = "data:image/svg+xml;utf8," + encodeURIComponent(
+ `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><rect x="78" y="10" width="44" height="50" rx="8" fill="#d8d0c2"/><rect x="78" y="140" width="44" height="50" rx="8" fill="#d8d0c2"/><circle cx="100" cy="100" r="58" fill="#f6f1e8" stroke="#9c6b3d" stroke-width="6"/><line x1="100" y1="100" x2="100" y2="62" stroke="#26323c" stroke-width="5" stroke-linecap="round"/><line x1="100" y1="100" x2="126" y2="112" stroke="#26323c" stroke-width="4" stroke-linecap="round"/><rect x="158" y="94" width="10" height="12" rx="2" fill="#9c6b3d"/></svg>`);
+const img = (src, alt="") => `<img class="ph" src="${esc(src || FALLBACK)}" alt="${esc(alt)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.onerror=null;this.src='${FALLBACK}'">`;
+
+// Indice poignet : basé sur l'entre-cornes, cf. docs/CONCEPTION.md §5
+function fit(w){
+  const l = w.l2l || w.d * 1.2;
+  const wristTop = WRIST * 10 * 0.285;              // ≈ 51 mm pour 18 cm
+  const label = {5:"Idéal", 4:"Bien", 3:"Limite", 2:"Trop grande ?"};
+  let s;
+  if (l < wristTop - 9)       s = 3;   // petite : pas un défaut, juste un porté vintage
+  else if (l <= wristTop - 1) s = 5;
+  else if (l <= wristTop + 1) s = 4;
+  else if (l <= wristTop + 3) s = 3;
+  else                        s = 2;
+  let txt = l < wristTop - 9 ? "Petite" : label[s];
+  if (w.t > 13 && s > 2) { s--; txt = label[s] + " · épaisse"; }
+  return {s, txt, l};
+}
+const fitBadge = w => { const f = fit(w); return `<span class="fit" data-s="${f.s}" title="Entre-cornes ${f.l.toFixed(1)} mm — poignet ${WRIST} cm">${[1,2,3,4,5].map(i=>`<i class="${i<=f.s?"on":""}"></i>`).join("")} ${f.txt}</span>`; };
+const statusOf = w => CATS.some(c => c.pick === w.id) ? "principal" : (w.status === "principal" ? "alternative" : w.status);
+const statusLabel = {principal:"Choix principal", alternative:"Alternative", future:"Piste future"};
+const statusTag = w => { const s = statusOf(w); return `<span class="status ${s}">${statusLabel[s]}</span>`; };
+const go = h => location.hash = h;
+
+/* Notes perso (maquette : localStorage ; en vrai : watches.json via api.php) */
+const notes = {
+  get: id => { try { return localStorage.getItem("note:" + id) || ""; } catch { return ""; } },
+  set: (id, v) => { try { localStorage.setItem("note:" + id, v); } catch {} },
+};
+
+/* ============================================================
+   Écran 1 — Collection
+   ============================================================ */
+function viewCollection(){
+  const wall = CATS.map(c => { const w = byId(c.pick); return `
+    <a class="tile" href="#fam-${c.id}" target="_self" onclick="event.preventDefault();document.getElementById('fam-${c.id}').scrollIntoView()">
+      <div class="img">${img(w.img, w.model)}</div>
+      <div class="k kicker">${esc(c.label)}</div>
+      <b>${esc(w.brand)} ${esc(w.model)}</b>
+    </a>`; }).join("");
+  const scenes = CATS.map(sceneHTML).join("");
+  return `
+    <div class="kicker">Ma collection rêvée · ${CATS.length} familles</div>
+    <h1>Une montre, un rôle.</h1>
+    <p class="lead">Chaque famille a son choix principal. Fais défiler les alternatives sous chaque montre et clique sur ★ pour changer de favori.</p>
+    <div class="wall">${wall}</div>
+    ${scenes}`;
+}
+function sceneHTML(c){
+  const w = byId(c.pick);
+  const alts = W.filter(x => x.cats.includes(c.id) && x.id !== c.pick);
+  return `
+  <section class="scene" id="fam-${c.id}">
+    <div class="hero">
+      <div class="pic" id="pic-${c.id}">${img(w.img, w.model)}</div>
+      <div class="info">
+        <div class="kicker">${esc(c.label)}</div>
+        <div><h2>${esc(w.brand)} ${esc(w.model)}</h2><div class="role">${esc(w.tagline)}</div></div>
+        <div class="keyspecs">
+          <div><small>Diamètre</small><span>${w.d} mm</span></div>
+          <div><small>Épaisseur</small><span>${w.t} mm</span></div>
+          <div><small>Entre-cornes</small><span>${w.l2l ?? "—"} mm</span></div>
+          <div><small>Mouvement</small><span>${esc(w.mvt)}</span></div>
+          <div><small>Verre</small><span>${esc(w.crystal)}</span></div>
+          <div><small>Étanchéité</small><span>${esc(w.wr)}</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap">
+          <span class="price">${esc(w.price)}</span>${fitBadge(w)}
+        </div>
+        ${w.variants ? `<div class="colors">${w.variants.map(v=>`<span class="dot" style="background:${v.c}" title="${esc(v.n)}"></span>`).join("")}</div>` : ""}
+        <div class="actions">
+          <a class="btn" href="#/fiche/${w.id}" target="_self">Voir la fiche</a>
+          <span class="muted" style="font:italic .9rem var(--serif);align-self:center">${esc(c.role)}</span>
+        </div>
+      </div>
+    </div>
+    <div class="alts">
+      <div class="alts-head"><span>${alts.length} alternative${alts.length>1?"s":""} dans « ${esc(c.label)} »</span><span>← faire défiler →</span></div>
+      <div class="strip">${alts.map(a => `
+        <div class="alt">
+          <div class="img" onclick="go('#/fiche/${a.id}')">${img(a.img, a.model)}</div>
+          <b>${esc(a.brand)} ${esc(a.model)}</b>
+          <div class="row"><span>${a.d} mm · ${esc(a.mvt)}</span></div>
+          <div class="row"><span>${esc(a.price)}</span>${a.status==="future"?'<span class="status future">Future</span>':""}</div>
+          <div class="row">${fitBadge(a)}<button class="star" onclick="promote('${c.id}','${a.id}')" title="En faire le choix principal">★ Choisir</button></div>
+        </div>`).join("") || '<span class="muted">Aucune alternative pour l\'instant.</span>'}
+      </div>
+    </div>
+  </section>`;
+}
+function promote(catId, watchId){
+  document.getElementById("pic-" + catId).classList.add("swap");
+  setTimeout(() => {
+    catOf(catId).pick = watchId;          // en vrai : sauvegarde dans watches.json
+    render();
+    document.getElementById("fam-" + catId).scrollIntoView({behavior:"instant"});
+  }, 300);
+}
+
+/* ============================================================
+   Écran 2 — Liste
+   ============================================================ */
+const listState = {q:"", cat:"", sort:"pmin", dir:1};
+function viewList(){
+  return `
+    <div class="kicker">Toutes les montres</div>
+    <h1>La liste</h1>
+    <div class="filters">
+      <input id="q" placeholder="Rechercher une marque, un modèle, un calibre…" value="${esc(listState.q)}" oninput="listState.q=this.value;renderRows()">
+      <button class="pill ${listState.cat===""?"on":""}" onclick="setCat('')">Toutes</button>
+      ${CATS.map(c=>`<button class="pill ${listState.cat===c.id?"on":""}" onclick="setCat('${c.id}')">${esc(c.label)}</button>`).join("")}
+    </div>
+    <div class="table-wrap"><table>
+      <thead><tr>
+        <th></th><th onclick="sortBy('brand')">Modèle</th><th>Familles</th><th onclick="sortBy('status')">Statut</th>
+        <th class="num" onclick="sortBy('d')">Ø</th><th class="num" onclick="sortBy('t')">Ép.</th><th class="num" onclick="sortBy('l2l')">E-C</th>
+        <th onclick="sortBy('mvt')">Mouvement</th><th class="num" onclick="sortBy('pmin')">Prix ↕</th><th onclick="sortBy('fit')">Poignet</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table></div>
+    <p class="muted" style="font:.85rem var(--sans)">Clic sur une ligne → fiche. Clic sur un en-tête → tri. E-C = entre-cornes.</p>`;
+}
+function setCat(c){ listState.cat = c; render(); }
+function sortBy(k){ listState.dir = listState.sort === k ? -listState.dir : 1; listState.sort = k; renderRows(); }
+function renderRows(){
+  const q = listState.q.toLowerCase();
+  const key = w => listState.sort === "fit" ? -fit(w).s : listState.sort === "status" ? statusOf(w) : w[listState.sort];
+  const rows = W.filter(w => (!listState.cat || w.cats.includes(listState.cat)) &&
+      (!q || `${w.brand} ${w.model} ${w.cal||""} ${w.mvt}`.toLowerCase().includes(q)))
+    .sort((a,b) => (key(a) > key(b) ? 1 : key(a) < key(b) ? -1 : 0) * listState.dir);
+  $("#rows").innerHTML = rows.map(w => `
+    <tr onclick="go('#/fiche/${w.id}')">
+      <td><div class="th">${img(w.img, w.model)}</div></td>
+      <td class="name"><b>${esc(w.brand)} ${esc(w.model)}</b><span class="muted">${esc(w.avail)}</span></td>
+      <td><div class="chips">${w.cats.map(c=>`<span class="chip cat">${esc(catOf(c).label)}</span>`).join("")}</div></td>
+      <td>${statusTag(w)}</td>
+      <td class="num">${w.d}</td><td class="num">${w.t}</td><td class="num">${w.l2l ?? "—"}</td>
+      <td>${esc(w.mvt)}</td><td class="num"><b>${esc(w.price)}</b></td><td>${fitBadge(w)}</td>
+    </tr>`).join("");
+}
+
+/* ============================================================
+   Écran 3 — Fiche
+   ============================================================ */
+function viewDetail(id){
+  const w = byId(id); if (!w) return "<p>Montre introuvable.</p>";
+  const f = fit(w);
+  const pos = Math.min(98, Math.max(2, (f.l - 38) / (60 - 38) * 100));
+  const spec = (k, v) => v ? `<dt>${k}</dt><dd>${esc(v)}</dd>` : "";
+  return `
+  <a class="back" onclick="history.back()" target="_self">← Retour</a>
+  <div class="detail">
+    <div class="gallery">
+      <div class="main" id="gmain">${img(w.img, w.model)}</div>
+      <div class="tabs">
+        <button class="pill on" id="tday" onclick="showDay('${w.id}')">☀ Jour</button>
+        <button class="pill" id="tnight" onclick="showNight('${w.id}')">☾ Nuit</button>
+        <button class="pill" onclick="alert('Maquette : photos portées / lifestyle trouvées par l\\'IA')">Au poignet</button>
+      </div>
+      ${w.variants ? `<div class="colors">Couleurs : ${w.variants.map((v,i)=>`<span class="dot ${i===0?"on":""}" style="background:${v.c}" title="${esc(v.n)}" onclick="variant('${w.id}',${i},this)"></span>`).join("")} <span id="vname">${esc(w.variants[0].n)}</span></div>` : ""}
+    </div>
+    <div>
+      <div class="kicker">${w.cats.map(c=>esc(catOf(c).label)).join(" · ")}</div>
+      <h1 style="margin-bottom:.1em">${esc(w.brand)} ${esc(w.model)}</h1>
+      <p class="lead" style="margin-top:0">${esc(w.tagline)}</p>
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:10px 0 18px">
+        <span class="price">${esc(w.price)}</span>${statusTag(w)}<span class="chip">${esc(w.avail)}</span>
+      </div>
+
+      <div class="card">
+        <h3>Au poignet (${WRIST} cm)</h3>
+        <div class="fitbar"><span style="left:${pos}%">${f.l.toFixed(1)} mm</span></div>
+        <div class="fitscale"><span>38</span><span>idéal 42–50</span><span>limite 52–54</span><span>60 mm</span></div>
+        <p style="margin:.6em 0 0">${fitBadge(w)} <span class="muted">— entre-cornes ${w.l2l ? "" : "estimé "}${f.l.toFixed(1)} mm, épaisseur ${w.t} mm.</span></p>
+      </div>
+
+      <div class="card"><h3>Caractéristiques</h3><dl class="specs">
+        ${spec("Diamètre", w.d + " mm")}${spec("Épaisseur", w.t + " mm")}${spec("Entre-cornes", w.l2l && w.l2l + " mm")}
+        ${spec("Entre-anses", w.lug ? w.lug + " mm" : "Bracelet intégré")}${spec("Mouvement", w.mvt)}${spec("Calibre", w.cal)}
+        ${spec("Verre", w.crystal)}${spec("Boîtier", w.case)}${spec("Étanchéité", w.wr)}${spec("Poids", w.weight && w.weight + " g")}
+        ${spec("Luminescence", w.lume)}${spec("Disponibilité", w.avail)}
+      </dl></div>
+
+      ${(w.pros.length || w.cons.length) ? `<div class="card pc">
+        <div><h3>Pourquoi c'est bien</h3><ul>${w.pros.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+        <div><h3>Pourquoi ça peut moins plaire</h3><ul>${w.cons.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+      </div>` : ""}
+
+      ${w.reviews ? `<div class="card"><h3>Ce qu'en disent pros & amateurs</h3><p style="margin:0">${esc(w.reviews)}</p></div>` : ""}
+
+      <div class="card"><h3>Mes notes <span class="saved" id="saved">✓ enregistré</span></h3>
+        <textarea placeholder="Essayée chez … / à surveiller en occasion / préférer le cadran vert…" oninput="saveNote('${w.id}',this.value)">${esc(notes.get(w.id))}</textarea>
+      </div>
+
+      <div class="card"><h3>Liens</h3><div class="links">
+        ${w.links.map(l=>`<a href="${esc(l.u)}" target="_blank" rel="noopener">${esc(l.l)} ↗</a>`).join("") || '<span class="muted">Aucun lien.</span>'}
+      </div></div>
+
+      <div class="actions">
+        <button class="btn ghost small" onclick="alert('Maquette : modifier familles / statut / champs')">✎ Modifier</button>
+        <button class="btn ghost small" onclick="alert('Maquette : l\\'IA relit les sources et propose une mise à jour (prix, liens, avis)')">↻ Rafraîchir avec l'IA</button>
+      </div>
+    </div>
+  </div>`;
+}
+function showDay(id){ const w = byId(id); $("#gmain").className = "main"; $("#gmain").innerHTML = img(w.img); $("#tday").classList.add("on"); $("#tnight").classList.remove("on"); }
+function showNight(id){
+  const w = byId(id); $("#gmain").className = "main night";
+  $("#gmain").innerHTML = w.night ? img(w.night) : `<div class="nightnote">Pas de visuel nocturne trouvé.<br>L'IA en cherchera un à l'ajout ; tu pourras aussi en déposer un.</div>`;
+  $("#tnight").classList.add("on"); $("#tday").classList.remove("on");
+}
+function variant(id, i, el){
+  const v = byId(id).variants[i];
+  document.querySelectorAll(".gallery .dot").forEach(d => d.classList.remove("on")); el.classList.add("on");
+  $("#vname").textContent = v.n; if (v.img) $("#gmain").innerHTML = img(v.img);
+}
+let noteTimer;
+function saveNote(id, v){ clearTimeout(noteTimer); noteTimer = setTimeout(() => { notes.set(id, v); const s = $("#saved"); s.classList.add("show"); setTimeout(()=>s.classList.remove("show"), 1200); }, 500); }
+
+/* ============================================================
+   Écran 4 — Ajouter (simulation du flux IA)
+   ============================================================ */
+function viewAdd(){
+  return `<div class="add">
+    <div class="kicker">Nouvelle montre</div>
+    <h1>Qu'est-ce qui t'a tapé dans l'œil ?</h1>
+    <p class="lead">Un nom (« Hamilton Khaki Field Mechanical 38 ») ou un lien vers une fiche produit. L'IA cherche le reste.</p>
+    <form class="bigsearch" onsubmit="event.preventDefault();runAI()">
+      <input id="aiq" placeholder="Nom du modèle ou https://…" value="Hamilton Khaki Field Mechanical 38 mm">
+      <button class="btn">Chercher</button>
+    </form>
+    <div id="aiout"></div>
+  </div>`;
+}
+function runAI(){
+  const q = $("#aiq").value.trim(); if (!q) return;
+  const steps = ["Recherche web du modèle","Lecture de la fiche constructeur","Collecte des dimensions et du prix","Recherche de photos (jour, nuit, variantes)","Synthèse des avis (presse & forums)","Classement dans tes familles"];
+  $("#aiout").innerHTML = `<ul class="steps">${steps.map(s=>`<li class="todo">${s}</li>`).join("")}</ul>`;
+  const lis = [...document.querySelectorAll(".steps li")];
+  lis.forEach((li, i) => {
+    setTimeout(() => { li.className = "run"; }, i * 650);
+    setTimeout(() => { li.className = "done"; if (i === lis.length - 1) showProposal(q); }, i * 650 + 600);
+  });
+}
+function showProposal(q){
+  $("#aiout").insertAdjacentHTML("beforeend", `
+  <div class="card">
+    <h3>Proposition de l'IA — à vérifier</h3>
+    <div class="ai-hint">Classée en <b>Field</b> : cadran militaire à grands chiffres, 38 mm, remontage manuel. Statut proposé : <b>Alternative</b> (ton choix principal Field reste l'Erebus Twenty-Four). Indice poignet : <b>Idéal</b> (entre-cornes 47 mm).</div>
+    <p class="muted" style="font:.8rem var(--sans);margin:12px 0 6px">Photos trouvées — clique pour choisir la principale</p>
+    <div class="found"><div class="on">${img("")}</div><div>${img("")}</div><div style="background:#05070a">${img("")}</div></div>
+    <div class="form" style="margin-top:16px">
+      <label>Marque<input value="Hamilton"></label>
+      <label>Modèle / référence<input value="Khaki Field Mechanical 38 — H69439931"></label>
+      <label>Diamètre (mm)<input value="38"></label>
+      <label>Épaisseur (mm)<input value="9.5"></label>
+      <label>Entre-cornes (mm)<input value="47"></label>
+      <label>Entre-anses (mm)<input value="20"></label>
+      <label>Mouvement<input value="Manuel — H-50, 80 h"></label>
+      <label>Prix indicatif<input value="≈ 545 €"></label>
+      <label>Familles<span class="chips">${CATS.map(c=>`<button type="button" class="pill ${c.id==="field"?"on":""}" onclick="this.classList.toggle('on')">${esc(c.label)}</button>`).join("")}</span></label>
+      <label>Statut<select><option selected>Alternative</option><option>Choix principal</option><option>Piste future</option></select></label>
+      <label class="full">Liens trouvés<input value="hamiltonwatch.com · Fratello review · Hodinkee"></label>
+    </div>
+    <div class="actions" style="margin-top:18px">
+      <button class="btn" onclick="alert('Maquette : enregistrement dans watches.json + téléchargement des photos dans img/');go('#/liste')">✓ Ajouter à ma liste</button>
+      <button class="btn ghost" onclick="render()">Annuler</button>
+      <span class="muted" style="font:.8rem var(--sans);align-self:center">Coût de cette recherche : ≈ 0,2x € (affiché en vrai)</span>
+    </div>
+  </div>`);
+}
+
+/* ============================================================
+   Routeur
+   ============================================================ */
+function render(){
+  const [, route = "collection", arg] = location.hash.split("/");
+  document.querySelectorAll("nav a").forEach(a => a.classList.toggle("on", a.dataset.r === route));
+  const views = {collection: viewCollection, liste: viewList, fiche: () => viewDetail(arg), ajouter: viewAdd};
+  $("#app").innerHTML = (views[route] || viewCollection)() + `
+    <p class="howto">Maquette statique — conception détaillée dans <code>docs/CONCEPTION.md</code>. Les liens externes s'ouvrent dans un nouvel onglet.</p>`;
+  if (route === "liste") renderRows();
+  if (!location.hash.includes("#fam-")) window.scrollTo(0, 0);
+}
+window.addEventListener("hashchange", render);
+render();
+</script>
+</body>
+</html>
