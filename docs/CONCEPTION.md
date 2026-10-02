@@ -1,216 +1,256 @@
 # Watch Selection — Document de conception
 
-> Statut : **étape 0 — conception & maquettes** (rien n'est encore développé).
-> Maquette cliquable : [`mockups/maquette.html`](../mockups/maquette.html).
+> Statut : **étape 0 — conception & maquettes (v2)**. Rien n'est encore développé.
+> Maquette cliquable : [`mockups/maquette.html`](../mockups/maquette.html) (ouvrir dans un navigateur).
 
-## 1. Ce que l'application doit faire (reformulation)
+## 1. Ce que l'application doit faire
 
 | # | Besoin | Écran |
 |---|--------|-------|
-| 1 | Voir la **collection rêvée** par famille (GADA, Field, Chrono, Dress, Diver…), la photo de la montre au centre | **Collection** |
-| 2 | Dans chaque famille, **parcourir les alternatives** et en promouvoir une en « choix principal » en un clic | **Collection** (bandeau horizontal) |
-| 3 | La **liste complète** avec les caractéristiques principales, filtrable et triable | **Liste** |
-| 4 | Une **fiche détaillée** : photos, variantes de couleur, vue nocturne, avis, points forts/faibles, liens | **Fiche** |
-| 5 | **Ajouter une montre** en donnant un nom ou un lien ; l'IA cherche les infos et propose la/les catégories | **Ajouter** |
-| 6 | Mes **notes personnelles** sur chaque montre | **Fiche** |
-| 7 | Un **indice de cohérence poignet** (18 cm) | Partout (pastille) |
-| 8 | Liens externes ouverts dans un **nouvel onglet** | Partout |
+| 1 | Voir la **collection rêvée** par famille, la montre détourée en très grand | **Collection** |
+| 2 | Dans chaque famille, **parcourir les alternatives** et en promouvoir une en un clic | **Collection** (rangée de vignettes) |
+| 3 | La **liste complète**, filtrable et triable | **Catalogue** (galerie ou tableau) |
+| 4 | Une **fiche détaillée** : photos jour/nuit, **variantes de couleur à faire défiler**, avis, points forts/faibles, liens | **Fiche** |
+| 5 | **Ajouter une montre** par nom ou lien ; l'IA cherche les infos et la classe | **Ajouter** |
+| 6 | Mes **notes personnelles** | **Fiche** |
+| 7 | Un **indice poignet** (18 cm) | Partout |
+| 8 | Liens externes dans un **nouvel onglet** ; le site **ne dépend pas** des pages en ligne pour s'afficher | Partout |
 
-Contraintes : le plus autonome possible (un fichier sur un serveur, pas de dépendances système), joli, simple.
+## 2. Décisions prises (réponses du 02/10/2026)
 
----
-
-## 2. Le choix structurant : où vivent les données ?
-
-Une page HTML seule sait **afficher** mais ne sait pas **enregistrer** sur le serveur ni garder secrète une clé d'API.
-Dès qu'on veut modifier (notes, choix principal, ajout de montres) depuis n'importe quel appareil, il faut un petit
-quelque chose côté serveur. Les options :
-
-| Option | Comment | + | − |
-|---|---|---|---|
-| **A. HTML seul + stockage navigateur** | Données dans `localStorage`, export/import d'un fichier JSON | Zéro serveur | Données coincées dans *un* navigateur ; pas de synchro PC/téléphone ; pas d'IA sans exposer la clé |
-| **B. HTML + 1 fichier PHP** ⭐ | `index.html` + `watches.json` + `api.php` (~100 lignes) | PHP existe sur quasiment tout hébergement mutualisé (OVH, o2switch, Infomaniak, Synology…) ; rien à installer ; la clé IA reste sur le serveur | Nécessite un hébergement avec PHP |
-| C. GitHub comme base de données | Page sur GitHub Pages, sauvegarde par commit via l'API GitHub | Historique de chaque modif, gratuit | Jeton GitHub dans le navigateur, délai de publication ~1 min, IA toujours sans serveur pour la clé |
-| D. Petit serveur (Node, Python, PocketBase…) | Un process qui tourne en continu | Très flexible | Il faut un VPS, un process à surveiller, des mises à jour → contraire à « keep it simple » |
-| E. Service cloud (Supabase, Firebase) | Base hébergée | Robuste | Compte tiers, SDK, dépendance externe |
-
-**Recommandation : B**, avec un **mode dégradé A** intégré gratuitement : si `api.php` est absent (ou si on ouvre
-le fichier en local), l'application fonctionne quand même en lecture + modifications dans le navigateur, avec un
-bouton « Exporter le JSON ».
-
-### Arborescence cible
-
-```
-montres/
-├── index.html      ← toute l'application (HTML + CSS + JS « vanilla », aucune librairie, aucun build)
-├── watches.json    ← les données (une montre = un objet)
-├── api.php         ← (étapes 2-3) sauvegarde + appel IA ; protégé par mot de passe
-├── config.php      ← clé API + mot de passe (jamais commité)
-└── img/            ← photos téléchargées localement (fini les liens d'images cassés)
-```
-
-Pourquoi séparer `index.html` et `watches.json` plutôt que tout mettre dans un seul fichier ?
-Parce qu'on peut alors faire évoluer l'application sans toucher aux données (et inversement). Un bouton
-« **Exporter une version autonome** » pourra quand même générer un HTML unique avec les données dedans,
-pour l'emporter hors ligne ou le partager — comme ton magazine actuel.
-
-### Pourquoi pas de framework (React, Vue…) ?
-Pour ~50 à 200 montres et 4 écrans, du JavaScript natif suffit largement, se lit sans outillage et ne
-« pourrit » pas avec le temps (pas de `npm install` qui casse dans 3 ans). C'est la solution la plus simple.
+| Sujet | Décision |
+|---|---|
+| Hébergement | Homelab ; le projet doit rester **très simple** |
+| Accès | Protégé par **Pangolin** en amont → l'application ne gère **aucune authentification** |
+| IA | **Indépendante du fournisseur** : ChatGPT, Claude, Mistral, local… via une API standard |
+| Familles | Une montre peut appartenir à **plusieurs familles** ; liste élargie proposée §7 |
+| Statuts | principal / alternative / piste future / écartée / **possédée** |
+| Variantes | Une seule fiche par montre ; **je choisis ma couleur préférée** (c'est elle qui s'affiche dans la collection) ; dans la fiche on **fait défiler les variantes** |
+| Images | **Copiées localement** (et détourées) : le site s'affiche même si les sites des marques changent |
+| Textes de la v27 | Pas repris tels quels, mais **mes critères** en sont extraits pour guider l'IA (§6) |
+| Visuel | Moderne, luxe, dépouillé ; montre **détourée en grand** comme élément principal (§8) |
 
 ---
 
-## 3. L'ajout « intelligent » d'une montre
+## 3. Architecture
 
-### Principe
 ```
- Toi : « Seiko Astron SBXY031 »  ou  https://…/fiche-produit
-        │
-        ▼
- index.html ──POST──▶ api.php ──▶ API Claude (avec outils web_search + web_fetch)
-                                     │  cherche fiche constructeur, revendeurs, reviews
-                                     │  renvoie un JSON au format de watches.json
-        ◀───────── proposition ──────┘
-        │
-        ▼
- Écran « Vérifier » : tous les champs pré-remplis + catégories proposées + photos trouvées
-        │  tu corriges si besoin, tu valides
-        ▼
- api.php enregistre dans watches.json et télécharge les photos dans img/
+watch-selection/
+├── index.html          ← toute l'application (HTML + CSS + JS natif, sans librairie ni étape de build)
+├── api.php             ← un seul fichier : lire/écrire les données, appeler l'IA, télécharger les photos
+├── config.php          ← URL + clé + modèle de l'IA, moteur de recherche (jamais commité)
+├── data/watches.json   ← les données (une montre = un objet) + sauvegardes automatiques datées
+├── img/                ← photos détourées (PNG/WebP), une sous-dossier par montre
+└── docker-compose.yml  ← 10 lignes : image officielle php:apache + un volume
 ```
 
-- **Nom ou lien, même bouton** : si c'est une URL, l'IA lit d'abord la page, puis complète par une recherche.
-- **Classement automatique** : l'IA reçoit la liste de tes catégories et la description de ta collection actuelle ;
-  elle propose 1 à 2 catégories et un statut (« alternative » par défaut), avec une phrase de justification.
-- **Toujours une étape de validation** : l'IA peut se tromper (dimensions, prix) ; rien n'est enregistré sans ton OK.
-- **Bouton « Rafraîchir »** sur chaque fiche : relance l'IA pour mettre à jour prix/liens/avis d'une montre existante.
-- **Fiche produit seule, sans IA ?** Techniquement possible (lire les balises `og:image`, `og:title`, données
-  `schema.org/Product` de la page), mais les sites horlogers mettent rarement les dimensions dans des balises
-  standard → résultat pauvre. L'IA avec recherche web fait les deux mieux. On ne garde donc **qu'une voie**.
+**Pourquoi PHP ?** C'est la seule technologie qui permet « un fichier = un point d'API » sans framework, sans
+dépendances, sans process à gérer : Apache exécute `api.php` à la demande. Dans le homelab, c'est un conteneur
+officiel `php:8-apache` qui monte le dossier ; on le place derrière Pangolin comme les autres services.
 
-### Coût et prérequis
-- Une **clé API Anthropic** (console.anthropic.com), paiement à l'usage. Ce n'est pas l'abonnement Claude.ai.
-- Ordre de grandeur estimé : **quelques dizaines de centimes par montre ajoutée** (recherche web + lecture de
-  plusieurs pages). À mesurer à l'étape 3 ; on affichera le coût réel de chaque ajout.
-- La clé reste dans `config.php` sur ton serveur, jamais dans le navigateur.
+**Pas d'authentification dans l'application** : Pangolin s'en charge. `api.php` n'écoute que ce que le
+reverse-proxy lui transmet.
 
-### Plan B sans clé API
-Bouton « Copier le prompt » : l'app génère la demande, tu la colles dans Claude.ai, tu recolles le JSON obtenu.
-C'est ce que tu fais aujourd'hui, mais en 2 copier-coller au lieu de réécrire tout le magazine. À n'utiliser que
-si tu ne veux pas de clé API.
+**Sauvegarde** : à chaque écriture, l'ancien `watches.json` est conservé (`data/backup/watches-AAAAMMJJ-HHMMSS.json`,
+les 50 dernières versions). Le dossier entier se sauvegarde comme n'importe quel volume du homelab.
+
+**Pourquoi pas de framework (React, Vue…) ?** Pour ~50 à 200 montres et 4 écrans, du JavaScript natif suffit, se
+relit sans outillage et ne casse pas avec le temps.
 
 ---
 
-## 4. Modèle de données (une montre)
+## 4. L'ajout « intelligent » d'une montre — indépendant du fournisseur d'IA
+
+### Le standard retenu : l'API « Chat Completions » au format OpenAI
+C'est le format que parlent quasiment tous les fournisseurs et serveurs locaux : OpenAI, Mistral, Google Gemini,
+DeepSeek, OpenRouter (qui donne accès à Claude, GPT, Gemini… avec une seule clé), Ollama, LM Studio, vLLM, LiteLLM.
+Changer d'IA = changer 3 lignes dans `config.php` :
+
+```php
+'ai' => [
+  'base_url' => 'https://api.openai.com/v1',        // ou https://openrouter.ai/api/v1, http://ollama:11434/v1 …
+  'api_key'  => 'sk-…',
+  'model'    => 'gpt-…',                             // ou 'anthropic/claude-…', 'mistral-large-latest', 'qwen3' …
+],
+```
+
+### Le problème : la recherche web n'est pas standard
+Chaque fournisseur a sa propre façon de « chercher sur le web » (quand il le propose). Pour rester agnostique,
+**c'est `api.php` qui fait la recherche et lit les pages**, puis donne le texte à l'IA. L'IA n'a plus qu'à
+**lire et structurer**, ce que tous les modèles savent faire, même locaux.
+
+```
+ « Hamilton Khaki Field Mechanical 38 »   ou   https://…/fiche-produit
+            │
+            ▼
+ api.php ─① recherche ─▶ SearXNG (homelab) ou API Brave Search ─▶ 5-8 meilleurs liens
+         ─② lecture   ─▶ télécharge ces pages (+ le lien donné), garde le texte utile
+                         et la liste des images trouvées (og:image, galeries produit)
+         ─③ IA        ─▶ /chat/completions : « voici mes critères, mes familles, ces pages ;
+                         réponds avec ce JSON » → fiche + familles + statut + justification
+         ─④ photos    ─▶ télécharge les photos choisies dans img/
+            │
+            ▼
+ index.html : écran « Vérifier » — champs pré-remplis, photos proposées, familles suggérées
+            │  je corrige, je valide
+            ▼
+ data/watches.json
+```
+
+- **Moteur de recherche** : [SearXNG](https://docs.searxng.org) se déploie en un conteneur dans un homelab et
+  expose une API JSON gratuite. Alternative sans hébergement : clé API Brave Search (offre gratuite limitée).
+- **Si on donne un lien**, l'étape ① sert seulement à compléter (avis, autres coloris).
+- **Rien n'est enregistré sans validation.** Le JSON de l'IA est vérifié par `api.php` (types, bornes : un diamètre
+  de 400 mm est rejeté).
+- **« Actualiser »** sur une fiche existante relance le même circuit pour mettre à jour prix, liens et avis.
+- **Coût** : selon le modèle, de 0 € (modèle local via Ollama) à quelques centimes par montre. Le nombre de jetons
+  utilisés sera affiché après chaque ajout.
+
+---
+
+## 5. Photos : locales, détourées, avec variantes
+
+### Copie locale
+Toutes les photos sont téléchargées par `api.php` dans `img/<id-montre>/`. Le site n'affiche **jamais** une image
+distante. Les liens vers les sites des marques restent, mais seulement comme liens cliquables.
+
+### Détourage
+Objectif : la montre « posée » sur le fond de l'application, sans rectangle blanc autour.
+
+| Méthode | Quand | Coût |
+|---|---|---|
+| **a. Photo déjà détourée** (PNG transparent) | Beaucoup de fiches officielles en proposent ; l'IA est priée de les préférer | rien |
+| **b. Détourage automatique dans le navigateur** au moment de l'ajout (librairie `@imgly/background-removal`, modèle d'IA exécuté localement par le navigateur), résultat envoyé à `api.php` en PNG | Photos sur fond uni ou studio | aucun serveur supplémentaire ; ~quelques secondes par photo |
+| **c. Fondu CSS** (`mix-blend-mode: multiply`) | Filet de sécurité : un fond blanc devient invisible sur le fond pierre de l'application | rien |
+
+Un bouton **« Détourer à nouveau »** et un **dépôt manuel** de photo (glisser-déposer) permettront de corriger les cas
+ratés. La maquette contient deux vraies photos détourées (Concordia, Tsuyosa) pour juger du rendu.
+
+### Variantes de couleur
+- Une variante = `{nom, couleur, référence, photo}`.
+- **Ma couleur** : un clic sur « ♡ Choisir cette couleur » dans la fiche ; c'est cette variante qui s'affiche dans la
+  collection et le catalogue.
+- Dans la fiche : flèches ‹ ›, pastilles, et **balayage** au doigt sur téléphone.
+
+---
+
+## 6. Mon profil : guider l'IA avec mes critères
+
+Un champ « Mes critères » (texte libre, modifiable dans l'application) est envoyé à l'IA à chaque recherche. Elle
+s'en sert pour classer la montre, proposer un statut et écrire une ligne **« Adéquation à ma collection »**.
+Première version, extraite de la v27 :
+
+> - Collection **petite, cohérente, variée et abordable** : chaque montre apporte quelque chose que les autres n'ont
+>   pas (une technologie, une histoire, un mouvement, un design ou un usage). Éviter les doublons d'usage.
+> - **Budget** cœur de cible 200–800 € ; au-delà, seulement pour une pièce vraiment singulière.
+> - **Mouvements variés** : solaire, radio-piloté, quartz haute précision, automatique, manuel.
+> - **Élégance et discrétion** : cadrans propres, index bâtons ou fins, peu d'écritures ; pas de cadran gadget.
+> - **Couleurs** : fonctionnelles sobres ; la couleur est réservée au chrono et au sport-chic ; exceptions assumées
+>   quand le cadran est la raison d'être de la montre.
+> - **Poignet 18 cm** : diamètre idéal 36–40 mm, épaisseur idéalement ≤ 10–11 mm, entre-cornes ≤ 48 mm ;
+>   au-delà de 43 mm « à essayer impérativement ».
+> - Appréciés : **saphir**, **20 mm standard** (changer de bracelet facilement), sans date ou date discrète,
+>   bonne lisibilité nocturne.
+> - **Disponibilité** : préciser UE officiel / import Japon / import direct et les frais à prévoir.
+
+## 7. Familles
+
+Une montre peut être dans plusieurs familles ; chaque famille a un **choix principal** et un court texte
+« rôle dans la collection ». Les familles sont modifiables dans l'application. Proposition :
+
+| Famille | Rôle | Statut |
+|---|---|---|
+| **GADA** | Go-anywhere-do-anything, set-and-forget | v27 |
+| **Beater / Digitale** | L'outil qu'on porte sans précaution | v27 |
+| **Dress** | Fine, épurée, pour les occasions | v27 |
+| **Chronographe** | Mesure du temps, plaisir mécanique | v27 |
+| **Sport-chic intégré** | Bracelet intégré, graphique | v27 |
+| **Diver** | Lunette tournante, étanchéité ≥ 200 m | v27 (séparée de Tool) |
+| **Field** | Lisibilité militaire, sobriété | v27 |
+| Pilote | Grands chiffres, grande couronne, lisibilité | nouvelle |
+| GMT / Voyage | Deuxième fuseau horaire | nouvelle |
+| Outdoor / Tool | Boussole, altimètre, exploration (Pro Trek…) | nouvelle (ex « Toolwatch ») |
+| Pièce d'art | Cadran artisanal ou design singulier (urushi, feuille d'argent, Beaubleu…) | nouvelle, inspirée de la v27 |
+
+Les familles « classiques » citées par les guides horlogers sont plongée, field, pilote, GMT, dress et chronographe
+([Monochrome](https://monochrome-watches.com/watch-styles/), [Outlook Luxe](https://luxe.outlookindia.com/watches-jewellery/watches/different-watch-styles-explained-a-complete-guide-to-popular-watch-types)) ;
+pilote et GMT manquaient à ta liste.
+
+---
+
+## 8. Direction visuelle
+
+**« Showroom »** : fond pierre très clair, beaucoup de vide, la montre détourée comme unique élément fort.
+
+- **Typographie** : grandes capitales fines (Cormorant Garamond, sérif à fort contraste) pour les noms ; petites
+  capitales très espacées (Inter) pour les libellés. Les polices seront **copiées localement** (2 fichiers) pour
+  rester indépendant d'Internet.
+- **Couleurs** : noir encre, gris chaud, un seul accent champagne ; vert/ambre/rouge discrets pour l'indice poignet.
+- **Collection** : une famille = un écran. Nom de famille géant en filigrane derrière la montre, ombre portée douce,
+  extrémités du bracelet en fondu. À gauche, nom et accroche ; à droite, caractéristiques séparées par des filets ;
+  en bas, les alternatives façon configurateur. Index discret des familles à gauche.
+- **Fiche** : la montre occupe la moitié gauche (fixe au défilement) ; **« Nuit »** fait passer le fond au noir
+  pour la vue nocturne.
+- **Animations** : fondus et légers glissements, rien de démonstratif.
+
+## 9. Modèle de données (une montre)
 
 ```jsonc
 {
-  "id": "seiko-sbxy031",
-  "brand": "Seiko", "model": "Astron", "reference": "SBXY031",
-  "tagline": "Le GADA titane au cadran bleu ondulé",
-  "categories": ["gada"],             // une montre peut être dans plusieurs familles
-  "status": "alternative",            // principal | alternative | future | ecartee | possedee
-  "specs": {
-    "diameter": 39, "thickness": 9.6, "lugToLug": 46.5, "lugWidth": 20,
-    "movement": "Solaire radio-piloté", "caliber": "7B72",
-    "crystal": "Saphir", "case": "Titane", "water": "10 bar", "weight": 80,
-    "lume": "LumiBrite", "functions": ["calendrier perpétuel", "radio"]
-  },
-  "price": { "min": 450, "max": 550, "currency": "EUR", "note": "import Japon" },
-  "availability": "Import JDM",
-  "images": [
-    { "src": "img/seiko-sbxy031-1.jpg", "kind": "day" },
-    { "src": "img/seiko-sbxy031-night.jpg", "kind": "night" }
+  "id": "citizen-tsuyosa-nj0150",
+  "brand": "Citizen", "model": "Tsuyosa", "reference": "NJ0150-81Z",
+  "tagline": "La couleur et le bracelet intégré, en toute simplicité.",
+  "categories": ["sport"],                        // plusieurs familles possibles
+  "status": "alternative",                        // alternative | future | ecartee | possedee  (« principal » est déduit)
+  "specs": { "diameter": 40, "thickness": 11.7, "lugToLug": 45.5, "lugWidth": null,
+             "movement": "Automatique", "caliber": "8210", "crystal": "Saphir", "case": "Acier",
+             "water": "50 m", "weight": null, "lume": "…", "date": "Guichet à 3 h" },
+  "price": { "min": 299, "max": 299, "currency": "EUR", "note": "UE officiel" },
+  "variants": [
+    { "name": "Jaune",     "color": "#e5a91e", "ref": "NJ0150-81Z", "image": "img/citizen-tsuyosa-nj0150/jaune.png" },
+    { "name": "Turquoise", "color": "#43b3ae", "ref": "NJ0151-88M", "image": "img/…/turquoise.png" }
   ],
-  "variants": [ { "name": "Bleu", "color": "#1f3b6d", "ref": "SBXY031", "image": "img/…" } ],
+  "favoriteVariant": 0,                           // « ma couleur »
+  "images": { "night": "img/…/nuit.png", "wrist": ["img/…/porte-1.jpg"] },
   "pros": ["…"], "cons": ["…"],
-  "reviews": "Synthèse des avis pros & amateurs…",
-  "links": [ { "label": "Fiche officielle", "url": "https://…" }, { "label": "Review Fratello", "url": "…" } ],
-  "notes": "Mes notes perso (texte libre)",
-  "added": "2026-10-01", "updated": "2026-10-01"
+  "reviews": "Synthèse des avis…",
+  "fit": "Adéquation à ma collection (écrite par l'IA, modifiable)",
+  "links": [ { "label": "Fiche officielle", "url": "https://…" } ],
+  "notes": "Mes notes",
+  "added": "2026-10-02", "updated": "2026-10-02"
 }
 ```
 
-Et en tête de fichier, la configuration :
+En tête du fichier : `profile` (§6), `wrist: {circumference: 18}`, `categories: [{id, label, role, pick}]`.
+Le choix principal est stocké dans la famille (`pick`) : promouvoir une alternative = changer une valeur.
 
-```jsonc
-{
-  "wrist": { "circumference": 18 },
-  "categories": [
-    { "id": "gada", "label": "GADA", "pick": "seiko-sbtm321", "order": 1 },
-    { "id": "beater", "label": "Beater / outil", "pick": "casio-gw-m5610u", "order": 2 },
-    …
-  ],
-  "watches": [ … ]
-}
-```
+## 10. Indice poignet
 
-Le « choix principal » d'une famille est stocké au niveau de la **catégorie** (`pick`) : promouvoir une
-alternative = changer une seule valeur. Le statut `principal` est donc déduit, pas saisi.
-
----
-
-## 5. Indice de cohérence poignet
-
-Pour un poignet de 18 cm, la face supérieure plate mesure environ 50–52 mm. La donnée la plus parlante est
-l'**entre-cornes** (lug-to-lug) : s'il dépasse la largeur du poignet, la montre déborde.
+Pour 18 cm, le dessus du poignet mesure ~51 mm. La donnée la plus parlante est l'**entre-cornes** :
 
 | Entre-cornes | Verdict |
 |---|---|
-| < 42 mm | Petite (vintage, peut paraître menue) |
-| 42 – 50 mm | ●●●●● Idéal |
-| 50 – 52 mm | ●●●● Bien |
-| 52 – 54 mm | ●●● Limite — à essayer |
-| > 54 mm | ●● Trop grande probablement |
+| < 42 mm | Petite |
+| 42 – 50 mm | Idéal |
+| 50 – 52 mm | Bien |
+| 52 – 54 mm | Limite — à essayer |
+| > 54 mm | Grande |
 
-Ajustements : −1 point si épaisseur > 13 mm ; si l'entre-cornes est inconnu, estimation par diamètre × 1,2.
-La règle et les seuils seront **réglables** (tour de poignet dans la config) — c'est un repère, pas une vérité :
-un bracelet intégré ou des cornes très tombantes changent le porté.
+−1 niveau si épaisseur > 13 mm ; entre-cornes inconnu → estimé à diamètre × 1,2. Tour de poignet réglable.
 
----
+## 11. Plan de développement
 
-## 6. Écrans (voir la maquette)
+| Étape | Contenu |
+|---|---|
+| **0** | Conception + maquettes ✔ |
+| **1** | `index.html` + `api.php` (lecture/écriture) + `docker-compose.yml`. **Conversion de la v27** (41 montres) avec copie et détourage des photos. Collection, Catalogue, Fiche, notes, choix principal, ma couleur |
+| **2** | Ajout / actualisation par IA (recherche SearXNG ou Brave + n'importe quelle API compatible OpenAI), écran de vérification, détourage à l'import, dépôt manuel de photos |
+| **3** | Finitions : édition des familles et du profil, comparaison côte à côte, export d'une version HTML autonome, installation sur l'écran d'accueil du téléphone |
 
-1. **Collection** — une « scène » par famille : grande photo du choix principal, nom, 5–6 caractéristiques clés,
-   pastille poignet, prix. Sous la photo, un **carrousel horizontal** des autres montres de la famille ; un clic
-   sur ★ en fait le choix principal (animation d'échange). Navigation par onglets de familles en haut.
-2. **Liste** — toutes les montres en tableau compact (vignette, modèle, familles, statut, Ø/épaisseur/entre-cornes,
-   mouvement, prix, poignet). Recherche texte, filtres par famille/statut/mouvement, tri par colonne.
-3. **Fiche** — galerie (jour / nuit / porté), pastilles de couleur qui changent la photo, tableau technique,
-   « pourquoi c'est bien / moins bien », synthèse des avis, liens (nouvel onglet), **mes notes** (sauvegarde auto),
-   familles et statut modifiables, bouton « Rafraîchir avec l'IA ».
-4. **Ajouter** — un seul champ « nom ou lien », progression visible, puis formulaire de vérification pré-rempli.
+## 12. Questions restantes
 
-Style : on reprend l'esprit « magazine » de ta v27 (papier crème, typo serif, bleu ardoise / bronze), avec un
-mode sombre automatique. Responsive (utilisable sur téléphone).
-
----
-
-## 7. Plan de développement par étapes
-
-| Étape | Contenu | Livrable |
-|---|---|---|
-| **0** | Conception + maquettes | ce document, `mockups/maquette.html` |
-| **1** | Application en lecture + modifications locales. **Conversion de ta v27** (41 montres) en `watches.json`. Écrans Collection, Liste, Fiche. Notes / choix principal dans le navigateur + export JSON | `index.html`, `watches.json` |
-| **2** | Sauvegarde serveur (`api.php` + mot de passe), téléchargement des images dans `img/` | `api.php` |
-| **3** | Ajout et rafraîchissement par IA (nom ou lien), classement automatique | `api.php` (+ partie IA) |
-| **4** | Finitions selon tes envies : comparaison côte à côte, export HTML autonome, installation sur l'écran d'accueil du téléphone… | — |
-
-Chaque étape est utilisable en soi.
-
----
-
-## 8. Questions ouvertes (à trancher avant l'étape 1)
-
-1. **Hébergement** : quel serveur as-tu ? A-t-il PHP ? (sinon : GitHub Pages / option C, ou NAS)
-2. **Accès** : site privé (mot de passe pour tout) ou lecture publique + édition protégée ?
-3. **IA** : OK pour créer une clé API Anthropic payante à l'usage, ou préfères-tu le plan B (copier-coller) ?
-4. **Familles** : liste définitive ? Proposition : GADA, Beater/outil, Dress, Chronographe, Sport-chic intégré,
-   Diver/Tool, Field. Une montre peut-elle compter dans deux familles (ex. Concordia = Tool *et* Diver) ?
-5. **Statuts** : principal / alternative / piste future / écartée / **possédée** — veux-tu suivre aussi les montres
-   que tu as déjà ?
-6. **Variantes** : les déclinaisons de couleur (SBTM319/321/323, NB1050-59x) = une seule fiche avec variantes
-   (comme dans ta v27) ? Je le propose ainsi.
-7. **Images** : OK pour les copier sur ton serveur (fiable) plutôt que pointer vers les sites (cassent souvent) ?
-8. **Contenu éditorial** de la v27 (« Boussole éditoriale », textes d'intro par rôle) : à garder ? Je propose une
-   phrase « rôle dans la collection » par famille, éditable.
+1. As-tu (ou veux-tu) **SearXNG** dans le homelab, ou préfères-tu une clé **Brave Search** ?
+2. Avec quel fournisseur d'IA veux-tu tester en premier (OpenAI, OpenRouter, Ollama local…) ?
+3. La **liste de familles** du §7 te convient-elle ? Garder Pilote / GMT / Pièce d'art ?
+4. Le **profil** du §6 te ressemble-t-il ? (corrige librement)
+5. La **direction visuelle** de la maquette v2 : on part là-dessus ?
